@@ -1,14 +1,18 @@
 //
 //  SignInButton.swift
-//  ProjectGrad1
+//  projectretailapp
 //
 //  Created by Wendell Rodrigues on 8/31/20.
 //  Copyright © 2020 Wendell. All rights reserved.
 //
 
+import Foundation
 import SwiftUI
 
 struct SignInButton: View {
+    
+    //var action: () -> Void
+    
     var body: some View {
         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
             Spacer()
@@ -21,8 +25,3 @@ struct SignInButton: View {
     }
 }
 
-struct SignInButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInButton()
-    }
-}

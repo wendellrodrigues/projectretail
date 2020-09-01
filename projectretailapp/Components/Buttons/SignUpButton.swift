@@ -9,8 +9,11 @@
 import SwiftUI
 
 struct SignUpButton: View {
+    
+    var action: () -> Void
+    
     var body: some View {
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+        Button(action: action) {
             Spacer()
             Text(TXT_REGISTER_BUTTON)
                 .fontWeight(.bold)
@@ -21,8 +24,3 @@ struct SignUpButton: View {
     }
 }
 
-struct SignUpButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpButton()
-    }
-}

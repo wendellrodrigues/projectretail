@@ -7,25 +7,28 @@
 //
 
 import Foundation
+import FirebaseAuth
+import Firebase
+import FirebaseStorage
 
 class SignUpViewModel: ObservableObject {
     
     var email: String = ""
     var password: String = ""
     var confirmedPassword: String = ""
-    var typing: Bool = false
     var errorString = ""
     
     @Published var showAlert: Bool = false
     
-//    func signup(username: String, email: String, password: String, imageData: Data,
-//                completed: @escaping(_ user: User) -> Void,
-//                onError: @escaping(_ errorMessage: String) -> Void) {
-//        if(!username.isEmpty && !email.isEmpty && !password.isEmpty && !confirmedPassword.isEmpty) {
-//             AuthService.registerUser(username: username, email: email, password: password, onSuccess: completed, onError: onError)
-//        } else {
-//            showAlert = true
-//            errorString = "Please fill in all the fields"
-//        }
-//    }
+    func registerNewUser(email: String, password: String,
+                completed: @escaping(_ user: User) -> Void,
+                onError: @escaping(_ errorMessage: String) -> Void) {
+        if(!email.isEmpty && !password.isEmpty && !confirmedPassword.isEmpty) {
+             AuthService.registerUser(email: email, password: password, onSuccess: completed, onError: onError)
+        } else {
+            showAlert = true
+            errorString = "Please fill in all the fields"
+        }
+    }
 }
+
