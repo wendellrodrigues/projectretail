@@ -30,11 +30,6 @@ class AuthService {
             
             //Locate the userID from the authData
             //guard let userId = authData?.user.uid else { return }
-            
-
         }
-    }
-    
-    
-    
+    }   
 }

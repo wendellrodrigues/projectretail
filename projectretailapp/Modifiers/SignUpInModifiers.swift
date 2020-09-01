@@ -73,6 +73,32 @@ struct SignInButtonModifier: ViewModifier {
     }
 }
 
+struct ErrorMessageModifier: ViewModifier {
+    
+    var typing: Bool
+
+    func body(content: Content) -> some View {
+           content
+            .font(.footnote)
+            .foregroundColor(typing ? Color.white.opacity(0.9) : Color.gray)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading)
+       }
+}
+
+struct PasswordHelpModifier: ViewModifier {
+    
+    var typing: Bool
+
+    func body(content: Content) -> some View {
+           content
+            .font(.footnote)
+            .foregroundColor(typing ? Color.white.opacity(0.9) : Color.gray)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading)
+       }
+}
+
 
 //Sign UpIn Button Modifier
 struct RegisterButtonModifier: ViewModifier {

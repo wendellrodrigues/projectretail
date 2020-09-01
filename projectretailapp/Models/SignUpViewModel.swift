@@ -18,15 +18,12 @@ class SignUpViewModel: ObservableObject {
     var confirmedPassword: String = ""
     var errorString = ""
     
-    @Published var showAlert: Bool = false
-    
     func registerNewUser(email: String, password: String,
                 completed: @escaping(_ user: User) -> Void,
                 onError: @escaping(_ errorMessage: String) -> Void) {
         if(!email.isEmpty && !password.isEmpty && !confirmedPassword.isEmpty) {
              AuthService.registerUser(email: email, password: password, onSuccess: completed, onError: onError)
         } else {
-            showAlert = true
             errorString = "Please fill in all the fields"
         }
     }

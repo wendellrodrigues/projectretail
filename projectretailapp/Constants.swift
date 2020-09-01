@@ -20,6 +20,7 @@ let PWD_ICON = "lock.fill"
 let TXT_CNFRM_PASS = "CONFIRM PASSWORD"
 let TXT_REGISTER_BUTTON = "Register"
 let TXT_ALREADY_HAVE_ACCOUNT = "Already have an account?"
+let PWD_HELP = "Passwords must be between 6 and 20 characters"
 
 
 //Sign In
