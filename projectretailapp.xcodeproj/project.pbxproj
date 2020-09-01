@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1EF95CED75F59BEBA0EDA25 /* Pods_projectretailapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */; };
 		B708461224FDDF9F00687DE2 /* AlreadyHaveAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461124FDDF9F00687DE2 /* AlreadyHaveAccount.swift */; };
 		B708462324FDDFBA00687DE2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461324FDDFB900687DE2 /* SignUpView.swift */; };
 		B708462424FDDFBA00687DE2 /* CreateAccountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461424FDDFB900687DE2 /* CreateAccountText.swift */; };
@@ -24,15 +25,17 @@
 		B708463024FDDFBA00687DE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708462024FDDFBA00687DE2 /* Constants.swift */; };
 		B708463124FDDFBA00687DE2 /* SignInTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708462124FDDFBA00687DE2 /* SignInTextFields.swift */; };
 		B708463224FDDFBA00687DE2 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708462224FDDFBA00687DE2 /* BlurView.swift */; };
+		B708463A24FDE1AD00687DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */; };
 		B76E920124FDDD3C0052834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920024FDDD3C0052834F /* AppDelegate.swift */; };
 		B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920224FDDD3C0052834F /* SceneDelegate.swift */; };
-		B76E920524FDDD3C0052834F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920424FDDD3C0052834F /* ContentView.swift */; };
 		B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920624FDDD3F0052834F /* Assets.xcassets */; };
 		B76E920A24FDDD3F0052834F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920924FDDD3F0052834F /* Preview Assets.xcassets */; };
 		B76E920D24FDDD3F0052834F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B76E920B24FDDD3F0052834F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AE8F9665FAF5553B7439C45 /* Pods-projectretailapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectretailapp.release.xcconfig"; path = "Target Support Files/Pods-projectretailapp/Pods-projectretailapp.release.xcconfig"; sourceTree = "<group>"; };
+		5EABA2D51B6EBD5557810F3B /* Pods-projectretailapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectretailapp.debug.xcconfig"; path = "Target Support Files/Pods-projectretailapp/Pods-projectretailapp.debug.xcconfig"; sourceTree = "<group>"; };
 		B708461124FDDF9F00687DE2 /* AlreadyHaveAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyHaveAccount.swift; sourceTree = "<group>"; };
 		B708461324FDDFB900687DE2 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		B708461424FDDFB900687DE2 /* CreateAccountText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountText.swift; sourceTree = "<group>"; };
@@ -50,14 +53,15 @@
 		B708462024FDDFBA00687DE2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B708462124FDDFBA00687DE2 /* SignInTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInTextFields.swift; sourceTree = "<group>"; };
 		B708462224FDDFBA00687DE2 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B76E91FD24FDDD3C0052834F /* projectretailapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectretailapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E920024FDDD3C0052834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B76E920224FDDD3C0052834F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B76E920424FDDD3C0052834F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B76E920624FDDD3F0052834F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B76E920924FDDD3F0052834F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B76E920C24FDDD3F0052834F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B76E920E24FDDD3F0052834F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectretailapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,17 +69,87 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EF95CED75F59BEBA0EDA25 /* Pods_projectretailapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1952EAC6F5DF342FE78303D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B708463324FDE00C00687DE2 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				B708461624FDDFB900687DE2 /* PasswordTextField.swift 18-06-27-635.swift */,
+				B708462124FDDFBA00687DE2 /* SignInTextFields.swift */,
+				B708461924FDDFB900687DE2 /* PasswordTextField.swift */,
+				B708461524FDDFB900687DE2 /* SignUpTextFields.swift */,
+				B708461B24FDDFBA00687DE2 /* EmailTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		B708463424FDE01100687DE2 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B708461F24FDDFBA00687DE2 /* SignUpButton.swift */,
+				B708461824FDDFB900687DE2 /* SignInButton.swift 18-06-17-255.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		B708463524FDE01300687DE2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B708461124FDDF9F00687DE2 /* AlreadyHaveAccount.swift */,
+				B708461424FDDFB900687DE2 /* CreateAccountText.swift */,
+				B708463424FDE01100687DE2 /* Buttons */,
+				B708463324FDE00C00687DE2 /* TextFields */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B708463624FDE01500687DE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B708461E24FDDFBA00687DE2 /* User.swift */,
+				B708461D24FDDFBA00687DE2 /* SignUpViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B708463724FDE01800687DE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B708462224FDDFBA00687DE2 /* BlurView.swift */,
+				B708461A24FDDFB900687DE2 /* SignInView.swift */,
+				B708461324FDDFB900687DE2 /* SignUpView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B708463824FDE0CD00687DE2 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				B708461724FDDFB900687DE2 /* SignUpInModifiers.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		B76E91F424FDDD3C0052834F = {
 			isa = PBXGroup;
 			children = (
 				B76E91FF24FDDD3C0052834F /* projectretailapp */,
 				B76E91FE24FDDD3C0052834F /* Products */,
+				F75F862CDC247CE8209CC5C8 /* Pods */,
+				1952EAC6F5DF342FE78303D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,29 +164,18 @@
 		B76E91FF24FDDD3C0052834F /* projectretailapp */ = {
 			isa = PBXGroup;
 			children = (
+				B708463824FDE0CD00687DE2 /* Modifiers */,
+				B708463724FDE01800687DE2 /* Views */,
+				B708463624FDE01500687DE2 /* Models */,
+				B708463524FDE01300687DE2 /* Components */,
 				B76E920024FDDD3C0052834F /* AppDelegate.swift */,
-				B708461124FDDF9F00687DE2 /* AlreadyHaveAccount.swift */,
-				B708462224FDDFBA00687DE2 /* BlurView.swift */,
 				B708462024FDDFBA00687DE2 /* Constants.swift */,
-				B708461424FDDFB900687DE2 /* CreateAccountText.swift */,
-				B708461B24FDDFBA00687DE2 /* EmailTextField.swift */,
 				B708461C24FDDFBA00687DE2 /* Helpers.swift */,
-				B708461924FDDFB900687DE2 /* PasswordTextField.swift */,
-				B708461624FDDFB900687DE2 /* PasswordTextField.swift 18-06-27-635.swift */,
-				B708461824FDDFB900687DE2 /* SignInButton.swift 18-06-17-255.swift */,
-				B708462124FDDFBA00687DE2 /* SignInTextFields.swift */,
-				B708461A24FDDFB900687DE2 /* SignInView.swift */,
-				B708461F24FDDFBA00687DE2 /* SignUpButton.swift */,
-				B708461724FDDFB900687DE2 /* SignUpInModifiers.swift */,
-				B708461524FDDFB900687DE2 /* SignUpTextFields.swift */,
-				B708461324FDDFB900687DE2 /* SignUpView.swift */,
-				B708461D24FDDFBA00687DE2 /* SignUpViewModel.swift */,
-				B708461E24FDDFBA00687DE2 /* User.swift */,
 				B76E920224FDDD3C0052834F /* SceneDelegate.swift */,
-				B76E920424FDDD3C0052834F /* ContentView.swift */,
 				B76E920624FDDD3F0052834F /* Assets.xcassets */,
 				B76E920B24FDDD3F0052834F /* LaunchScreen.storyboard */,
 				B76E920E24FDDD3F0052834F /* Info.plist */,
+				B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */,
 				B76E920824FDDD3F0052834F /* Preview Content */,
 			);
 			path = projectretailapp;
@@ -126,6 +189,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F75F862CDC247CE8209CC5C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EABA2D51B6EBD5557810F3B /* Pods-projectretailapp.debug.xcconfig */,
+				5AE8F9665FAF5553B7439C45 /* Pods-projectretailapp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B76E921124FDDD3F0052834F /* Build configuration list for PBXNativeTarget "projectretailapp" */;
 			buildPhases = (
+				753B174EFE245D7BBD895621 /* [CP] Check Pods Manifest.lock */,
 				B76E91F924FDDD3C0052834F /* Sources */,
 				B76E91FA24FDDD3C0052834F /* Frameworks */,
 				B76E91FB24FDDD3C0052834F /* Resources */,
+				5AA62C1DA7F227E3D94209D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,12 +259,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76E920D24FDDD3F0052834F /* LaunchScreen.storyboard in Resources */,
+				B708463A24FDE1AD00687DE2 /* GoogleService-Info.plist in Resources */,
 				B76E920A24FDDD3F0052834F /* Preview Assets.xcassets in Resources */,
 				B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AA62C1DA7F227E3D94209D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-projectretailapp/Pods-projectretailapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-projectretailapp/Pods-projectretailapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-projectretailapp/Pods-projectretailapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		753B174EFE245D7BBD895621 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-projectretailapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B76E91F924FDDD3C0052834F /* Sources */ = {
@@ -210,7 +327,6 @@
 				B708462A24FDDFBA00687DE2 /* SignInView.swift in Sources */,
 				B708461224FDDF9F00687DE2 /* AlreadyHaveAccount.swift in Sources */,
 				B708463124FDDFBA00687DE2 /* SignInTextFields.swift in Sources */,
-				B76E920524FDDD3C0052834F /* ContentView.swift in Sources */,
 				B708462B24FDDFBA00687DE2 /* EmailTextField.swift in Sources */,
 				B708462524FDDFBA00687DE2 /* SignUpTextFields.swift in Sources */,
 				B708462924FDDFBA00687DE2 /* PasswordTextField.swift in Sources */,
@@ -350,6 +466,7 @@
 		};
 		B76E921224FDDD3F0052834F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EABA2D51B6EBD5557810F3B /* Pods-projectretailapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -370,6 +487,7 @@
 		};
 		B76E921324FDDD3F0052834F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AE8F9665FAF5553B7439C45 /* Pods-projectretailapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

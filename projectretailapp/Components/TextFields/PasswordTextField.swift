@@ -6,6 +6,7 @@
 //  Copyright © 2020 Wendell. All rights reserved.
 //
 
+import Foundation
 import SwiftUI
 
 struct PasswordTextField: View {
@@ -35,4 +36,3 @@ struct PasswordTextField: View {
        
     }
 }
-

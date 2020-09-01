@@ -1,5 +1,5 @@
 //
-//  PasswordTextField.swift
+//  User.swift
 //  ProjectGrad1
 //
 //  Created by Wendell Rodrigues on 8/31/20.
@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct User: Encodable {
+    
+    var uid: String
+    var email: String
+    
+}
