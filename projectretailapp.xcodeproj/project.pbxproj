@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A1EF95CED75F59BEBA0EDA25 /* Pods_projectretailapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */; };
+		B7000C942501B47000B6B6BC /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7000C932501B47000B6B6BC /* StorageService.swift */; };
+		B7000C962501B5C500B6B6BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7000C952501B5C500B6B6BC /* Extensions.swift */; };
 		B708461224FDDF9F00687DE2 /* AlreadyHaveAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461124FDDF9F00687DE2 /* AlreadyHaveAccount.swift */; };
 		B708462324FDDFBA00687DE2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461324FDDFB900687DE2 /* SignUpView.swift */; };
 		B708462424FDDFBA00687DE2 /* CreateAccountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461424FDDFB900687DE2 /* CreateAccountText.swift */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		5AE8F9665FAF5553B7439C45 /* Pods-projectretailapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectretailapp.release.xcconfig"; path = "Target Support Files/Pods-projectretailapp/Pods-projectretailapp.release.xcconfig"; sourceTree = "<group>"; };
 		5EABA2D51B6EBD5557810F3B /* Pods-projectretailapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectretailapp.debug.xcconfig"; path = "Target Support Files/Pods-projectretailapp/Pods-projectretailapp.debug.xcconfig"; sourceTree = "<group>"; };
+		B7000C932501B47000B6B6BC /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		B7000C952501B5C500B6B6BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B708461124FDDF9F00687DE2 /* AlreadyHaveAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyHaveAccount.swift; sourceTree = "<group>"; };
 		B708461324FDDFB900687DE2 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		B708461424FDDFB900687DE2 /* CreateAccountText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountText.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 				E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7000C972501B75100B6B6BC /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B708463C24FDE75400687DE2 /* Authentication.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		B708463324FDE00C00687DE2 /* TextFields */ = {
@@ -169,10 +181,12 @@
 				B708463824FDE0CD00687DE2 /* Modifiers */,
 				B708463724FDE01800687DE2 /* Views */,
 				B708463624FDE01500687DE2 /* Models */,
+				B7000C972501B75100B6B6BC /* Authentication */,
 				B708463524FDE01300687DE2 /* Components */,
-				B708463C24FDE75400687DE2 /* Authentication.swift */,
 				B76E920024FDDD3C0052834F /* AppDelegate.swift */,
 				B708462024FDDFBA00687DE2 /* Constants.swift */,
+				B7000C932501B47000B6B6BC /* StorageService.swift */,
+				B7000C952501B5C500B6B6BC /* Extensions.swift */,
 				B708461C24FDDFBA00687DE2 /* Helpers.swift */,
 				B76E920224FDDD3C0052834F /* SceneDelegate.swift */,
 				B76E920624FDDD3F0052834F /* Assets.xcassets */,
@@ -326,10 +340,12 @@
 				B708462F24FDDFBA00687DE2 /* SignUpButton.swift in Sources */,
 				B708462324FDDFBA00687DE2 /* SignUpView.swift in Sources */,
 				B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */,
+				B7000C962501B5C500B6B6BC /* Extensions.swift in Sources */,
 				B708462D24FDDFBA00687DE2 /* SignUpViewModel.swift in Sources */,
 				B708462A24FDDFBA00687DE2 /* SignInView.swift in Sources */,
 				B708461224FDDF9F00687DE2 /* AlreadyHaveAccount.swift in Sources */,
 				B708463124FDDFBA00687DE2 /* SignInTextFields.swift in Sources */,
+				B7000C942501B47000B6B6BC /* StorageService.swift in Sources */,
 				B708463F24FDE7D200687DE2 /* SignInButton.swift in Sources */,
 				B708462B24FDDFBA00687DE2 /* EmailTextField.swift in Sources */,
 				B708462524FDDFBA00687DE2 /* SignUpTextFields.swift in Sources */,

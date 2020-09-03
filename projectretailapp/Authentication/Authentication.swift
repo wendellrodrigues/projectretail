@@ -28,6 +28,11 @@ class AuthService {
                 return
             }
             
+            guard let userId = authData?.user.uid else { return }
+            let metadata = StorageMetadata()
+            
+            StorageService.storeUser(userId: userId, email: email, metadata: metadata, onSuccess: onSuccess, onError: onError)
+            
             //Locate the userID from the authData
             //guard let userId = authData?.user.uid else { return }
         }
