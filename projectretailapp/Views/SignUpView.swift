@@ -13,12 +13,13 @@ struct SignUpView: View {
     @State var typing: Bool = false
     @State var areErrors: Bool = false
     
-    
     @ObservedObject var signUpViewModel = SignUpViewModel()
     
+    //Hides Keyboard
     func hideKeyboard() {
        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
+    
     
     //Cleans all text fields
     func clean() {
@@ -33,37 +34,29 @@ struct SignUpView: View {
         self.signUpViewModel.confirmedPassword = ""
     }
     
+    
+    //Utilize SignUpViewModel register function
+    //Clean fields
     func register() {
-        
-        if(signUpViewModel.email.isEmpty || signUpViewModel.password.isEmpty || signUpViewModel.confirmedPassword.isEmpty) {
-            self.areErrors = true
-            signUpViewModel.errorString = "Please fill in all the fields"
-            self.clean()
-            return
-        } else if (signUpViewModel.password != signUpViewModel.confirmedPassword) {
-            self.areErrors = true
-            signUpViewModel.errorString = "Passwords do not match"
-            self.cleanPasswords()
-            return
-        }
-        
-        
         signUpViewModel.registerNewUser(
             email: signUpViewModel.email,
             password: signUpViewModel.password,
             completed: { (user) in
-                print (user.email)
                 self.clean()
                 
-            //Switch to main app
+                //Switch to main app
             
             }) {(errorMessage) in
-                print("Error: \(errorMessage)")
                 self.areErrors = true
                 self.signUpViewModel.errorString = errorMessage
-                self.clean()
+                if(errorMessage == "Passwords do not match") {
+                    self.cleanPasswords()
+                } else {
+                    self.clean()
+                }
             }
     }
+    
     
     var body: some View {
         ZStack {
@@ -79,6 +72,8 @@ struct SignUpView: View {
                .onTapGesture {
                     self.hideKeyboard()
                     self.typing = false
+                    self.areErrors = false
+                    self.signUpViewModel.errorString = "Passwords must be in between 6 and 20 characters"
                 }
             
             VStack {
@@ -89,15 +84,9 @@ struct SignUpView: View {
                 
                 SignUpTextFields(email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typing: $typing)
                 
-            
-                if(areErrors) {
-                    Text(signUpViewModel.errorString)
-                        .modifier(ErrorMessageModifier(typing: self.typing))
-                } else {
-                    Text(PWD_HELP)
-                    .modifier(PasswordHelpModifier(typing: self.typing))
-                }
         
+                Text(signUpViewModel.errorString)
+                    .modifier(ErrorMessageModifier(typing: self.typing))
 
                 SignUpButton(action: register)
                 
