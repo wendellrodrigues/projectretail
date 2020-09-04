@@ -19,10 +19,12 @@ struct SignInView: View {
         signinViewModel.signin(email: signinViewModel.email, password: signinViewModel.password, completed: { (user) in
             self.clean()
         }, onError: { (errorMessage) in
-
             self.signinViewModel.showAlert = true
             self.signinViewModel.errorString = errorMessage
             self.clean()
+            
+            self.typing = false
+            self.hideKeyboard()
         })
     }
     
@@ -61,6 +63,9 @@ struct SignInView: View {
                         .opacity(typing ? 0 : 1)
                     
                     SignInTextFields(email: $signinViewModel.email, password: $signinViewModel.password, typing: $typing)
+                    
+                    Text(signinViewModel.errorString)
+                           .modifier(ErrorMessageModifier(typing: self.typing))
                     
                     SignInButton(action: signIn)
                     

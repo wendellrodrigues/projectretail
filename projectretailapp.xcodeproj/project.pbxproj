@@ -18,7 +18,6 @@
 		B708462324FDDFBA00687DE2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461324FDDFB900687DE2 /* SignUpView.swift */; };
 		B708462424FDDFBA00687DE2 /* CreateAccountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461424FDDFB900687DE2 /* CreateAccountText.swift */; };
 		B708462524FDDFBA00687DE2 /* SignUpTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461524FDDFB900687DE2 /* SignUpTextFields.swift */; };
-		B708462624FDDFBA00687DE2 /* PasswordTextField.swift 18-06-27-635.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461624FDDFB900687DE2 /* PasswordTextField.swift 18-06-27-635.swift */; };
 		B708462724FDDFBA00687DE2 /* SignUpInModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461724FDDFB900687DE2 /* SignUpInModifiers.swift */; };
 		B708462924FDDFBA00687DE2 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461924FDDFB900687DE2 /* PasswordTextField.swift */; };
 		B708462A24FDDFBA00687DE2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708461A24FDDFB900687DE2 /* SignInView.swift */; };
@@ -53,7 +52,6 @@
 		B708461324FDDFB900687DE2 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		B708461424FDDFB900687DE2 /* CreateAccountText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountText.swift; sourceTree = "<group>"; };
 		B708461524FDDFB900687DE2 /* SignUpTextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTextFields.swift; sourceTree = "<group>"; };
-		B708461624FDDFB900687DE2 /* PasswordTextField.swift 18-06-27-635.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PasswordTextField.swift 18-06-27-635.swift"; sourceTree = "<group>"; };
 		B708461724FDDFB900687DE2 /* SignUpInModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInModifiers.swift; sourceTree = "<group>"; };
 		B708461924FDDFB900687DE2 /* PasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		B708461A24FDDFB900687DE2 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		B708463324FDE00C00687DE2 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				B708461624FDDFB900687DE2 /* PasswordTextField.swift 18-06-27-635.swift */,
 				B708462124FDDFBA00687DE2 /* SignInTextFields.swift */,
 				B708461924FDDFB900687DE2 /* PasswordTextField.swift */,
 				B708461524FDDFB900687DE2 /* SignUpTextFields.swift */,
@@ -354,7 +351,6 @@
 				B7000C992501B7B100B6B6BC /* SessionStore.swift in Sources */,
 				B708462424FDDFBA00687DE2 /* CreateAccountText.swift in Sources */,
 				B708462C24FDDFBA00687DE2 /* Helpers.swift in Sources */,
-				B708462624FDDFBA00687DE2 /* PasswordTextField.swift 18-06-27-635.swift in Sources */,
 				B7000CA02501B89100B6B6BC /* SignInViewModel.swift in Sources */,
 				B708463D24FDE75400687DE2 /* Authentication.swift in Sources */,
 				B76E920124FDDD3C0052834F /* AppDelegate.swift in Sources */,

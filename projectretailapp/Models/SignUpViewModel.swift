@@ -27,9 +27,11 @@ class SignUpViewModel: ObservableObject {
                 onError: @escaping(_ errorMessage: String) -> Void) {
         if(email.isEmpty && password.isEmpty && confirmedPassword.isEmpty) {
             errorString = "Please fill in all the fields"
+            onError(errorString)
         }
         else if(password != confirmedPassword) {
             errorString = "Passwords do not match"
+            onError(errorString)
         }
         else {
            AuthService.registerUser(email: email, password: password, onSuccess: completed, onError: onError)
