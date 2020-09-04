@@ -9,8 +9,11 @@
 import Foundation
 
 struct User: Encodable, Decodable {
-    
     var uid: String
+    var firstName: String
     var email: String
     
+    //For user styles (predicted)
+    var styles: Array<String> = []
+
 }

@@ -39,6 +39,7 @@ struct SignUpView: View {
     //Clean fields
     func register() {
         signUpViewModel.registerNewUser(
+            firstName: signUpViewModel.firstName,
             email: signUpViewModel.email,
             password: signUpViewModel.password,
             completed: { (user) in
@@ -82,7 +83,7 @@ struct SignUpView: View {
                     .frame(width: typing ? 75 : 200, height: typing ? 75 : 200)
                     .opacity(typing ? 0.8 : 1)
                 
-                SignUpTextFields(email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typing: $typing)
+                SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typing: $typing)
                 
         
                 Text(signUpViewModel.errorString)

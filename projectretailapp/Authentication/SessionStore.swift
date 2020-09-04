@@ -13,14 +13,29 @@ import FirebaseAuth
 class SessionStore: ObservableObject {
     
     @Published var isLoggedIn = false
+    @Published var userSession: User?
+    
+    
     var handle: AuthStateDidChangeListenerHandle?
     
+    //Listen for user logged in
     func listenAuthenticationState() {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            if((user) != nil) {
-                self.isLoggedIn = true
+            if let user = user {
+                
+                let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: user.uid)
+                
+                firestoreUserId.getDocument { (document, error) in
+                    if let dict = document?.data() {
+                        guard let decoderUser = try? User.init(fromDictionary: dict) else { return }
+                        self.userSession = decoderUser //Store user to user session
+                        self.isLoggedIn = true
+                    }
+                }
+
             } else {
                 self.isLoggedIn = false
+                self.userSession = nil
             }
         })
     }

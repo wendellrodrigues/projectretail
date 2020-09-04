@@ -13,6 +13,7 @@ import FirebaseStorage
 
 class SignUpViewModel: ObservableObject {
     
+    var firstName: String = ""
     var email: String = ""
     var password: String = ""
     var confirmedPassword: String = ""
@@ -22,7 +23,7 @@ class SignUpViewModel: ObservableObject {
     
     //Register User with firebase
     //Pass on errors to register function if exist
-    func registerNewUser(email: String, password: String,
+    func registerNewUser(firstName: String, email: String, password: String,
                 completed: @escaping(_ user: User) -> Void,
                 onError: @escaping(_ errorMessage: String) -> Void) {
         if(email.isEmpty && password.isEmpty && confirmedPassword.isEmpty) {
@@ -34,7 +35,7 @@ class SignUpViewModel: ObservableObject {
             onError(errorString)
         }
         else {
-           AuthService.registerUser(email: email, password: password, onSuccess: completed, onError: onError)
+           AuthService.registerUser(firstName: firstName, email: email, password: password, onSuccess: completed, onError: onError)
         }
     }
 }

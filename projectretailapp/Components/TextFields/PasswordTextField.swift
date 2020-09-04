@@ -19,7 +19,7 @@ struct PasswordTextField: View {
     
     var body: some View {
         HStack {
-            Image(systemName: PWD_ICON)
+            Image(systemName: confirmed ? PWD_CONFIRM_ICON : PWD_ICON)
                 .modifier(IconFieldsModifier(typing: typing))
                 .padding(.leading, 4)
             SecureField(confirmed ? TXT_CNFRM_PASS : TXT_PWD, text: $password, onCommit: {self.typing = false})

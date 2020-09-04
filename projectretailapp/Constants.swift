@@ -15,9 +15,12 @@ import Firebase
 //Sign Up
 let TXTFIELD_BACKGROUND = Color.gray.opacity(0.2) //Background color of signup text fields
 let TXT_PWD_ALLOWANCES = "At least 6 characters required"
+let USER_ICON = "person.fill" 
 let EMAIL_ICON = "envelope.fill"
 let PWD_ICON = "lock.fill"
+let PWD_CONFIRM_ICON = "lock.slash.fill"
 let TXT_CNFRM_PASS = "CONFIRM PASSWORD"
+let TXT_FIRST_NAME = "FIRST NAME"
 let TXT_REGISTER_BUTTON = "Register"
 let TXT_ALREADY_HAVE_ACCOUNT = "Already have an account?"
 let PWD_HELP = "Passwords must be between 6 and 20 characters"

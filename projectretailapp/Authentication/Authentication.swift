@@ -13,7 +13,7 @@ import FirebaseStorage
 
 class AuthService {
     
-    static func registerUser( email: String, password: String,
+    static func registerUser(firstName: String, email: String, password: String,
         onSuccess: @escaping(_ user: User) -> Void,
         onError: @escaping(_ errorMessage: String) -> Void
     ) {
@@ -31,7 +31,7 @@ class AuthService {
             guard let userId = authData?.user.uid else { return }
             let metadata = StorageMetadata()
             
-            StorageService.storeUser(userId: userId, email: email, metadata: metadata, onSuccess: onSuccess, onError: onError)
+            StorageService.storeUser(userId: userId, firstName: firstName, email: email, metadata: metadata, onSuccess: onSuccess, onError: onError)
         }
     }
     
@@ -49,8 +49,6 @@ class AuthService {
                 return
             }
             
-            
-             
             guard let userId = authData?.user.uid else { return }
              
             let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: userId)

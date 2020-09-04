@@ -11,11 +11,11 @@ import Firebase
 
 class StorageService {
     
-    static func storeUser(userId: String, email: String, metadata: StorageMetadata,onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+    static func storeUser(userId: String, firstName: String, email: String, metadata: StorageMetadata,onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: userId)
         
-        let user = User.init(uid: userId, email: email)
+        let user = User.init(uid: userId, firstName: firstName, email: email)
         
         guard let dict = try? user.toDictionary() else { return }
         

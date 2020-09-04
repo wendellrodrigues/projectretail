@@ -17,9 +17,17 @@ struct Home: View {
     }
     
     var body: some View {
-        Button(action: logout) {
-            Text("Logout")
-        }
+        VStack {
+            Spacer()
+            Text("Welcome, \(session.userSession!.firstName)")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            Spacer()
+            Button(action: logout) {
+               Text("Logout")
+            }
+        }.padding()
+       
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SignUpTextFields: View {
     
+    @Binding var firstName: String
     @Binding var email: String
     @Binding var password: String
     @Binding var confirmedPassword: String
@@ -17,6 +18,10 @@ struct SignUpTextFields: View {
     
     var body: some View {
         VStack {
+            FirstNameTextField(firstName: $firstName, typing: $typing)
+            Divider()
+            .padding(.top, 5)
+            .padding(.bottom, 10)
             EmailTextField(email: $email, typing: $typing)
             Divider()
                 .padding(.top, 5)
