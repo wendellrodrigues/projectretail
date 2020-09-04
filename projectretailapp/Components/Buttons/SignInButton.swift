@@ -11,10 +11,10 @@ import SwiftUI
 
 struct SignInButton: View {
     
-    //var action: () -> Void
+    var action: () -> Void
     
     var body: some View {
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+        Button(action: action) {
             Spacer()
             Text(TXT_SIGN_IN_BUTTON)
                 .fontWeight(.bold)

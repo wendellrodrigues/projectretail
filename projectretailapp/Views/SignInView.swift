@@ -10,9 +10,26 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @State var email: String = ""
-    @State var password: String = ""
     @State var typing: Bool = false
+    
+    @ObservedObject var signinViewModel = SignInViewModel()
+    
+    func signIn() {
+        
+        signinViewModel.signin(email: signinViewModel.email, password: signinViewModel.password, completed: { (user) in
+            self.clean()
+        }, onError: { (errorMessage) in
+
+            self.signinViewModel.showAlert = true
+            self.signinViewModel.errorString = errorMessage
+            self.clean()
+        })
+    }
+    
+    func clean() {
+        self.signinViewModel.email = ""
+        self.signinViewModel.password = ""
+    }
     
     func hideKeyboard() {
            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -43,9 +60,9 @@ struct SignInView: View {
                         .frame(width: typing ? 100 : 200, height: typing ? 100 : 200)
                         .opacity(typing ? 0 : 1)
                     
-                    SignInTextFields(email: $email, password: $password, typing: $typing)
+                    SignInTextFields(email: $signinViewModel.email, password: $signinViewModel.password, typing: $typing)
                     
-                    SignInButton()
+                    SignInButton(action: signIn)
                     
                     NavigationLink(destination: SignUpView()) {
                          CreateAccountText(typing: $typing)

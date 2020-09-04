@@ -13,7 +13,7 @@ class StorageService {
     
     static func storeUser(userId: String, email: String, metadata: StorageMetadata,onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
-        let firestoreUserId = Ref.FIRESTORE_USERID(userId: userId)
+        let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: userId)
         
         let user = User.init(uid: userId, email: email)
         
