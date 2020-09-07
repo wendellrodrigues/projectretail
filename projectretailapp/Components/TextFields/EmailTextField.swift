@@ -26,8 +26,6 @@ struct EmailTextField: View {
                     self.typing = true
                 }
         }
-        
-       
     }
 }
 
