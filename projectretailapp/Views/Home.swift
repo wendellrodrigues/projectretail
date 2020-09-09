@@ -16,23 +16,39 @@ struct Home: View {
         session.logout()
     }
     
+    
     var body: some View {
+          
         VStack {
             Spacer()
             Text("Welcome, \(session.userSession!.firstName)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
+            .padding(.bottom)
+            Button(action: Api(session: self.session).connectUser) {
+                Text("Connect User")
+            }.padding(.bottom)
+            Button(action: Api(session: self.session).disconnectUser) {
+                Text("Disconnect User")
+                    .padding(.bottom)
+            }.padding(.bottom)
             Spacer()
-            Button(action: logout) {
+            Button(action: {
+                self.logout()
+                Api(session: self.session).disconnectUser()
+            }) {
                Text("Logout")
-            }
+            }.padding(.bottom)
         }.padding()
        
     }
 }
+    
 
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
-    }
-}
+
+//struct Home_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Home()
+//    }
+//}
+

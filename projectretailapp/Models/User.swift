@@ -15,5 +15,6 @@ struct User: Encodable, Decodable {
     
     //For user styles (predicted)
     var styles: Array<String> = []
-
 }
+
+

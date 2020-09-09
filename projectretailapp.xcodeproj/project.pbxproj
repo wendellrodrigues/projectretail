@@ -38,6 +38,7 @@
 		B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920624FDDD3F0052834F /* Assets.xcassets */; };
 		B76E920A24FDDD3F0052834F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920924FDDD3F0052834F /* Preview Assets.xcassets */; };
 		B76E920D24FDDD3F0052834F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B76E920B24FDDD3F0052834F /* LaunchScreen.storyboard */; };
+		B7AFB2C02508492100C0E34B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AFB2BF2508492100C0E34B /* Api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		B76E920924FDDD3F0052834F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B76E920C24FDDD3F0052834F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B76E920E24FDDD3F0052834F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7AFB2BF2508492100C0E34B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectretailapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -200,6 +202,7 @@
 		B76E91FF24FDDD3C0052834F /* projectretailapp */ = {
 			isa = PBXGroup;
 			children = (
+				B7AFB2BE2508490600C0E34B /* Requests */,
 				B708463824FDE0CD00687DE2 /* Modifiers */,
 				B708463724FDE01800687DE2 /* Views */,
 				B708463624FDE01500687DE2 /* Models */,
@@ -224,6 +227,14 @@
 				B76E920924FDDD3F0052834F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B7AFB2BE2508490600C0E34B /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B7AFB2BF2508492100C0E34B /* Api.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		F75F862CDC247CE8209CC5C8 /* Pods */ = {
@@ -351,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7AFB2C02508492100C0E34B /* Api.swift in Sources */,
 				B7000C992501B7B100B6B6BC /* SessionStore.swift in Sources */,
 				B708462424FDDFBA00687DE2 /* CreateAccountText.swift in Sources */,
 				B708462C24FDDFBA00687DE2 /* Helpers.swift in Sources */,
