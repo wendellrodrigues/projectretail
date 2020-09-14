@@ -24,7 +24,12 @@ struct Api {
         Connects the User to an iPad session in store
      */
     func connectUser() {
-        guard let url = URL(string: "http://10.0.0.4:5000/routes/getUser") else { return }
+        print("Trying to connect to user")
+        guard let url = URL(string: "http://10.0.0.249:5000/routes/getUser") else {
+            print("No URL Found")
+            return
+            
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -32,10 +37,14 @@ struct Api {
         request.setValue("application/JSON", forHTTPHeaderField: "Accept")
         request.setValue("application/JSON", forHTTPHeaderField: "Content-Type")
         
-        guard let userId = session.userSession?.uid else { return }
+        guard let userId = session.userSession?.uid else {
+            print("no user ID Found")
+            return
+            
+        }
         
         let userToSend = UserModel(id: userId)
-        
+        print("ConnectingUser")
         //Encode JSON
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -45,7 +54,7 @@ struct Api {
         request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { (data, _, _) in
-            print(data!)
+            //print(data!)
         }
         .resume()
     }
@@ -54,7 +63,7 @@ struct Api {
        Disconnects the User from an iPad session in store
     */
     func disconnectUser() {
-        guard let url = URL(string: "http://10.0.0.4:5000/routes/clearUser") else { return }
+        guard let url = URL(string: "http://10.0.0.249:5000/routes/clearUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -64,7 +73,7 @@ struct Api {
         
         
         URLSession.shared.dataTask(with: request) { (data, _, _) in
-            print(data!)
+            //print(data!)
         }
         .resume()
     }
