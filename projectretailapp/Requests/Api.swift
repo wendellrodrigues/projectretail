@@ -28,7 +28,6 @@ struct Api {
         guard let url = URL(string: "http://10.0.0.249:5000/routes/getUser") else {
             print("No URL Found")
             return
-            
         }
         
         var request = URLRequest(url: url)

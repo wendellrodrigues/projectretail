@@ -38,6 +38,7 @@
 		B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920624FDDD3F0052834F /* Assets.xcassets */; };
 		B76E920A24FDDD3F0052834F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920924FDDD3F0052834F /* Preview Assets.xcassets */; };
 		B76E920D24FDDD3F0052834F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B76E920B24FDDD3F0052834F /* LaunchScreen.storyboard */; };
+		B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FAA1325105F3900F86098 /* BeaconDetector.swift */; };
 		B7AFB2C02508492100C0E34B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AFB2BF2508492100C0E34B /* Api.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		B76E920924FDDD3F0052834F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B76E920C24FDDD3F0052834F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B76E920E24FDDD3F0052834F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B77FAA1325105F3900F86098 /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 		B7AFB2BF2508492100C0E34B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectretailapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 				B7000C932501B47000B6B6BC /* StorageService.swift */,
 				B7000C952501B5C500B6B6BC /* Extensions.swift */,
 				B7000C982501B7B100B6B6BC /* SessionStore.swift */,
+				B77FAA1325105F3900F86098 /* BeaconDetector.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				B708462924FDDFBA00687DE2 /* PasswordTextField.swift in Sources */,
 				B708463224FDDFBA00687DE2 /* BlurView.swift in Sources */,
 				B7000C9D2501B84C00B6B6BC /* Home.swift in Sources */,
+				B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */,
 				B708462724FDDFBA00687DE2 /* SignUpInModifiers.swift in Sources */,
 				B708463024FDDFBA00687DE2 /* Constants.swift in Sources */,
 			);
