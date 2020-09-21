@@ -79,7 +79,6 @@ struct SignInView: View {
                 }
                 .padding(.bottom, typing ? 300 : 0)
                 .animation(.easeInOut)
-                
             }
 
         }

@@ -36,11 +36,21 @@ let TXT_SIGN_UP_BUTTON = "REGISTER"
 
 //Firebase
 class Ref {
+    
+    //Firestore Users
     static var FIRESTORE_ROOT = Firestore.firestore()
     static var FIRESTORE_COLLECTION_USERS = FIRESTORE_ROOT.collection("users")
     static func FIRESTORE_DOCUMENT_USERID(userId: String) -> DocumentReference {
         return FIRESTORE_COLLECTION_USERS.document(userId)
     }
+    
+    //Firestore stores
+    static var FIRESTORE_COLLECTION_STORES = FIRESTORE_ROOT.collection("stores")
+    static func FIRESTORE_DOCUMENT_STOREID(storeId: String) -> DocumentReference {
+        return FIRESTORE_COLLECTION_STORES.document(storeId)
+    }
+    
+    
 }
 
 

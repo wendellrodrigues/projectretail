@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 import CoreLocation
+import Firebase
+import FirebaseStorage
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
@@ -33,7 +35,6 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-
         //Change to always
         if status == .authorizedWhenInUse {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
@@ -43,6 +44,21 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
                 }
             }
         }
+    }
+    
+    func returnBeacons() -> Array<Any> {
+        
+        let storeRef = Ref.FIRESTORE_COLLECTION_STORES.document("0KwNPcH6f4nZBdb9kq1G") //Static for now
+        
+        print(storeRef)
+        
+        
+        
+        
+        
+        
+        
+        return []
     }
 
     func startScanning() {

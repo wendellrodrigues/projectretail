@@ -31,17 +31,16 @@ struct Home: View {
           
         VStack {
             Spacer()
-            Text("Welcome, \(session.userSession!.firstName)")
+            Text("Welcome, \(session.userSession?.firstName ?? "User")")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             .padding(.bottom)
-            
-            
             Spacer()
             
             Button(action: {
-                self.logout()
                 Api(session: self.session).disconnectUser()
+                self.logout()
+               
             }) {
                Text("Logout")
             }.padding(.bottom)

@@ -18,8 +18,7 @@ struct UserModel: Codable {
 struct Api {
     
     @ObservedObject var session: SessionStore
-    
-    
+
     /**
         Connects the User to an iPad session in store
      */
