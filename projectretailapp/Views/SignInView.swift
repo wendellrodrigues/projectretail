@@ -14,6 +14,8 @@ struct SignInView: View {
     
     @ObservedObject var signinViewModel = SignInViewModel()
     
+
+    
     func signIn() {
         
         signinViewModel.signin(email: signinViewModel.email, password: signinViewModel.password, completed: { (user) in
@@ -33,7 +35,7 @@ struct SignInView: View {
     }
     
     func hideKeyboard() {
-           UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
 
@@ -42,14 +44,12 @@ struct SignInView: View {
         NavigationView {
             
             ZStack {
-                
-                Color.offWhite
+                (Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
                     .onTapGesture {
                         hideKeyboard()
                         self.typing = false
                         print(self.typing)
                     }
-                
                 VStack {
                     SignInTextFields(email: $signinViewModel.email, password: $signinViewModel.password, typing: self.$typing)
                     
@@ -62,19 +62,12 @@ struct SignInView: View {
                          CreateAccountText(typing: $typing)
                         
                     }
-
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
                 }
-                .padding(.bottom, self.typing ? 250 : 0)
-                .animation(.easeInOut)
-                .onTapGesture {
-                    self.typing = false
-                    hideKeyboard()
-                    print(self.typing)
-                }
+                .offset(y: self.typing ? -100 : 0)
+                .animation(.default)
             }
-            
             .edgesIgnoringSafeArea(.all)
 
         }

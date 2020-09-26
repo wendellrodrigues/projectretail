@@ -96,8 +96,7 @@ struct SignUpView: View {
                 .navigationBarHidden(true)
                 
             }
-            //.padding(.bottom, typing ? 100 : 0)
-            .animation(.easeInOut)
+            
 
         }
         .navigationBarTitle("Register", displayMode: .inline)

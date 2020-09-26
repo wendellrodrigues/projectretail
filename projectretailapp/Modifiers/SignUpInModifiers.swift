@@ -13,6 +13,14 @@ extension Color {
     static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
 }
 
+func haptic(type: UINotificationFeedbackGenerator.FeedbackType) {
+    UINotificationFeedbackGenerator().notificationOccurred(type)
+}
+
+func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+    UIImpactFeedbackGenerator(style: style).impactOccurred()
+}
+
 //Boxes that contain SignUp/sign in Fields
 struct SignUpBoxFieldsModifier: ViewModifier {
     
@@ -21,17 +29,11 @@ struct SignUpBoxFieldsModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(Color.offWhite)
-            //.padding(.top, 100)
-            //.padding()
             .cornerRadius(9)
             .padding([.leading, .trailing])
             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
             .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-            //.shadow(color: Color(.gray).opacity(0.1), radius: 2, x: 0, y: 2)
-            //.scaleEffect(typing ? 1.08 : 1)
-        
 
-            
     }
 }
 
@@ -71,17 +73,53 @@ struct SignInButtonModifier: ViewModifier {
 //    let firstColor = Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
 //    let secondColor = Color(#colorLiteral(red: 0.213008909, green: 0.2560196571, blue: 0.6285351563, alpha: 1))
     
+    var tap: Bool
+    var press: Bool
+    
     
     func body(content: Content) -> some View {
         content
-            .padding()
-            .background(Color.offWhite)
-//            .background(LinearGradient(gradient: Gradient(colors: [firstColor, secondColor]), startPoint: .leading, endPoint: .trailing))
-            .cornerRadius(5)
-            //.shadow(radius: 10, x: 0, y: 10)
-            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-            .padding()
+            .font(.system(size: 16, weight: .semibold))
+            .foregroundColor(Color.black.opacity(0.8))
+            .frame(width: 350, height: 60, alignment: .center)
+            .background(
+                ZStack {
+                    Color(#colorLiteral(red: 0.5936584892, green: 0.7996755037, blue: 1, alpha: 1))
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .foregroundColor(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                        .blur(radius: 4)
+                        .offset(x: -8, y: -8)
+                    
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(
+                            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.7511754478, green: 0.8607367306, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    )
+                        .padding(2)
+                        .blur(radius: 2)
+                }
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+            .shadow(color: Color(#colorLiteral(red: 0.5936584892, green: 0.7996755037, blue: 1, alpha: 1)), radius: 20, x: 20, y: 20)
+            .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 20, x: -20, y: -20)
+            .scaleEffect(tap ? 0.9 : 1)
+        
+        //            .overlay(
+        //                HStack {
+        //                    Image(systemName: "person.crop.circle")
+        //                        .font(.system(size: 24, weight: .light))
+        //                        .foregroundColor(Color.white.opacity(press ? 0 : 1))
+        //                        .frame(width: press ? 64 : 54, height: press ? 4 : 50)
+        //                        .background(Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)))
+        //                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        //                        .shadow(color: Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(0.3), radius: 10, x: 10, y: 10)
+        //                        .offset(x: press ? 70 : -10, y: press ? 16 : 0)
+        //
+        //
+        //                    Spacer()
+        //                }
+        //
+        //
+        //        )
     }
 }
 
