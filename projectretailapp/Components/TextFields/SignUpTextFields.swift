@@ -32,7 +32,7 @@ struct SignUpTextFields: View {
                 .padding(.bottom, 10)
             PasswordTextField(password: $confirmedPassword, typing: $typing, confirmed: true)
         }
-        .modifier(SignUpBoxFieldsModifier())
+        .modifier(SignUpBoxFieldsModifier(typing: typing))
     }
 }
 

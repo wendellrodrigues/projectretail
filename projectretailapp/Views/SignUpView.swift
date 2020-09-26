@@ -78,10 +78,7 @@ struct SignUpView: View {
                 }
             
             VStack {
-                Image("Shopping_Logo")
-                    .resizable()
-                    .frame(width: typing ? 75 : 200, height: typing ? 75 : 200)
-                    .opacity(typing ? 0.8 : 1)
+
                 
                 SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typing: $typing)
                 
@@ -94,11 +91,12 @@ struct SignUpView: View {
                 NavigationLink(destination: SignInView()) {
                     AlreadyHaveAccount(typing: $typing)
                 }
+                .animation(.none)
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 
             }
-            .padding(.bottom, typing ? 280 : 0)
+            //.padding(.bottom, typing ? 100 : 0)
             .animation(.easeInOut)
 
         }

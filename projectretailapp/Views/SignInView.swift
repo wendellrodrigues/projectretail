@@ -22,7 +22,6 @@ struct SignInView: View {
             self.signinViewModel.showAlert = true
             self.signinViewModel.errorString = errorMessage
             self.clean()
-            
             self.typing = false
             self.hideKeyboard()
         })
@@ -41,28 +40,18 @@ struct SignInView: View {
     var body: some View {
         
         NavigationView {
+            
             ZStack {
                 
-                Color.black.edgesIgnoringSafeArea(.all)
-                    .opacity(typing ? 0.3 : 0.0)
-                    .animation(.easeInOut)
-                
-                Image("SignUp_Background")
-                    .resizable()
-                    .modifier(BackgroundImageModifier(typing: typing))
+                Color.offWhite
                     .onTapGesture {
-                        self.hideKeyboard()
+                        hideKeyboard()
                         self.typing = false
+                        print(self.typing)
                     }
                 
                 VStack {
-                    
-                    Image("Shopping_Logo")
-                        .resizable()
-                        .frame(width: typing ? 100 : 200, height: typing ? 100 : 200)
-                        .opacity(typing ? 0 : 1)
-                    
-                    SignInTextFields(email: $signinViewModel.email, password: $signinViewModel.password, typing: $typing)
+                    SignInTextFields(email: $signinViewModel.email, password: $signinViewModel.password, typing: self.$typing)
                     
                     Text(signinViewModel.errorString)
                            .modifier(ErrorMessageModifier(typing: self.typing))
@@ -71,17 +60,25 @@ struct SignInView: View {
                     
                     NavigationLink(destination: SignUpView()) {
                          CreateAccountText(typing: $typing)
+                        
                     }
+
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
-                    
-
                 }
-                .padding(.bottom, typing ? 300 : 0)
+                .padding(.bottom, self.typing ? 250 : 0)
                 .animation(.easeInOut)
+                .onTapGesture {
+                    self.typing = false
+                    hideKeyboard()
+                    print(self.typing)
+                }
             }
+            
+            .edgesIgnoringSafeArea(.all)
 
         }
+        .animation(.none)
         .accentColor(Color.black)
         .navigationBarTitle("")
         .navigationBarHidden(true)

@@ -17,13 +17,16 @@ struct EmailTextField: View {
         HStack {
             Image(systemName: EMAIL_ICON)
                 .modifier(IconFieldsModifier(typing: typing))
-            TextField(TXT_EMAIL, text: $email, onCommit: {self.typing = false})
+            TextField(TXT_EMAIL, text: $email, onCommit: {self.typing = false
+                print(self.typing)
+            })
                 .disableAutocorrection(true)
                 .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 .keyboardType(.emailAddress)
                 .font(.system(size: 14.5, weight: .medium, design: .default))
                 .onTapGesture {
                     self.typing = true
+                    print(self.typing)
                 }
         }
     }

@@ -10,8 +10,6 @@ import Combine
 import CoreLocation
 import SwiftUI
 
-
-
 struct Home: View {
     
     @ObservedObject var detector = BeaconDetector()
@@ -21,11 +19,7 @@ struct Home: View {
     func logout() {
         session.logout()
     }
-    
-    func connectUser() {
-        Api(session: self.session).connectUser()
-    }
-    
+
     
     var body: some View {
           
@@ -38,7 +32,7 @@ struct Home: View {
             Spacer()
             
             Button(action: {
-                Api(session: self.session).disconnectUser()
+                Api(session: self.session).endSession()
                 self.logout()
                
             }) {
@@ -54,10 +48,10 @@ struct Home: View {
                    print("Close")
             } else if(self.detector.lastDistance == .near) {
                print("Kinda close")
-                Api.init(session: self.session).connectUser()
+                Api.init(session: self.session).beginSession()
             } else if(self.detector.lastDistance == .far) {
                print("Far")
-                Api.init(session: self.session).disconnectUser()
+                Api.init(session: self.session).endSession()
            } else {
                 print("Unknown")
            }

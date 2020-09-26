@@ -22,7 +22,7 @@ struct Api {
     /**
         Connects the User to an iPad session in store
      */
-    func connectUser() {
+    func beginSession() {
         print("Trying to connect to user")
         guard let url = URL(string: "http://10.0.0.249:5000/routes/getUser") else {
             print("No URL Found")
@@ -60,7 +60,7 @@ struct Api {
     /**
        Disconnects the User from an iPad session in store
     */
-    func disconnectUser() {
+    func endSession() {
         guard let url = URL(string: "http://10.0.0.249:5000/routes/clearUser") else { return }
         
         var request = URLRequest(url: url)

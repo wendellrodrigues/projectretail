@@ -18,7 +18,7 @@ struct SignInButton: View {
             Spacer()
             Text(TXT_SIGN_IN_BUTTON)
                 .fontWeight(.bold)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.gray)
             Spacer()
         }
     .modifier(SignInButtonModifier())

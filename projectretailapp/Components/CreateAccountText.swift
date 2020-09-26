@@ -16,18 +16,15 @@ struct CreateAccountText: View {
         HStack {
             Text(TXT_CREATE_ACCOUNT)
                 .font(.footnote)
-                .foregroundColor(typing ? .white : .gray)
-                .animation(.easeInOut)
+                .foregroundColor(.gray)
             Spacer()
             Text(TXT_SIGN_UP_BUTTON)
                 .font(.system(size: 14, weight: .bold, design: .default))
-                .foregroundColor(typing ? .white : .gray)
-                .animation(.easeInOut)
+                .foregroundColor(.gray)
                 
         }
         .padding([.leading, .trailing], 30)
         .padding(.top, 10)
-        .animation(.easeInOut)
     }
     
 }

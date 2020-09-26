@@ -17,12 +17,15 @@ struct SignInTextFields: View {
     var body: some View {
         VStack {
             EmailTextField(email: $email, typing: $typing)
+                .padding()
+                .padding(.top, 10)
             Divider()
-                .padding(.top, 5)
-                .padding(.bottom, 10)
+                .padding([.leading, .trailing], 15)
             PasswordTextField(password: $password, typing: $typing, confirmed: false)
+                .padding()
+                .padding(.bottom, 10)
         }
-        .modifier(SignUpBoxFieldsModifier())
+        .modifier(SignUpBoxFieldsModifier(typing: typing))
     }
 }
 
