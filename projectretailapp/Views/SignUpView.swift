@@ -10,7 +10,12 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @State var typing: Bool = false
+    @State var typingFirstName: Bool = false
+    @State var typingEmail: Bool = false
+    @State var typingPwd: Bool = false
+    @State var typingConfirmPwd: Bool = false
+    
+    
     @State var areErrors: Bool = false
     
     @ObservedObject var signUpViewModel = SignUpViewModel()
@@ -60,51 +65,102 @@ struct SignUpView: View {
     
     
     var body: some View {
-        ZStack {
-            Color
-                .black
-                .edgesIgnoringSafeArea(.all)
-                .opacity(typing ? 0.8 : 0.0)
-                .animation(.easeInOut)
-                   
-           Image("SignUp_Background")
-               .resizable()
-            .modifier(BackgroundImageModifier(typing: typing))
-               .onTapGesture {
-                    self.hideKeyboard()
-                    self.typing = false
-                    self.areErrors = false
-                    self.signUpViewModel.errorString = "Passwords must be in between 6 and 20 characters"
-                }
-            
-            VStack {
-
-                
-                SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typing: $typing)
-                
         
-                Text(signUpViewModel.errorString)
-                    .modifier(ErrorMessageModifier(typing: self.typing))
-
-                SignUpButton(action: register)
+        NavigationView {
+            ZStack {
+                (Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
+                    .onTapGesture {
+                        hideKeyboard()
+                        self.typingFirstName = false
+                        self.typingEmail = false
+                        self.typingPwd = false
+                        self.typingConfirmPwd = false
+                    }
                 
-                NavigationLink(destination: SignInView()) {
-                    AlreadyHaveAccount(typing: $typing)
+                VStack {
+                    SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typingFirstName: self.$typingFirstName, typingEmail: self.$typingEmail, typingPwd: self.$typingPwd, typingConfirmPwd: self.$typingConfirmPwd)
+                    
+                    Text(signUpViewModel.errorString)
+                           .modifier(ErrorMessageModifier())
+                    
+                    SignUpButton(action: register)
+                    
+                    NavigationLink(destination: SignInView()) {
+                        AlreadyHaveAccount()
+                    }
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
                 }
-                .animation(.none)
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
-                
+                .edgesIgnoringSafeArea(.all)
+                .offset(y:
+                        self.typingFirstName ||
+                        self.typingEmail ||
+                        self.typingPwd ||
+                        self.typingConfirmPwd ?
+                        -110 : 150)
+                .animation(.default)
             }
+            .edgesIgnoringSafeArea(.all)
             
-
         }
-        .navigationBarTitle("Register", displayMode: .inline)
+        .animation(.none)
+        .accentColor(Color.black)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .edgesIgnoringSafeArea(.all)
     }
+        
 }
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView()
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//.modifier(BackgroundImageModifier(typing: typing))
+//   .onTapGesture {
+//        self.hideKeyboard()
+//        self.typing = false
+//        self.areErrors = false
+//        self.signUpViewModel.errorString = "Passwords must be in between 6 and 20 characters"
+//    }
+//
+//VStack {
+//
+//
+//    SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typing: $typing)
+//
+//
+//    Text(signUpViewModel.errorString)
+//        .modifier(ErrorMessageModifier())
+//
+//    SignUpButton(action: register)
+//
+//    NavigationLink(destination: SignInView()) {
+//        AlreadyHaveAccount(typing: $typing)
+//    }
+//    .animation(.none)
+//    .navigationBarTitle("")
+//    .navigationBarHidden(true)

@@ -14,25 +14,50 @@ struct SignUpTextFields: View {
     @Binding var email: String
     @Binding var password: String
     @Binding var confirmedPassword: String
-    @Binding var typing: Bool
+    
+    @Binding var typingFirstName: Bool
+    @Binding var typingEmail: Bool
+    @Binding var typingPwd: Bool
+    @Binding var typingConfirmPwd: Bool
     
     var body: some View {
         VStack {
-            FirstNameTextField(firstName: $firstName, typing: $typing)
-            Divider()
-            .padding(.top, 5)
-            .padding(.bottom, 10)
-            EmailTextField(email: $email, typing: $typing)
-            Divider()
-                .padding(.top, 5)
-                .padding(.bottom, 10)
-            PasswordTextField(password: $password, typing: $typing, confirmed: false)
-            Divider()
-                .padding(.top, 5)
-                .padding(.bottom, 10)
-            PasswordTextField(password: $confirmedPassword, typing: $typing, confirmed: true)
+ 
+            SignUpFirstNameTextField(firstName: $firstName,
+                                     typingFirstName: $typingFirstName,
+                                     typingEmail: $typingEmail,
+                                     typingPwd: $typingPwd,
+                                     typingConfirmPwd: $typingConfirmPwd)
+                .padding([.leading, .top])
+                .padding([.top, .bottom], 3)
+
+            
+            SignUpEmailTextField(email: $email,
+                                 typingFirstName: $typingFirstName,
+                                 typingEmail: $typingEmail,
+                                 typingPwd: $typingPwd,
+                                 typingConfirmPwd: $typingConfirmPwd)
+                .padding(.leading)
+                .padding([.top, .bottom], 3)
+            
+            SignUpPasswordTextField(password: $password,
+                                    typingFirstName: $typingFirstName,
+                                    typingEmail: $typingEmail,
+                                    typingPwd: $typingPwd,
+                                    typingConfirmPwd: $typingConfirmPwd)
+                .padding(.leading)
+                .padding([.top, .bottom], 3)
+            
+            SignUpConfirmPasswordTextField(confirmPwd: $confirmedPassword,
+                                           typingFirstName: $typingFirstName,
+                                           typingEmail: $typingEmail,
+                                           typingPwd: $typingPwd,
+                                           typingConfirmPwd: $typingConfirmPwd)
+                .padding([.leading, .bottom])
+                .padding([.top, .bottom], 3)
         }
-        .modifier(SignUpBoxFieldsModifier(typing: typing))
+    .modifier(SignUpBoxFieldsModifier())
+        
     }
 }
 

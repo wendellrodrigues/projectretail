@@ -10,9 +10,15 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @State var typing: Bool = false
+    @State var typingEmail: Bool = false
+    @State var typingPassword: Bool = false
+    
+    @State var falseBool = false
     
     @ObservedObject var signinViewModel = SignInViewModel()
+    
+    static let gradientStart = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
+    static let gradientEnd = Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))
     
 
     
@@ -24,7 +30,8 @@ struct SignInView: View {
             self.signinViewModel.showAlert = true
             self.signinViewModel.errorString = errorMessage
             self.clean()
-            self.typing = false
+            self.typingEmail = false
+            self.typingPassword = false
             self.hideKeyboard()
         })
     }
@@ -42,53 +49,62 @@ struct SignInView: View {
     var body: some View {
         
         NavigationView {
-            
             ZStack {
                 (Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
                     .onTapGesture {
                         hideKeyboard()
-                        self.typing = false
-                        print(self.typing)
+                        self.typingEmail = false
+                        self.typingPassword = false
                     }
+                
+
+                Rectangle()
+                    .overlay(
+                        LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)), Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))]), startPoint: .top, endPoint: .bottom)
+                    )
+                    .frame(height: 450)
+                    .offset(y: self.typingEmail || self.typingPassword ? -500 : -250)
+                    .animation(.default)
+                    .onTapGesture {
+                        hideKeyboard()
+                        self.typingEmail = false
+                        self.typingPassword = false
+                    }
+                
+                
+                
                 VStack {
-                    SignInTextFields(email: $signinViewModel.email, password: $signinViewModel.password, typing: self.$typing)
-                    
+                    SignInTextFields(email: $signinViewModel.email,
+                                     password: $signinViewModel.password,
+                                     typingEmail: self.$typingEmail,
+                                     typingPassword: self.$typingPassword)
+    
                     Text(signinViewModel.errorString)
-                           .modifier(ErrorMessageModifier(typing: self.typing))
+                           .modifier(ErrorMessageModifier())
                     
                     SignInButton(action: signIn)
                     
                     NavigationLink(destination: SignUpView()) {
-                         CreateAccountText(typing: $typing)
-                        
-                    }
+                         CreateAccountText()
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
                 }
-                .offset(y: self.typing ? -100 : 0)
-                .animation(.default)
+                
             }
-            .edgesIgnoringSafeArea(.all)
-
+            .offset(y: self.typingEmail || self.typingPassword ? -100 : 150)
+            .animation(.default)
         }
-        .animation(.none)
-        .accentColor(Color.black)
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
-        
     }
-    
-        
-        
-        
+    .animation(.none)
+    .accentColor(Color.black)
+    .navigationBarTitle("")
+    .navigationBarHidden(true)
+    .edgesIgnoringSafeArea(.all)
+}
 }
 
-struct SignIn_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView()
-    }
-}
+
 
 
 

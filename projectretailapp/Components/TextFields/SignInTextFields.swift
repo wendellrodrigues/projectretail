@@ -12,20 +12,20 @@ struct SignInTextFields: View {
     
     @Binding var email: String
     @Binding var password: String
-    @Binding var typing: Bool
+    @Binding var typingEmail: Bool
+    @Binding var typingPassword: Bool
     
     var body: some View {
         VStack {
-            EmailTextField(email: $email, typing: $typing)
+            SignInEmailTextField(email: $email, typingEmail: $typingEmail, typingPassword: $typingPassword)
                 .padding()
                 .padding(.top, 10)
-            Divider()
-                .padding([.leading, .trailing], 15)
-            PasswordTextField(password: $password, typing: $typing, confirmed: false)
+
+            SignInPasswordTextField(password: $password, typingEmail: $typingEmail, typingPassword: $typingPassword)
                 .padding()
-                .padding(.bottom, 10)
+                .padding(.bottom, 15)
         }
-        .modifier(SignUpBoxFieldsModifier(typing: typing))
+        .modifier(SignUpBoxFieldsModifier())
     }
 }
 

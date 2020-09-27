@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CreateAccountText: View {
     
-    @Binding var typing: Bool
+   // @Binding var typing: Bool
     
     var body: some View {
         HStack {

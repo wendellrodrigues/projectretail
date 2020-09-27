@@ -28,21 +28,21 @@ struct SignInButton: View {
     var body: some View {
         HStack {
             Spacer()
-        Text(TXT_SIGN_IN_BUTTON)
-            .modifier(SignInButtonModifier(tap: self.tap, press: self.press))
-            .gesture(
-                LongPressGesture(minimumDuration: 0.1, maximumDistance: 10).onChanged { value in
-                    self.tap = true
-                    haptic(type: .success)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        self.tap = false
+            Text(TXT_SIGN_IN_BUTTON)
+                .modifier(SignInButtonModifier(tap: self.tap, press: self.press))
+                .gesture(
+                    LongPressGesture(minimumDuration: 0.1, maximumDistance: 10).onChanged { value in
+                        self.tap = true
+                        action()
+                        haptic(type: .success)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            self.tap = false
+                        }
                     }
-                }
-                .onEnded { value in
-                    self.press.toggle()
-                    action()
-                }
-        )
+                    .onEnded { value in
+                        self.press.toggle()
+                    }
+            )
             Spacer()
         }
     }
