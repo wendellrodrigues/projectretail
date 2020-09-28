@@ -19,6 +19,8 @@ struct SignUpView: View {
     @State var areErrors: Bool = false
     
     @ObservedObject var signUpViewModel = SignUpViewModel()
+    @ObservedObject var viewRouter: ViewRouter
+    
     
     //Hides Keyboard
     func hideKeyboard() {
@@ -66,7 +68,7 @@ struct SignUpView: View {
     
     var body: some View {
         
-        NavigationView {
+        //NavigationView {
             ZStack {
                 (Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
                     .onTapGesture {
@@ -85,11 +87,13 @@ struct SignUpView: View {
                     
                     SignUpButton(action: register)
                     
-                    NavigationLink(destination: SignInView()) {
-                        AlreadyHaveAccount()
-                    }
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
+//                    NavigationLink(destination: SignInView()) {
+//                        AlreadyHaveAccount()
+//                    }
+//                    .navigationBarTitle("")
+//                    .navigationBarHidden(true)
+                    
+                    AlreadyHaveAccount(viewRouter: viewRouter)
                 }
                 .edgesIgnoringSafeArea(.all)
                 .offset(y:
@@ -103,12 +107,12 @@ struct SignUpView: View {
             .edgesIgnoringSafeArea(.all)
             
         }
-        .animation(.none)
-        .accentColor(Color.black)
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        .edgesIgnoringSafeArea(.all)
-    }
+//        .animation(.none)
+//        .accentColor(Color.black)
+//        .navigationBarTitle("")
+//        .navigationBarHidden(true)
+//        .edgesIgnoringSafeArea(.all)
+//    }
         
 }
 

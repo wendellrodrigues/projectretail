@@ -10,26 +10,27 @@ import SwiftUI
 
 struct Init: View {
     
-   @EnvironmentObject var session: SessionStore
+    @State var page = "signin"
+    
+    @ObservedObject var viewRouter: ViewRouter
+    
+    @EnvironmentObject var session: SessionStore
+    
     
     func listen() {
         session.listenAuthenticationState()
-        //session.isLoggedIn = false
     }
     
     var body: some View {
-        Group {
+        ZStack {
             if session.isLoggedIn {
                 Home()
             } else {
-                SignInView()
+                if(viewRouter.currentPage == "register") { SignUpView(viewRouter: viewRouter) }
+                else if(viewRouter.currentPage == "signin") { SignInView(viewRouter: viewRouter) }
+                
             }
         }.onAppear(perform: listen)
     }
 }
 
-struct Init_Previews: PreviewProvider {
-    static var previews: some View {
-        Init()
-    }
-}

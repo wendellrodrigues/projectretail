@@ -17,6 +17,7 @@ struct SignInView: View {
     @State var falseBool = false
     
     @ObservedObject var signinViewModel = SignInViewModel()
+    @ObservedObject var viewRouter: ViewRouter
     
     static let gradientStart = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
     static let gradientEnd = Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))
@@ -49,15 +50,13 @@ struct SignInView: View {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
-
     var body: some View {
-        NavigationView {
+
             ZStack {
-                
-               
-                
+        
                 Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
                     .onTapGesture {
+                        print("trying to close keyboard")
                         hideKeyboard()
                         self.typingEmail = false
                         self.typingPassword = false
@@ -69,12 +68,25 @@ struct SignInView: View {
                     .offset(y: -150)
                     .opacity(0.8)
                     .blur(radius: 10)
+                    .onTapGesture {
+                        print("trying to close keyboard")
+                        hideKeyboard()
+                        self.typingEmail = false
+                        self.typingPassword = false
+                    }
                 
                 
                 Image("Logo")
                     .resizable()
                     .frame(width:120, height: 250, alignment: .center)
                     .offset(y: -175)
+                    .onTapGesture {
+                        print("trying to close keyboard")
+                        hideKeyboard()
+                        self.typingEmail = false
+                        self.typingPassword = false
+                    }
+                
 
  
                 VStack {
@@ -92,33 +104,30 @@ struct SignInView: View {
                     
                     SignInButton(loading: $loading, action: signIn)
                     
-                    NavigationLink(destination: SignUpView()) {
-                         CreateAccountText()
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
-                    .padding(.bottom, 240)
-                }
+                    CreateAccountText()
+                        .onTapGesture {
+                            print("tapping create account)")
+                            self.viewRouter.currentPage = "register"
+                        }
+                        .padding(.bottom, 240)
                 
             }
             .background(Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
-            .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
             .cornerRadius(15)
+            .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
             .offset(y: self.typingEmail || self.typingPassword ? -30 : 300)
             .onTapGesture {
                 hideKeyboard()
                 self.typingEmail = false
                 self.typingPassword = false
             }
+            .animation(.easeInOut)
+
                 
         }
         .edgesIgnoringSafeArea(.all)
-        .animation(.easeInOut)
     }
-    .accentColor(Color.black)
-    .navigationBarTitle("")
-    .navigationBarHidden(true)
-    .edgesIgnoringSafeArea(.all)
-}
+   
 }
 
 

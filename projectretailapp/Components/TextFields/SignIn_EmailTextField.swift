@@ -19,7 +19,6 @@ struct SignInEmailTextField: View {
 
             TextField(TXT_EMAIL, text: $email, onCommit: {self.typingEmail = false})
                 .onTapGesture {
-                    print("Textfield is tapped")
                     self.typingPassword = false
                     self.typingEmail = true
                 }

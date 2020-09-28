@@ -33,6 +33,7 @@
 		B708463A24FDE1AD00687DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */; };
 		B708463D24FDE75400687DE2 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463C24FDE75400687DE2 /* Authentication.swift */; };
 		B708463F24FDE7D200687DE2 /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463E24FDE7D200687DE2 /* SignInButton.swift */; };
+		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
 		B76E920124FDDD3C0052834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920024FDDD3C0052834F /* AppDelegate.swift */; };
 		B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920224FDDD3C0052834F /* SceneDelegate.swift */; };
 		B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920624FDDD3F0052834F /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B708463C24FDE75400687DE2 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		B708463E24FDE7D200687DE2 /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B76E91FD24FDDD3C0052834F /* projectretailapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectretailapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E920024FDDD3C0052834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B76E920224FDDD3C0052834F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		B708463724FDE01800687DE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B75E64092521883300A6B384 /* ViewRouter.swift */,
 				B7000C9A2501B82800B6B6BC /* Init.swift */,
 				B7000C9C2501B84C00B6B6BC /* Home.swift */,
 				B708461A24FDDFB900687DE2 /* SignInView.swift */,
@@ -437,6 +440,7 @@
 				B708462324FDDFBA00687DE2 /* SignUpView.swift in Sources */,
 				B7000C9B2501B82800B6B6BC /* Init.swift in Sources */,
 				B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */,
+				B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */,
 				B7DE92ED251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift in Sources */,
 				B7000CA42503029700B6B6BC /* SignUp_FirstNameTextField.swift in Sources */,
 				B7000C962501B5C500B6B6BC /* Extensions.swift in Sources */,
