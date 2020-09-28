@@ -26,7 +26,7 @@ struct Init: View {
             if session.isLoggedIn {
                 Home()
             } else {
-                if(viewRouter.currentPage == "register") { SignUpView(viewRouter: viewRouter) }
+                if(viewRouter.currentPage == "register") { SignUpView(viewRouter: viewRouter)}
                 else if(viewRouter.currentPage == "signin") { SignInView(viewRouter: viewRouter) }
                 
             }

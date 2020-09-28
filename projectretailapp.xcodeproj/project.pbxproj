@@ -34,6 +34,7 @@
 		B708463D24FDE75400687DE2 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463C24FDE75400687DE2 /* Authentication.swift */; };
 		B708463F24FDE7D200687DE2 /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463E24FDE7D200687DE2 /* SignInButton.swift */; };
 		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
+		B75E6424252196A500A6B384 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = B75E6423252196A400A6B384 /* Confetti.json */; };
 		B76E920124FDDD3C0052834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920024FDDD3C0052834F /* AppDelegate.swift */; };
 		B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920224FDDD3C0052834F /* SceneDelegate.swift */; };
 		B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920624FDDD3F0052834F /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		B708463C24FDE75400687DE2 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		B708463E24FDE7D200687DE2 /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		B75E6423252196A400A6B384 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
 		B76E91FD24FDDD3C0052834F /* projectretailapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectretailapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E920024FDDD3C0052834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B76E920224FDDD3C0052834F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		B7DE92FB25205C7B001887D3 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				B75E6423252196A400A6B384 /* Confetti.json */,
 				B7DE932525213CBA001887D3 /* Loading.json */,
 				B7DE931E25213567001887D3 /* Circles.json */,
 				B7DE92FC25205C95001887D3 /* Bubbles.json */,
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76E920D24FDDD3F0052834F /* LaunchScreen.storyboard in Resources */,
+				B75E6424252196A500A6B384 /* Confetti.json in Resources */,
 				B708463A24FDE1AD00687DE2 /* GoogleService-Info.plist in Resources */,
 				B7DE92FD25205C95001887D3 /* Bubbles.json in Resources */,
 				B7DE931F25213567001887D3 /* Circles.json in Resources */,

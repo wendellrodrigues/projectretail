@@ -12,7 +12,7 @@ import SwiftUI
 struct SignInButton: View {
     
     @Binding var loading: Bool
-    
+
     @State var tap = false
     @State var press = false
     
@@ -23,7 +23,6 @@ struct SignInButton: View {
     func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
         UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
-    
     
     var action: () -> Void
     
@@ -37,7 +36,6 @@ struct SignInButton: View {
                         LongPressGesture(minimumDuration: 0.1, maximumDistance: 10).onChanged { value in
                             self.tap = true
                             self.loading = true
-                            print(loading)
                             action()
                             haptic(type: .success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -57,17 +55,5 @@ struct SignInButton: View {
         }
     }
     
-    
-    
-//    var body: some View {
-//        Button(action: action) {
-//            Spacer()
-//            Text(TXT_SIGN_IN_BUTTON)
-//                .fontWeight(.bold)
-//                .foregroundColor(Color.white)
-//            Spacer()
-//        }
-//    .modifier(SignInButtonModifier())
-//    }
 }
 

@@ -14,9 +14,12 @@ struct SignUpView: View {
     @State var typingEmail: Bool = false
     @State var typingPwd: Bool = false
     @State var typingConfirmPwd: Bool = false
+    @State var loading = false
     
     
     @State var areErrors: Bool = false
+    
+    @State var success: Bool = false
     
     @ObservedObject var signUpViewModel = SignUpViewModel()
     @ObservedObject var viewRouter: ViewRouter
@@ -50,11 +53,12 @@ struct SignUpView: View {
             email: signUpViewModel.email,
             password: signUpViewModel.password,
             completed: { (user) in
+                self.loading = false
                 self.clean()
-                
-                //Switch to main app
+                self.success = true
             
             }) {(errorMessage) in
+                self.loading = false
                 self.areErrors = true
                 self.signUpViewModel.errorString = errorMessage
                 if(errorMessage == "Passwords do not match") {
@@ -70,8 +74,35 @@ struct SignUpView: View {
         
         //NavigationView {
             ZStack {
-                (Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
+                
+                Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
                     .onTapGesture {
+                        hideKeyboard()
+                        self.typingFirstName = false
+                        self.typingEmail = false
+                        self.typingPwd = false
+                        self.typingConfirmPwd = false
+                    }
+                
+                LottieView(fileName: "Circles")
+                    .frame(width: 250, height: 250)
+                    .offset(y: -220)
+                    .opacity(0.8)
+                    .blur(radius: 10)
+                    .onTapGesture {
+                        hideKeyboard()
+                        self.typingFirstName = false
+                        self.typingEmail = false
+                        self.typingPwd = false
+                        self.typingConfirmPwd = false
+                    }
+                
+                Image("Logo")
+                    .resizable()
+                    .frame(width:90, height: 150, alignment: .center)
+                    .offset(y: -200)
+                    .onTapGesture {
+                        print("trying to close keyboard")
                         hideKeyboard()
                         self.typingFirstName = false
                         self.typingEmail = false
@@ -85,34 +116,37 @@ struct SignUpView: View {
                     Text(signUpViewModel.errorString)
                            .modifier(ErrorMessageModifier())
                     
-                    SignUpButton(action: register)
-                    
-//                    NavigationLink(destination: SignInView()) {
-//                        AlreadyHaveAccount()
-//                    }
-//                    .navigationBarTitle("")
-//                    .navigationBarHidden(true)
-                    
-                    AlreadyHaveAccount(viewRouter: viewRouter)
+                    SignUpButton(success: $success, loading: $loading, action: register)
+            
+                    AlreadyHaveAccount()
+                        .onTapGesture {
+                            self.viewRouter.currentPage = "signin"
+                        }
+                        .padding(.bottom, 240)
                 }
-                .edgesIgnoringSafeArea(.all)
+                .background(Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
+                .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
+                .cornerRadius(15)
                 .offset(y:
                         self.typingFirstName ||
                         self.typingEmail ||
                         self.typingPwd ||
                         self.typingConfirmPwd ?
-                        -110 : 150)
+                        -0 : 250)
+                .onTapGesture {
+                    hideKeyboard()
+                    self.typingFirstName = false
+                    self.typingEmail = false
+                    self.typingPwd = false
+                    self.typingConfirmPwd = false
+                }
                 .animation(.default)
             }
             .edgesIgnoringSafeArea(.all)
             
         }
-//        .animation(.none)
-//        .accentColor(Color.black)
-//        .navigationBarTitle("")
-//        .navigationBarHidden(true)
-//        .edgesIgnoringSafeArea(.all)
-//    }
+        
+
         
 }
 
