@@ -55,18 +55,3 @@ struct SignUpFirstNameTextField: View {
 
 
 
-
-
-
-//        HStack {
-//            Image(systemName: USER_ICON)
-//                .modifier(IconFieldsModifier(typing: typing))
-//            TextField(TXT_FIRST_NAME, text: $firstName, onCommit: {self.typing = false})
-//                .disableAutocorrection(true)
-//                .autocapitalization(.words)
-//                .keyboardType(.default)
-//                .font(.system(size: 14.5, weight: .medium, design: .default))
-//                .onTapGesture {
-//                    self.typing = true
-//                }
-//        }

@@ -12,6 +12,7 @@ struct SignInView: View {
     
     @State var typingEmail: Bool = false
     @State var typingPassword: Bool = false
+    @State var loading = false
     
     @State var falseBool = false
     
@@ -26,6 +27,7 @@ struct SignInView: View {
         
         signinViewModel.signin(email: signinViewModel.email, password: signinViewModel.password, completed: { (user) in
             self.clean()
+            self.loading = false
         }, onError: { (errorMessage) in
             self.signinViewModel.showAlert = true
             self.signinViewModel.errorString = errorMessage
@@ -33,6 +35,8 @@ struct SignInView: View {
             self.typingEmail = false
             self.typingPassword = false
             self.hideKeyboard()
+            self.loading = false
+            print(loading)
         })
     }
     
@@ -47,56 +51,69 @@ struct SignInView: View {
     
 
     var body: some View {
-        
         NavigationView {
             ZStack {
-                (Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
+                
+               
+                
+                Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
                     .onTapGesture {
                         hideKeyboard()
                         self.typingEmail = false
                         self.typingPassword = false
                     }
                 
+             
+                LottieView(fileName: "Circles")
+                    .frame(width: 350, height: 300)
+                    .offset(y: -150)
+                    .opacity(0.8)
+                    .blur(radius: 10)
+                
+                
+                Image("Logo")
+                    .resizable()
+                    .frame(width:120, height: 250, alignment: .center)
+                    .offset(y: -175)
 
-                Rectangle()
-                    .overlay(
-                        LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)), Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))]), startPoint: .top, endPoint: .bottom)
-                    )
-                    .frame(height: 450)
-                    .offset(y: self.typingEmail || self.typingPassword ? -500 : -250)
-                    .animation(.default)
-                    .onTapGesture {
-                        hideKeyboard()
-                        self.typingEmail = false
-                        self.typingPassword = false
-                    }
-                
-                
-                
+ 
                 VStack {
                     SignInTextFields(email: $signinViewModel.email,
                                      password: $signinViewModel.password,
                                      typingEmail: self.$typingEmail,
                                      typingPassword: self.$typingPassword)
+                        .padding(.top, 20)
     
-                    Text(signinViewModel.errorString)
-                           .modifier(ErrorMessageModifier())
+                    if(signinViewModel.errorString != "") {
+                        Text(signinViewModel.errorString)
+                               .modifier(ErrorMessageModifier())
+                    }
                     
-                    SignInButton(action: signIn)
+                    
+                    SignInButton(loading: $loading, action: signIn)
                     
                     NavigationLink(destination: SignUpView()) {
                          CreateAccountText()
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
+                    .padding(.bottom, 240)
                 }
                 
             }
-            .offset(y: self.typingEmail || self.typingPassword ? -100 : 150)
-            .animation(.default)
+            .background(Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
+            .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
+            .cornerRadius(15)
+            .offset(y: self.typingEmail || self.typingPassword ? -30 : 300)
+            .onTapGesture {
+                hideKeyboard()
+                self.typingEmail = false
+                self.typingPassword = false
+            }
+                
         }
         .edgesIgnoringSafeArea(.all)
+        .animation(.easeInOut)
     }
-    .animation(.none)
     .accentColor(Color.black)
     .navigationBarTitle("")
     .navigationBarHidden(true)

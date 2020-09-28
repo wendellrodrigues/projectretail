@@ -43,8 +43,8 @@ struct SignUpBoxFieldsModifier: ViewModifier {
                 }
             )
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-            .shadow(color: Color(#colorLiteral(red: 0.5936584892, green: 0.7996755037, blue: 1, alpha: 1)), radius: 20, x: 20, y: 20)
-            .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 20, x: -20, y: -20)
+            .shadow(color: Color(#colorLiteral(red: 0.5936584892, green: 0.7996755037, blue: 1, alpha: 1)), radius: 20, x: 10, y: 10)
+            .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 20, x: -10, y: -10)
             .padding()
 
     }
@@ -84,7 +84,6 @@ struct SignInButtonModifier: ViewModifier {
     var tap: Bool
     var press: Bool
     
-    
     func body(content: Content) -> some View {
         content
             .font(.system(size: 16, weight: .semibold))
@@ -121,8 +120,7 @@ struct ErrorMessageModifier: ViewModifier {
             .foregroundColor(Color(#colorLiteral(red: 0.1430806571, green: 0.1941335433, blue: 0.2437695313, alpha: 1)))
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)
-            .padding(.bottom, 10
-            )
+            .padding(.bottom, 10)
        }
 }
 
