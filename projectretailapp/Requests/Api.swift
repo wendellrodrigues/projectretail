@@ -23,7 +23,7 @@ struct Api {
         Connects the User to an iPad session in store
      */
     func beginSession() {
-        print("Trying to connect to user")
+
         guard let url = URL(string: "http://10.0.0.249:5000/routes/getUser") else {
             print("No URL Found")
             return
@@ -35,6 +35,7 @@ struct Api {
         request.setValue("application/JSON", forHTTPHeaderField: "Accept")
         request.setValue("application/JSON", forHTTPHeaderField: "Content-Type")
         
+        //Sends UserId
         guard let userId = session.userSession?.uid else {
             print("no user ID Found")
             return
@@ -42,7 +43,6 @@ struct Api {
         }
         
         let userToSend = UserModel(id: userId)
-        print("ConnectingUser")
         //Encode JSON
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -75,4 +75,12 @@ struct Api {
         }
         .resume()
     }
+    
+    
+   
+        
+        
+        
+        
 }
+

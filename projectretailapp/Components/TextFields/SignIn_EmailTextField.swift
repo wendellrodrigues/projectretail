@@ -29,6 +29,7 @@ struct SignInEmailTextField: View {
                 .font(.system(size: 14.5, weight: .medium, design: .default))
                 .padding(.leading, typingEmail ? 10 : 40)
                 .textFieldFocusableArea()
+                
         }
             .overlay(
                 HStack {

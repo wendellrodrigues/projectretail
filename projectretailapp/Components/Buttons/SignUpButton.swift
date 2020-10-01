@@ -41,6 +41,11 @@ struct SignUpButton: View {
                             haptic(type: .success)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                 self.tap = false
+                                
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.tap = false
+                                
                             }
                         }
                         .onEnded { value in
@@ -48,7 +53,7 @@ struct SignUpButton: View {
                         }
                     )
                     .opacity(loading ? 0 : 1)
-                LottieView(fileName: "Loading")
+                LottieViewLoop(fileName: "Loading")
                     .frame(width: 300, height: 90, alignment: .center)
                     .opacity(loading ? 1 : 0)
                 }

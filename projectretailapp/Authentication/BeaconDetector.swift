@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 import CoreLocation
 import Firebase
 import FirebaseStorage
+
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
@@ -19,19 +21,18 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     //Create function to find these dynamically
     var beaconUUID: UUID = UUID(uuidString: "7777772E-6B6B-6D63-6E2E-636F6D000001")!
-    var beaconMajor: CLBeaconMajorValue = 3838
-    var beaconMinor: CLBeaconMinorValue = 4949
+//    var beaconMajor: CLBeaconMajorValue = 3838
+//    var beaconMinor: CLBeaconMinorValue = 4949
 
-    @Published var lastDistance = CLProximity.unknown
+    @Published var lastDistance     = CLProximity.unknown
+    @Published var lastBeacon       = Beacon(uuid: "7777772E-6B6B-6D63-6E2E-636F6D000001", major: 0, minor: 0)
+  
 
     override init() {
-
         super.init()
-
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
-
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -39,45 +40,47 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         if status == .authorizedWhenInUse {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
-                    // We are good to go!
                     startScanning()
                 }
             }
         }
     }
-    
-    func returnBeacons() -> Array<Any> {
-        
-        let storeRef = Ref.FIRESTORE_COLLECTION_STORES.document("0KwNPcH6f4nZBdb9kq1G") //Static for now
-        
-        print(storeRef)
-        
-        
-        
-        
-        
-        
-        
-        return []
-    }
 
     func startScanning() {
-        let constraint = CLBeaconIdentityConstraint(uuid: beaconUUID, major: beaconMajor, minor: beaconMinor)
+        let constraint = CLBeaconIdentityConstraint(uuid: self.beaconUUID)
         let beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: "BlueCharm_893")
-        locationManager?.startMonitoring(for: beaconRegion)
-        locationManager?.startRangingBeacons(satisfying: constraint)
+        self.locationManager?.startMonitoring(for: beaconRegion)
+        self.locationManager?.startRangingBeacons(satisfying: constraint)
     }
 
     func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
+        
+        //If beacon is found
         if let beacon = beacons.first {
-            update(distance: beacon.proximity)
-        } else {
-            update(distance: .unknown)
+            let currentMaj = beacon.major.intValue
+            let currentMin = beacon.minor.intValue
+            updateDistance(distance: beacon.proximity)
+            updateBeacon(currentMajor: currentMaj, currentMinor: currentMin)
+        }
+        
+        //If beacon is not found
+        else {
+            updateDistance(distance: .unknown)
+            updateBeacon(currentMajor: 0, currentMinor: 0)
         }
     }
-
-    func update(distance: CLProximity) {
+    
+    func updateDistance(distance: CLProximity) {
         lastDistance = distance
         self.objectWillChange.send()
     }
+
+    func updateBeacon(currentMajor: Int, currentMinor: Int) {
+        lastBeacon.major = currentMajor
+        lastBeacon.minor = currentMinor
+        self.objectWillChange.send()
+    }
 }
+
+    
+

@@ -51,15 +51,16 @@ struct SignInView: View {
 
             ZStack {
         
-                Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+                Color(typingEmail || typingPassword ? #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1) : #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) )
                     .onTapGesture {
                         hideKeyboard()
                         self.typingEmail = false
                         self.typingPassword = false
                     }
+                    .animation(.easeInOut(duration: 0.5))
                 
              
-                LottieView(fileName: "Circles")
+                LottieViewLoop(fileName: "Circles")
                     .frame(width: 350, height: 300)
                     .offset(y: -150)
                     .opacity(0.8)

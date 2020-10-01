@@ -2,14 +2,14 @@
 //  LottieView.swift
 //  projectretailapp
 //
-//  Created by Wendell Rodrigues on 9/27/20.
+//  Created by Wendell Rodrigues on 9/26/20.
 //  Copyright © 2020 Wendell. All rights reserved.
 //
 
 import SwiftUI
 import Lottie
 
-struct LottieView: UIViewRepresentable {
+struct LottieViewLoop: UIViewRepresentable {
     
     typealias UIViewType = UIView
     
@@ -17,13 +17,14 @@ struct LottieView: UIViewRepresentable {
     
     
     func makeUIView(context:
-        UIViewRepresentableContext<LottieView>) -> UIView {
+        UIViewRepresentableContext<LottieViewLoop>) -> UIView {
         let view = UIView(frame: .zero)
         
         let animationView = AnimationView()
         let animation = Animation.named(fileName)
         animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
         animationView.play()
         
         animationView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +38,6 @@ struct LottieView: UIViewRepresentable {
         return view
     }
       
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) { }
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieViewLoop>) { }
   
 }

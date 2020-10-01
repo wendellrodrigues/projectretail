@@ -33,8 +33,10 @@
 		B708463A24FDE1AD00687DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */; };
 		B708463D24FDE75400687DE2 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463C24FDE75400687DE2 /* Authentication.swift */; };
 		B708463F24FDE7D200687DE2 /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463E24FDE7D200687DE2 /* SignInButton.swift */; };
+		B726D037252552E000241B4F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D036252552DF00241B4F /* Store.swift */; };
 		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
 		B75E6424252196A500A6B384 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = B75E6423252196A400A6B384 /* Confetti.json */; };
+		B75E642725219B4700A6B384 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E642625219B4700A6B384 /* LottieView.swift */; };
 		B76E920124FDDD3C0052834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920024FDDD3C0052834F /* AppDelegate.swift */; };
 		B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920224FDDD3C0052834F /* SceneDelegate.swift */; };
 		B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76E920624FDDD3F0052834F /* Assets.xcassets */; };
@@ -48,7 +50,7 @@
 		B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */; };
 		B7DE92FD25205C95001887D3 /* Bubbles.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE92FC25205C95001887D3 /* Bubbles.json */; };
 		B7DE931725205D2D001887D3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7DE931625205D2D001887D3 /* Lottie */; };
-		B7DE931B25205DA2001887D3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE931A25205DA2001887D3 /* LottieView.swift */; };
+		B7DE931B25205DA2001887D3 /* LottieViewLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */; };
 		B7DE931F25213567001887D3 /* Circles.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE931E25213567001887D3 /* Circles.json */; };
 		B7DE932625213CBA001887D3 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE932525213CBA001887D3 /* Loading.json */; };
 /* End PBXBuildFile section */
@@ -81,8 +83,10 @@
 		B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B708463C24FDE75400687DE2 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		B708463E24FDE7D200687DE2 /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		B726D036252552DF00241B4F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B75E6423252196A400A6B384 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
+		B75E642625219B4700A6B384 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B76E91FD24FDDD3C0052834F /* projectretailapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectretailapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E920024FDDD3C0052834F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B76E920224FDDD3C0052834F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 		B7DE92F4251FC069001887D3 /* SignUp_PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_PasswordTextField.swift; sourceTree = "<group>"; };
 		B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_EmailTextField.swift; sourceTree = "<group>"; };
 		B7DE92FC25205C95001887D3 /* Bubbles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bubbles.json; sourceTree = "<group>"; };
-		B7DE931A25205DA2001887D3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewLoop.swift; sourceTree = "<group>"; };
 		B7DE931E25213567001887D3 /* Circles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Circles.json; sourceTree = "<group>"; };
 		B7DE932525213CBA001887D3 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectretailapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +143,8 @@
 		B7000C9E2501B85F00B6B6BC /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				B7DE931A25205DA2001887D3 /* LottieView.swift */,
+				B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */,
+				B75E642625219B4700A6B384 /* LottieView.swift */,
 				B708462224FDDFBA00687DE2 /* BlurView.swift */,
 			);
 			path = Styles;
@@ -180,6 +185,7 @@
 				B708461E24FDDFBA00687DE2 /* User.swift */,
 				B708461D24FDDFBA00687DE2 /* SignUpViewModel.swift */,
 				B7000C9F2501B89100B6B6BC /* SignInViewModel.swift */,
+				B726D036252552DF00241B4F /* Store.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 				B77F6CAD251ECF96006EA1F4 /* TextFieldFocusableArea.swift in Sources */,
 				B7AFB2C02508492100C0E34B /* Api.swift in Sources */,
 				B7000C992501B7B100B6B6BC /* SessionStore.swift in Sources */,
+				B726D037252552E000241B4F /* Store.swift in Sources */,
 				B708462424FDDFBA00687DE2 /* CreateAccountText.swift in Sources */,
 				B708462C24FDDFBA00687DE2 /* Helpers.swift in Sources */,
 				B7000CA02501B89100B6B6BC /* SignInViewModel.swift in Sources */,
@@ -452,7 +459,7 @@
 				B708462A24FDDFBA00687DE2 /* SignInView.swift in Sources */,
 				B708461224FDDF9F00687DE2 /* AlreadyHaveAccount.swift in Sources */,
 				B708463124FDDFBA00687DE2 /* SignInTextFields.swift in Sources */,
-				B7DE931B25205DA2001887D3 /* LottieView.swift in Sources */,
+				B7DE931B25205DA2001887D3 /* LottieViewLoop.swift in Sources */,
 				B7000C942501B47000B6B6BC /* StorageService.swift in Sources */,
 				B708463F24FDE7D200687DE2 /* SignInButton.swift in Sources */,
 				B708462B24FDDFBA00687DE2 /* SignIn_EmailTextField.swift in Sources */,
@@ -463,6 +470,7 @@
 				B7000C9D2501B84C00B6B6BC /* Home.swift in Sources */,
 				B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */,
 				B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */,
+				B75E642725219B4700A6B384 /* LottieView.swift in Sources */,
 				B708462724FDDFBA00687DE2 /* SignUpInModifiers.swift in Sources */,
 				B708463024FDDFBA00687DE2 /* Constants.swift in Sources */,
 			);

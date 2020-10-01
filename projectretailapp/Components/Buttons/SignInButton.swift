@@ -47,7 +47,7 @@ struct SignInButton: View {
                         }
                     )
                     .opacity(loading ? 0 : 1)
-                LottieView(fileName: "Loading")
+                LottieViewLoop(fileName: "Loading")
                     .frame(width: 300, height: 90, alignment: .center)
                     .opacity(loading ? 1 : 0)
             }

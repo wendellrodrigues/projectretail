@@ -46,6 +46,7 @@ class Ref {
     
     //Firestore stores
     static var FIRESTORE_COLLECTION_STORES = FIRESTORE_ROOT.collection("stores")
+    static var FIRESTORE_COLLECTION_GROUP_STORES = FIRESTORE_ROOT.collectionGroup("stores")
     static func FIRESTORE_DOCUMENT_STOREID(storeId: String) -> DocumentReference {
         return FIRESTORE_COLLECTION_STORES.document(storeId)
     }
