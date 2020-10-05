@@ -24,7 +24,7 @@ struct Api {
     /**
         Connects the User to an iPad session in store
      */
-    func beginSession() {
+    func beginSession(beacon: String) {
         
         //First check to ssee if the currentBeacon is already in use
         if(currentBeacon.beacon.UUID != "") {
@@ -55,6 +55,10 @@ struct Api {
         
         let jsonData = try! encoder.encode(userToSend)
         
+        //ADD AN ENDPOINT HERE (FOR MORE THAN ONE WEBSOCKET)
+        
+        print(beacon)
+        
         request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { (data, _, _) in
@@ -75,6 +79,8 @@ struct Api {
         
         request.setValue("application/JSON", forHTTPHeaderField: "Accept")
         request.setValue("application/JSON", forHTTPHeaderField: "Content-Type")
+        
+        //ADD AN ENDPOINT HERE (FOR MORE THAN ONE WEBSOCKET)
         
         
         URLSession.shared.dataTask(with: request) { (data, _, _) in

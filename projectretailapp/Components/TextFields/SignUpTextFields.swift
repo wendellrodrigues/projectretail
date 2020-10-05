@@ -28,8 +28,8 @@ struct SignUpTextFields: View {
                                      typingEmail: $typingEmail,
                                      typingPwd: $typingPwd,
                                      typingConfirmPwd: $typingConfirmPwd)
-                .padding([.leading, .top])
-                .padding([.top, .bottom], 3)
+                .padding([.leading])
+                .padding([.top, .bottom])
 
             
             SignUpEmailTextField(email: $email,
@@ -38,7 +38,7 @@ struct SignUpTextFields: View {
                                  typingPwd: $typingPwd,
                                  typingConfirmPwd: $typingConfirmPwd)
                 .padding(.leading)
-                .padding([.top, .bottom], 3)
+                .padding([.top, .bottom])
             
             SignUpPasswordTextField(password: $password,
                                     typingFirstName: $typingFirstName,
@@ -46,7 +46,7 @@ struct SignUpTextFields: View {
                                     typingPwd: $typingPwd,
                                     typingConfirmPwd: $typingConfirmPwd)
                 .padding(.leading)
-                .padding([.top, .bottom], 3)
+                .padding([.top, .bottom])
             
             SignUpConfirmPasswordTextField(confirmPwd: $confirmedPassword,
                                            typingFirstName: $typingFirstName,
@@ -54,7 +54,6 @@ struct SignUpTextFields: View {
                                            typingPwd: $typingPwd,
                                            typingConfirmPwd: $typingConfirmPwd)
                 .padding([.leading, .bottom])
-                .padding([.top, .bottom], 3)
         }
     .modifier(SignUpBoxFieldsModifier())
         

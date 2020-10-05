@@ -60,11 +60,8 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
             let currentMin = beacon.minor.intValue
             
             //Only update on changing proximity
-            if(lastDistance != beacon.proximity) {
-                updateDistance(distance: beacon.proximity)
-                updateBeacon(currentMajor: currentMaj, currentMinor: currentMin)
-            }
-            
+            updateDistance(distance: beacon.proximity)
+            updateBeacon(currentMajor: currentMaj, currentMinor: currentMin)
         }
         
         //If beacon is not found

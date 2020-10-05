@@ -29,7 +29,6 @@ struct SignUpFirstNameTextField: View {
             }
             .frame(minWidth: 50, minHeight: 40)
             .disableAutocorrection(true)
-            .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
             .keyboardType(.emailAddress)
             .font(.system(size: 14.5, weight: .medium, design: .default))
             .padding(.leading, typingFirstName ? 10 : 40)

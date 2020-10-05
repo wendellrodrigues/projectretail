@@ -27,10 +27,4 @@ class StorageService {
             onSuccess(user)
         }
     }
-    
-    
-    
-    
-    
-    
 }

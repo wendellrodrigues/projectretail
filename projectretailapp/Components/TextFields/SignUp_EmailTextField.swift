@@ -21,20 +21,19 @@ struct SignUpEmailTextField: View {
         
         HStack {
             TextField(TXT_EMAIL, text: $email, onCommit: {self.typingEmail = false})
-                //.textFieldStyle(PlainTextFieldStyle())
-                //.frame(minWidth: 50, minHeight: 40)
-                .disableAutocorrection(true)
-                .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                .keyboardType(.emailAddress)
-                .font(.system(size: 14.5, weight: .medium, design: .default))
-                .padding(.leading, typingEmail ? 10 : 40)
-                .textFieldFocusableArea()
                 .onTapGesture {
                     self.typingFirstName = false
                     self.typingEmail = true
                     self.typingPwd = false
                     self.typingConfirmPwd = false
                 }
+                .disableAutocorrection(true)
+                .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                .keyboardType(.emailAddress)
+                .font(.system(size: 14.5, weight: .medium, design: .default))
+                .padding(.leading, typingEmail ? 10 : 40)
+                .textFieldFocusableArea()
+                
     }
         .overlay(
             HStack {
