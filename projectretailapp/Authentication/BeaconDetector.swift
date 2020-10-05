@@ -19,13 +19,12 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     var objectWillChange = ObservableObjectPublisher()
     var locationManager: CLLocationManager?
 
-    //Create function to find these dynamically
+    //Create function to find this dynamically (GEO)
     var beaconUUID: UUID = UUID(uuidString: "7777772E-6B6B-6D63-6E2E-636F6D000001")!
-//    var beaconMajor: CLBeaconMajorValue = 3838
-//    var beaconMinor: CLBeaconMinorValue = 4949
+
 
     @Published var lastDistance     = CLProximity.unknown
-    @Published var lastBeacon       = Beacon(uuid: "7777772E-6B6B-6D63-6E2E-636F6D000001", major: 0, minor: 0)
+    @Published var lastBeacon       = BeaconRef(uuid: "7777772E-6B6B-6D63-6E2E-636F6D000001", major: 0, minor: 0)
   
 
     override init() {
@@ -59,8 +58,13 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         if let beacon = beacons.first {
             let currentMaj = beacon.major.intValue
             let currentMin = beacon.minor.intValue
-            updateDistance(distance: beacon.proximity)
-            updateBeacon(currentMajor: currentMaj, currentMinor: currentMin)
+            
+            //Only update on changing proximity
+            if(lastDistance != beacon.proximity) {
+                updateDistance(distance: beacon.proximity)
+                updateBeacon(currentMajor: currentMaj, currentMinor: currentMin)
+            }
+            
         }
         
         //If beacon is not found

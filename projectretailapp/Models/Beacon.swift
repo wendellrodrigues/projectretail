@@ -8,14 +8,19 @@
 
 import Foundation
 
-struct Store: Encodable, Decodable {
-    var uid: String
-    var beacons: Array<Beacon> = []
+struct Beacon {
+    var UUID: String
+    var major: String
+    var minor: String
+    var name: String
+    var sizes: [Any]
 }
 
-
-struct Beacon: Encodable, Decodable {
+//Local Beacon Objects
+struct BeaconRef: Encodable, Decodable {
     var uuid: String
     var major: Int
     var minor: Int
 }
+
+

@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 
 struct UserModel: Codable {
@@ -18,13 +19,20 @@ struct UserModel: Codable {
 struct Api {
     
     @ObservedObject var session: SessionStore
-
+    @ObservedObject var currentBeacon: CurrentBeacon
+    
     /**
         Connects the User to an iPad session in store
      */
     func beginSession() {
-
-        guard let url = URL(string: "http://10.0.0.249:5000/routes/getUser") else {
+        
+        //First check to ssee if the currentBeacon is already in use
+        if(currentBeacon.beacon.UUID != "") {
+            return
+        }
+        
+        print("beginning session")
+        guard let url = URL(string: "http://10.0.0.250:5000/routes/getUser") else {
             print("No URL Found")
             return
         }
@@ -35,11 +43,9 @@ struct Api {
         request.setValue("application/JSON", forHTTPHeaderField: "Accept")
         request.setValue("application/JSON", forHTTPHeaderField: "Content-Type")
         
-        //Sends UserId
         guard let userId = session.userSession?.uid else {
             print("no user ID Found")
             return
-            
         }
         
         let userToSend = UserModel(id: userId)
@@ -61,7 +67,8 @@ struct Api {
        Disconnects the User from an iPad session in store
     */
     func endSession() {
-        guard let url = URL(string: "http://10.0.0.249:5000/routes/clearUser") else { return }
+        print("ending session")
+        guard let url = URL(string: "http://10.0.0.250:5000/routes/clearUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -77,10 +84,9 @@ struct Api {
     }
     
     
-   
-        
-        
-        
-        
+    
+    
+    
+    
+    
 }
-

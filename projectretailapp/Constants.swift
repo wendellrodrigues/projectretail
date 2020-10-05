@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 import Firebase
+import FirebaseFirestoreSwift
 //import FirebaseStorage
 
 
@@ -50,6 +51,9 @@ class Ref {
     static func FIRESTORE_DOCUMENT_STOREID(storeId: String) -> DocumentReference {
         return FIRESTORE_COLLECTION_STORES.document(storeId)
     }
+    
+    //Firestore beacons
+    static var FIRESTORE_COLLECTION_BEACONS = FIRESTORE_ROOT.collection("beacons")
     
     
 }
