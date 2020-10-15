@@ -32,7 +32,7 @@ struct Api {
         }
         
         print("beginning session")
-        guard let url = URL(string: "http://10.0.0.250:5000/routes/getUser") else {
+        guard let url = URL(string: "http://10.0.0.249:5000/routes/getUser") else {
             print("No URL Found")
             return
         }
@@ -56,9 +56,7 @@ struct Api {
         let jsonData = try! encoder.encode(userToSend)
         
         //ADD AN ENDPOINT HERE (FOR MORE THAN ONE WEBSOCKET)
-        
-        print(beacon)
-        
+
         request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { (data, _, _) in
@@ -72,7 +70,7 @@ struct Api {
     */
     func endSession() {
         print("ending session")
-        guard let url = URL(string: "http://10.0.0.250:5000/routes/clearUser") else { return }
+        guard let url = URL(string: "http://10.0.0.249:5000/routes/clearUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

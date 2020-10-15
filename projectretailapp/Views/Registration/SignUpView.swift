@@ -23,6 +23,8 @@ struct SignUpView: View {
     
     @ObservedObject var signUpViewModel = SignUpViewModel()
     @ObservedObject var viewRouter: ViewRouter
+    @ObservedObject var sizingPrefs: SizingPreferences
+    
     
     
     //Hides Keyboard
@@ -115,7 +117,12 @@ struct SignUpView: View {
                     Text(signUpViewModel.errorString)
                            .modifier(ErrorMessageModifier())
                     
-                    SignUpButton(success: $success, loading: $loading, action: register)
+                    SignUpButton(success: $success,
+                                 loading: $loading,
+                                 action: {
+                                    self.viewRouter.currentPage = "sexPreferences"
+                                    register()
+                    })
             
                     AlreadyHaveAccount()
                         .onTapGesture {
@@ -146,56 +153,3 @@ struct SignUpView: View {
         }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//.modifier(BackgroundImageModifier(typing: typing))
-//   .onTapGesture {
-//        self.hideKeyboard()
-//        self.typing = false
-//        self.areErrors = false
-//        self.signUpViewModel.errorString = "Passwords must be in between 6 and 20 characters"
-//    }
-//
-//VStack {
-//
-//
-//    SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typing: $typing)
-//
-//
-//    Text(signUpViewModel.errorString)
-//        .modifier(ErrorMessageModifier())
-//
-//    SignUpButton(action: register)
-//
-//    NavigationLink(destination: SignInView()) {
-//        AlreadyHaveAccount(typing: $typing)
-//    }
-//    .animation(.none)
-//    .navigationBarTitle("")
-//    .navigationBarHidden(true)

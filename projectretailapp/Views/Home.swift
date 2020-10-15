@@ -10,6 +10,7 @@ import Combine
 import CoreLocation
 import SwiftUI
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 struct Home: View {
     
@@ -19,6 +20,7 @@ struct Home: View {
     @EnvironmentObject var session: SessionStore
     
     @State var currentBeaconDistances: Array<CLProximity> = []
+
     
     //Use this for simple beacon obj (if needed)
     //@State var currentBeaconObj = Beacon(UUID: "", major: "", minor: "", name: "", sizes: [])
@@ -30,38 +32,44 @@ struct Home: View {
         session.logout()
     }
     
-    func validate(lastDistance: CLProximity) {
+    func validate(lastDistance: CLProximity, loggedIn: Bool) {
         
         let lastBeaconUID  = self.detector.lastBeacon.uuid
         let lastBeaconMaj  = self.detector.lastBeacon.major
         let lastBeaconMin  = self.detector.lastBeacon.minor
         
         //Array of 5 elements. Remove after 5
+        //This array solves the issue of "wild reads"
         if(currentBeaconDistances.count >= 5) {
             currentBeaconDistances.removeFirst()
         }
         
         currentBeaconDistances.append(lastDistance)
-        
+
         let countImmediate = currentBeaconDistances.reduce(0) { $1 == .immediate ? $0 + 1 : $0 }
         let countNear = currentBeaconDistances.reduce(0) { $1 == .near ? $0 + 1 : $0 }
         let countFar = currentBeaconDistances.reduce(0) { $1 == .far ? $0 + 1 : $0 }
         let countUnknown = currentBeaconDistances.reduce(0) { $1 == .unknown ? $0 + 1 : $0 }
         
-//        print("Immediate: \(countImmediate)")
-//        print("Near: \(countNear)")
-//        print("Far: \(countFar)")
-//        print("unknown: \(countUnknown)")
+        print("Immediate: \(countImmediate)")
+        print("Near: \(countNear)")
+        print("Far: \(countFar)")
+        print("unknown: \(countUnknown)")
         
         //If not the same exact beacon and distance is near
         if(countImmediate > 3 || countNear > 3) {
-            if(lastDistance.rawValue <= 2) {
                 //Beacon loads on phone no matter what
                 currentBeacon.loadBeacon(major: lastBeaconMaj, minor: lastBeaconMin, uid: lastBeaconUID)
-                
+
                 //Begin sessions only works if current beacon isnt occupied by other user (server/helpers.js)
+
+                print("logged in: \(loggedIn)")
+
                 Api.init(session: self.session,  currentBeacon: self.currentBeacon).beginSession(beacon: "hello")
-            }
+
+                if(session.isLoggedIn == false) {
+                    Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
+                }
         }
 
         //If distance is far
@@ -73,6 +81,7 @@ struct Home: View {
                 Api.init(session: self.session,  currentBeacon: self.currentBeacon).endSession()
             }
         }
+ 
     }
     
     var body: some View {
@@ -88,13 +97,26 @@ struct Home: View {
             
             Text(String(currentBeacon.beacon.UUID))
             
+//            Button(action: {
+//                StorageService.updateSizingPreferences(
+//                    userId: session.userSession?.uid ?? "",
+//                    maleShirtSize: 5,
+//                    maleWaistSize: 5,
+//                    maleLengthSize: 5)
+//            }) {
+//                Text("Update Sizing")
+//            }.padding(.bottom, 20)
+            
             Button(action: {
-                //End websocket connection
-                Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
                 //Unload the beacon
                 currentBeacon.unloadBeacon()
                 //Logout user on phone
                 self.logout()
+                //End websocket connection
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
+                }
+                
                
             }) {
                Text("Logout")
@@ -102,13 +124,12 @@ struct Home: View {
         }
         //Handles Changes to Detector
         .onReceive(detector.$lastDistance) {_ in
-            validate(lastDistance: detector.lastDistance)
+            validate(lastDistance: detector.lastDistance, loggedIn: session.isLoggedIn)
         }
         
     }
-    
+
 }
-    
 
 
 

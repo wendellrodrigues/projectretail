@@ -26,6 +26,9 @@ let TXT_REGISTER_BUTTON = "Register"
 let TXT_ALREADY_HAVE_ACCOUNT = "Already have an account?"
 let PWD_HELP = "Passwords must be between 6 and 20 characters"
 
+//Sizing
+let TEXT_CONTINUE = "CONTINUE"
+
 
 //Sign In
 let TXT_SIGN_IN = "SIGN IN"

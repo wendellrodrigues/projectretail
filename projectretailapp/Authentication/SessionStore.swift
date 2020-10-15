@@ -14,6 +14,7 @@ class SessionStore: ObservableObject {
     
     @Published var isLoggedIn = false
     @Published var userSession: User?
+    @Published var hasEnteredSizes = false
     
     
     var handle: AuthStateDidChangeListenerHandle?
@@ -28,6 +29,12 @@ class SessionStore: ObservableObject {
                 firestoreUserId.getDocument { (document, error) in
                     if let dict = document?.data() {
                         guard let decoderUser = try? User.init(fromDictionary: dict) else { return }
+                        
+                        //Attaches boolean that reads from the database whether a user has entered their size preferences
+                        //This is used to route the user to either home page or enter size sequence
+                        let enteredSize = dict["hasEnteredSizingPreferences"] as? Bool ?? false
+                        self.hasEnteredSizes = enteredSize
+                        
                         self.userSession = decoderUser //Store user to user session
                         self.isLoggedIn = true
                     }
@@ -44,7 +51,7 @@ class SessionStore: ObservableObject {
         do {
             try Auth.auth().signOut() //Will change addStateDidChangeListener
         } catch {
-            
+            print(error)
         }
     }
     

@@ -13,6 +13,8 @@ struct User: Encodable, Decodable {
     var firstName: String
     var email: String
     
+    var hasEnteredSizingPreferences: Bool
+    
     //For user styles (predicted)
     var styles: Array<String> = []
 }

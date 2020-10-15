@@ -33,8 +33,11 @@
 		B708463A24FDE1AD00687DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */; };
 		B708463D24FDE75400687DE2 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463C24FDE75400687DE2 /* Authentication.swift */; };
 		B708463F24FDE7D200687DE2 /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463E24FDE7D200687DE2 /* SignInButton.swift */; };
+		B70D5E202537BD910020C957 /* SexPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D5E1F2537BD910020C957 /* SexPreference.swift */; };
+		B70D5E232537C1870020C957 /* SizingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D5E222537C1870020C957 /* SizingPreferences.swift */; };
 		B726D037252552E000241B4F /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D036252552DF00241B4F /* Beacon.swift */; };
 		B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D05225296F0C00241B4F /* CurrentBeacon.swift */; };
+		B72AFE86253800800025EE94 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE85253800800025EE94 /* HomeView.swift */; };
 		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
 		B75E6424252196A500A6B384 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = B75E6423252196A400A6B384 /* Confetti.json */; };
 		B75E642725219B4700A6B384 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E642625219B4700A6B384 /* LottieView.swift */; };
@@ -84,8 +87,11 @@
 		B708463924FDE1AD00687DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B708463C24FDE75400687DE2 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		B708463E24FDE7D200687DE2 /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		B70D5E1F2537BD910020C957 /* SexPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexPreference.swift; sourceTree = "<group>"; };
+		B70D5E222537C1870020C957 /* SizingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingPreferences.swift; sourceTree = "<group>"; };
 		B726D036252552DF00241B4F /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		B726D05225296F0C00241B4F /* CurrentBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBeacon.swift; sourceTree = "<group>"; };
+		B72AFE85253800800025EE94 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B75E6423252196A400A6B384 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
 		B75E642625219B4700A6B384 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 				B7000C932501B47000B6B6BC /* StorageService.swift */,
 				B7000C952501B5C500B6B6BC /* Extensions.swift */,
 				B7000C982501B7B100B6B6BC /* SessionStore.swift */,
+				B70D5E222537C1870020C957 /* SizingPreferences.swift */,
 				B77FAA1325105F3900F86098 /* BeaconDetector.swift */,
 			);
 			path = Authentication;
@@ -199,8 +206,9 @@
 				B75E64092521883300A6B384 /* ViewRouter.swift */,
 				B7000C9A2501B82800B6B6BC /* Init.swift */,
 				B7000C9C2501B84C00B6B6BC /* Home.swift */,
+				B72AFE85253800800025EE94 /* HomeView.swift */,
 				B708461A24FDDFB900687DE2 /* SignInView.swift */,
-				B708461324FDDFB900687DE2 /* SignUpView.swift */,
+				B75B9BE32537B194004A12FF /* Registration */,
 				B7000C9E2501B85F00B6B6BC /* Styles */,
 			);
 			path = Views;
@@ -221,6 +229,15 @@
 				B708461C24FDDFBA00687DE2 /* Queue.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B75B9BE32537B194004A12FF /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				B708461324FDDFB900687DE2 /* SignUpView.swift */,
+				B70D5E1F2537BD910020C957 /* SexPreference.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		B76E91F424FDDD3C0052834F = {
@@ -449,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77F6CAD251ECF96006EA1F4 /* TextFieldFocusableArea.swift in Sources */,
+				B70D5E202537BD910020C957 /* SexPreference.swift in Sources */,
 				B7AFB2C02508492100C0E34B /* Api.swift in Sources */,
 				B7000C992501B7B100B6B6BC /* SessionStore.swift in Sources */,
 				B726D037252552E000241B4F /* Beacon.swift in Sources */,
@@ -460,6 +478,7 @@
 				B708462E24FDDFBA00687DE2 /* User.swift in Sources */,
 				B708462F24FDDFBA00687DE2 /* SignUpButton.swift in Sources */,
 				B708462324FDDFBA00687DE2 /* SignUpView.swift in Sources */,
+				B72AFE86253800800025EE94 /* HomeView.swift in Sources */,
 				B7000C9B2501B82800B6B6BC /* Init.swift in Sources */,
 				B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */,
 				B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */,
@@ -482,6 +501,7 @@
 				B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */,
 				B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */,
 				B75E642725219B4700A6B384 /* LottieView.swift in Sources */,
+				B70D5E232537C1870020C957 /* SizingPreferences.swift in Sources */,
 				B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */,
 				B708462724FDDFBA00687DE2 /* SignUpInModifiers.swift in Sources */,
 				B708463024FDDFBA00687DE2 /* Constants.swift in Sources */,
