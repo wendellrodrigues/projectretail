@@ -16,6 +16,7 @@ struct Home: View {
     
     @ObservedObject var detector = BeaconDetector()
     @ObservedObject var currentBeacon = CurrentBeacon()
+    @EnvironmentObject var viewRouter: ViewRouter
     
     @EnvironmentObject var session: SessionStore
     
@@ -28,42 +29,42 @@ struct Home: View {
     func logout() {
         //Set detector's last distance to unknown
         detector.lastDistance = .unknown
+        //Change viewRouter
+        viewRouter.currentPage = "signin"
         //Log out of phone session
         session.logout()
     }
     
     func validate(lastDistance: CLProximity, loggedIn: Bool) {
-        
+
         let lastBeaconUID  = self.detector.lastBeacon.uuid
         let lastBeaconMaj  = self.detector.lastBeacon.major
         let lastBeaconMin  = self.detector.lastBeacon.minor
-        
+
         //Array of 5 elements. Remove after 5
         //This array solves the issue of "wild reads"
         if(currentBeaconDistances.count >= 5) {
             currentBeaconDistances.removeFirst()
         }
-        
+
         currentBeaconDistances.append(lastDistance)
 
         let countImmediate = currentBeaconDistances.reduce(0) { $1 == .immediate ? $0 + 1 : $0 }
         let countNear = currentBeaconDistances.reduce(0) { $1 == .near ? $0 + 1 : $0 }
         let countFar = currentBeaconDistances.reduce(0) { $1 == .far ? $0 + 1 : $0 }
         let countUnknown = currentBeaconDistances.reduce(0) { $1 == .unknown ? $0 + 1 : $0 }
-        
-        print("Immediate: \(countImmediate)")
-        print("Near: \(countNear)")
-        print("Far: \(countFar)")
-        print("unknown: \(countUnknown)")
-        
+//
+//        print("Immediate: \(countImmediate)")
+//        print("Near: \(countNear)")
+//        print("Far: \(countFar)")
+//        print("unknown: \(countUnknown)")
+
         //If not the same exact beacon and distance is near
-        if(countImmediate > 3 || countNear > 3) {
+        if(countImmediate > 1 || countNear > 1) {
                 //Beacon loads on phone no matter what
                 currentBeacon.loadBeacon(major: lastBeaconMaj, minor: lastBeaconMin, uid: lastBeaconUID)
 
                 //Begin sessions only works if current beacon isnt occupied by other user (server/helpers.js)
-
-                print("logged in: \(loggedIn)")
 
                 Api.init(session: self.session,  currentBeacon: self.currentBeacon).beginSession(beacon: "hello")
 
@@ -81,7 +82,7 @@ struct Home: View {
                 Api.init(session: self.session,  currentBeacon: self.currentBeacon).endSession()
             }
         }
- 
+
     }
     
     var body: some View {
@@ -97,15 +98,18 @@ struct Home: View {
             
             Text(String(currentBeacon.beacon.UUID))
             
-//            Button(action: {
-//                StorageService.updateSizingPreferences(
-//                    userId: session.userSession?.uid ?? "",
-//                    maleShirtSize: 5,
-//                    maleWaistSize: 5,
-//                    maleLengthSize: 5)
-//            }) {
-//                Text("Update Sizing")
-//            }.padding(.bottom, 20)
+            Button(action: {
+                StorageService.updateSizingPreferences(
+                    userId: session.userSession?.uid ?? "",
+                    maleShirtSize: 5,
+                    maleWaistSize: 5,
+                    maleLengthSize: 5,
+                    femalePantsSize: 5,
+                    femaleShirtSize: 5
+                    )
+            }) {
+                Text("Update Sizing")
+            }.padding(.bottom, 20)
             
             Button(action: {
                 //Unload the beacon
@@ -126,6 +130,7 @@ struct Home: View {
         .onReceive(detector.$lastDistance) {_ in
             validate(lastDistance: detector.lastDistance, loggedIn: session.isLoggedIn)
         }
+
         
     }
 

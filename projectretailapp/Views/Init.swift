@@ -12,14 +12,14 @@ struct Init: View {
     
     @State var page = "signin"
     
-    @ObservedObject var viewRouter: ViewRouter
-    @ObservedObject var sizingPrefs: SizingPreferences
-    
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var sizingPreferences: SizingPreferences
     @EnvironmentObject var session: SessionStore
     
-
     func listen() {
+        print("viewRouter current page: \(viewRouter.currentPage)")
         session.listenAuthenticationState()
+        print("viewRouter current page: \(viewRouter.currentPage)")
     }
     
     var body: some View {
@@ -28,8 +28,8 @@ struct Init: View {
                 HomeView()
             }
             else {
-                if(viewRouter.currentPage == "register") { SignUpView(viewRouter: viewRouter, sizingPrefs: sizingPrefs)}
-                else if(viewRouter.currentPage == "signin") { SignInView(viewRouter: viewRouter) }
+                if(viewRouter.currentPage == "register") { SignUpView() }
+                else if(viewRouter.currentPage == "signin") { SignInView() }
             }
         }.onAppear(perform: listen)
     }

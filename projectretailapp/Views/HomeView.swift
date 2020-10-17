@@ -11,21 +11,21 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var sizingPreferences: SizingPreferences
+    
+    @State var male: Bool = false
+    
     
     var body: some View {
-        
         if(session.hasEnteredSizes == true) {
             Home()
         } else {
-            SexPreference()
+            if(viewRouter.currentPage == "sexPreference") { SexPreference() }
+            else if(viewRouter.currentPage == "male") { MaleSizePreference() }
+            else if(viewRouter.currentPage == "female") { FemaleSizePreference() }
+            else { SexPreference() }
         }
-        
-       
-    }
-}
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

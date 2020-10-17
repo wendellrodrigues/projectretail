@@ -38,6 +38,7 @@
 		B726D037252552E000241B4F /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D036252552DF00241B4F /* Beacon.swift */; };
 		B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D05225296F0C00241B4F /* CurrentBeacon.swift */; };
 		B72AFE86253800800025EE94 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE85253800800025EE94 /* HomeView.swift */; };
+		B72AFE8925383DBB0025EE94 /* ValidateBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */; };
 		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
 		B75E6424252196A500A6B384 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = B75E6423252196A400A6B384 /* Confetti.json */; };
 		B75E642725219B4700A6B384 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E642625219B4700A6B384 /* LottieView.swift */; };
@@ -49,6 +50,8 @@
 		B77F6CAD251ECF96006EA1F4 /* TextFieldFocusableArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F6CAC251ECF96006EA1F4 /* TextFieldFocusableArea.swift */; };
 		B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FAA1325105F3900F86098 /* BeaconDetector.swift */; };
 		B7AFB2C02508492100C0E34B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AFB2BF2508492100C0E34B /* Api.swift */; };
+		B7BA40BC253A80E200A27F59 /* MaleSizePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40BB253A80E200A27F59 /* MaleSizePreference.swift */; };
+		B7BA40BF253A80F000A27F59 /* FemaleSizePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40BE253A80F000A27F59 /* FemaleSizePreference.swift */; };
 		B7DE92ED251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92EC251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift */; };
 		B7DE92F5251FC069001887D3 /* SignUp_PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92F4251FC069001887D3 /* SignUp_PasswordTextField.swift */; };
 		B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */; };
@@ -92,6 +95,7 @@
 		B726D036252552DF00241B4F /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		B726D05225296F0C00241B4F /* CurrentBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBeacon.swift; sourceTree = "<group>"; };
 		B72AFE85253800800025EE94 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateBeacon.swift; sourceTree = "<group>"; };
 		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B75E6423252196A400A6B384 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
 		B75E642625219B4700A6B384 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 		B77F6CAC251ECF96006EA1F4 /* TextFieldFocusableArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFocusableArea.swift; sourceTree = "<group>"; };
 		B77FAA1325105F3900F86098 /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 		B7AFB2BF2508492100C0E34B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		B7BA40BB253A80E200A27F59 /* MaleSizePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaleSizePreference.swift; sourceTree = "<group>"; };
+		B7BA40BE253A80F000A27F59 /* FemaleSizePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FemaleSizePreference.swift; sourceTree = "<group>"; };
 		B7DE92EC251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_ConfirmPasswordTextField.swift; sourceTree = "<group>"; };
 		B7DE92F4251FC069001887D3 /* SignUp_PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_PasswordTextField.swift; sourceTree = "<group>"; };
 		B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_EmailTextField.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 			children = (
 				B708463C24FDE75400687DE2 /* Authentication.swift */,
 				B7000C932501B47000B6B6BC /* StorageService.swift */,
+				B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */,
 				B7000C952501B5C500B6B6BC /* Extensions.swift */,
 				B7000C982501B7B100B6B6BC /* SessionStore.swift */,
 				B70D5E222537C1870020C957 /* SizingPreferences.swift */,
@@ -236,6 +243,8 @@
 			children = (
 				B708461324FDDFB900687DE2 /* SignUpView.swift */,
 				B70D5E1F2537BD910020C957 /* SexPreference.swift */,
+				B7BA40BB253A80E200A27F59 /* MaleSizePreference.swift */,
+				B7BA40BE253A80F000A27F59 /* FemaleSizePreference.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -485,6 +494,8 @@
 				B7DE92ED251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift in Sources */,
 				B7000CA42503029700B6B6BC /* SignUp_FirstNameTextField.swift in Sources */,
 				B7000C962501B5C500B6B6BC /* Extensions.swift in Sources */,
+				B7BA40BC253A80E200A27F59 /* MaleSizePreference.swift in Sources */,
+				B7BA40BF253A80F000A27F59 /* FemaleSizePreference.swift in Sources */,
 				B708462D24FDDFBA00687DE2 /* SignUpViewModel.swift in Sources */,
 				B708462A24FDDFBA00687DE2 /* SignInView.swift in Sources */,
 				B708461224FDDF9F00687DE2 /* AlreadyHaveAccount.swift in Sources */,
@@ -500,6 +511,7 @@
 				B7000C9D2501B84C00B6B6BC /* Home.swift in Sources */,
 				B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */,
 				B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */,
+				B72AFE8925383DBB0025EE94 /* ValidateBeacon.swift in Sources */,
 				B75E642725219B4700A6B384 /* LottieView.swift in Sources */,
 				B70D5E232537C1870020C957 /* SizingPreferences.swift in Sources */,
 				B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */,

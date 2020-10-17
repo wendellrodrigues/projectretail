@@ -22,10 +22,7 @@ struct SignUpView: View {
     @State var success: Bool = false
     
     @ObservedObject var signUpViewModel = SignUpViewModel()
-    @ObservedObject var viewRouter: ViewRouter
-    @ObservedObject var sizingPrefs: SizingPreferences
-    
-    
+    @EnvironmentObject var viewRouter: ViewRouter
     
     //Hides Keyboard
     func hideKeyboard() {
@@ -35,6 +32,7 @@ struct SignUpView: View {
     
     //Cleans all text fields
     func clean() {
+        self.signUpViewModel.firstName = ""
         self.signUpViewModel.email = ""
         self.signUpViewModel.password = ""
         self.signUpViewModel.confirmedPassword = ""
@@ -58,7 +56,8 @@ struct SignUpView: View {
                 self.loading = false
                 self.clean()
                 self.success = true
-            
+                viewRouter.currentPage = "sexPreference"
+                print("changed view to sex preference: \(viewRouter.currentPage)")
             }) {(errorMessage) in
                 self.loading = false
                 self.areErrors = true
@@ -85,18 +84,18 @@ struct SignUpView: View {
                         self.typingConfirmPwd = false
                     }
                 
-                LottieView(fileName: "Circles")
-                    .frame(width: 250, height: 250)
-                    .offset(y: -220)
-                    .opacity(0.8)
-                    .blur(radius: 10)
-                    .onTapGesture {
-                        hideKeyboard()
-                        self.typingFirstName = false
-                        self.typingEmail = false
-                        self.typingPwd = false
-                        self.typingConfirmPwd = false
-                    }
+//                LottieView(fileName: "Circles")
+//                    .frame(width: 250, height: 250)
+//                    .offset(y: -220)
+//                    .opacity(0.8)
+//                    .blur(radius: 10)
+//                    .onTapGesture {
+//                        hideKeyboard()
+//                        self.typingFirstName = false
+//                        self.typingEmail = false
+//                        self.typingPwd = false
+//                        self.typingConfirmPwd = false
+//                    }
                 
                 Image("Logo")
                     .resizable()
@@ -120,7 +119,6 @@ struct SignUpView: View {
                     SignUpButton(success: $success,
                                  loading: $loading,
                                  action: {
-                                    self.viewRouter.currentPage = "sexPreferences"
                                     register()
                     })
             

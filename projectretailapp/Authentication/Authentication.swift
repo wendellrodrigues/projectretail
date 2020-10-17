@@ -30,11 +30,13 @@ class AuthService {
             
             guard let userId = authData?.user.uid else { return }
             let metadata = StorageMetadata()
-            
+
             StorageService.storeUser(userId: userId, firstName: firstName, email: email, metadata: metadata, onSuccess: onSuccess, onError: onError)
         }
     }
     
+    
+
     static func signInUser(
         email: String,
         password: String,

@@ -113,6 +113,10 @@ struct SignInButtonModifier: ViewModifier {
 }
 
 struct ContinueButtonLargeModifier: ViewModifier {
+    
+    var tap: Bool
+    let press: Bool
+    
     func body(content: Content) -> some View {
         content
             .font(.system(size: 16, weight: .semibold))
@@ -137,6 +141,7 @@ struct ContinueButtonLargeModifier: ViewModifier {
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
             .shadow(color: Color(#colorLiteral(red: 0.5936584892, green: 0.7996755037, blue: 1, alpha: 1)), radius: 20, x: 20, y: 20)
             .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 20, x: -20, y: -20)
+            .animation(.easeInOut)
     }
 }
 
