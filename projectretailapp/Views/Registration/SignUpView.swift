@@ -75,7 +75,11 @@ struct SignUpView: View {
 
             ZStack {
                 
-                Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
+                Color(
+                    typingFirstName ||
+                    typingEmail ||
+                    typingPwd ||
+                    typingConfirmPwd ? #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1) : #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) )
                     .onTapGesture {
                         hideKeyboard()
                         self.typingFirstName = false
@@ -99,8 +103,8 @@ struct SignUpView: View {
                 
                 Image("Logo")
                     .resizable()
-                    .frame(width:90, height: 150, alignment: .center)
-                    .offset(y: -200)
+                    .frame(width: 75, height: 150, alignment: .center)
+                    .offset(y: -250)
                     .onTapGesture {
                         print("trying to close keyboard")
                         hideKeyboard()
@@ -126,7 +130,7 @@ struct SignUpView: View {
                         .onTapGesture {
                             self.viewRouter.currentPage = "signin"
                         }
-                        .padding(.bottom, 240)
+                        .padding(.bottom, 280)
                 }
                 .background(Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
                 .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
