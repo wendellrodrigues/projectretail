@@ -52,6 +52,9 @@
 		B7AFB2C02508492100C0E34B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AFB2BF2508492100C0E34B /* Api.swift */; };
 		B7BA40BC253A80E200A27F59 /* MaleSizePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40BB253A80E200A27F59 /* MaleSizePreference.swift */; };
 		B7BA40BF253A80F000A27F59 /* FemaleSizePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40BE253A80F000A27F59 /* FemaleSizePreference.swift */; };
+		B7BA40C5253E866B00A27F59 /* Identifiables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40C4253E866B00A27F59 /* Identifiables.swift */; };
+		B7BA40C8253E939500A27F59 /* SizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40C7253E939500A27F59 /* SizeButton.swift */; };
+		B7BA40CB253E977F00A27F59 /* ShirtSizePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40CA253E977F00A27F59 /* ShirtSizePreferences.swift */; };
 		B7DE92ED251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92EC251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift */; };
 		B7DE92F5251FC069001887D3 /* SignUp_PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92F4251FC069001887D3 /* SignUp_PasswordTextField.swift */; };
 		B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */; };
@@ -111,6 +114,9 @@
 		B7AFB2BF2508492100C0E34B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B7BA40BB253A80E200A27F59 /* MaleSizePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaleSizePreference.swift; sourceTree = "<group>"; };
 		B7BA40BE253A80F000A27F59 /* FemaleSizePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FemaleSizePreference.swift; sourceTree = "<group>"; };
+		B7BA40C4253E866B00A27F59 /* Identifiables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiables.swift; sourceTree = "<group>"; };
+		B7BA40C7253E939500A27F59 /* SizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeButton.swift; sourceTree = "<group>"; };
+		B7BA40CA253E977F00A27F59 /* ShirtSizePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtSizePreferences.swift; sourceTree = "<group>"; };
 		B7DE92EC251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_ConfirmPasswordTextField.swift; sourceTree = "<group>"; };
 		B7DE92F4251FC069001887D3 /* SignUp_PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_PasswordTextField.swift; sourceTree = "<group>"; };
 		B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_EmailTextField.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 			children = (
 				B708461F24FDDFBA00687DE2 /* SignUpButton.swift */,
 				B708463E24FDE7D200687DE2 /* SignInButton.swift */,
+				B7BA40C7253E939500A27F59 /* SizeButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				B708461124FDDF9F00687DE2 /* AlreadyHaveAccount.swift */,
+				B7BA40CA253E977F00A27F59 /* ShirtSizePreferences.swift */,
 				B708461424FDDFB900687DE2 /* CreateAccountText.swift */,
 				B708463424FDE01100687DE2 /* Buttons */,
 				B708463324FDE00C00687DE2 /* TextFields */,
@@ -234,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				B708461C24FDDFBA00687DE2 /* Queue.swift */,
+				B7BA40C4253E866B00A27F59 /* Identifiables.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -490,11 +499,13 @@
 				B72AFE86253800800025EE94 /* HomeView.swift in Sources */,
 				B7000C9B2501B82800B6B6BC /* Init.swift in Sources */,
 				B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */,
+				B7BA40CB253E977F00A27F59 /* ShirtSizePreferences.swift in Sources */,
 				B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */,
 				B7DE92ED251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift in Sources */,
 				B7000CA42503029700B6B6BC /* SignUp_FirstNameTextField.swift in Sources */,
 				B7000C962501B5C500B6B6BC /* Extensions.swift in Sources */,
 				B7BA40BC253A80E200A27F59 /* MaleSizePreference.swift in Sources */,
+				B7BA40C8253E939500A27F59 /* SizeButton.swift in Sources */,
 				B7BA40BF253A80F000A27F59 /* FemaleSizePreference.swift in Sources */,
 				B708462D24FDDFBA00687DE2 /* SignUpViewModel.swift in Sources */,
 				B708462A24FDDFBA00687DE2 /* SignInView.swift in Sources */,
@@ -507,6 +518,7 @@
 				B708462524FDDFBA00687DE2 /* SignUpTextFields.swift in Sources */,
 				B7DE92F5251FC069001887D3 /* SignUp_PasswordTextField.swift in Sources */,
 				B708462924FDDFBA00687DE2 /* SignIn_PasswordTextField.swift in Sources */,
+				B7BA40C5253E866B00A27F59 /* Identifiables.swift in Sources */,
 				B708463224FDDFBA00687DE2 /* BlurView.swift in Sources */,
 				B7000C9D2501B84C00B6B6BC /* Home.swift in Sources */,
 				B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */,

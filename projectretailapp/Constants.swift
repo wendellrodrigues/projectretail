@@ -27,7 +27,15 @@ let TXT_ALREADY_HAVE_ACCOUNT = "Already have an account?"
 let PWD_HELP = "Passwords must be between 6 and 20 characters"
 
 //Sizing
+let SHIRT_SIZES: [String] = ["XS", "S", "M", "L", "XL", "XXL"]
+let MENS_WAIST_SIZES: [Int] = [26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40]
+let MENS_LENGTH_SIZES: [Int] = [26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40]
+let WOMENS_PANTS_SIZES: [String] = ["0", "2", "4", "6", "8", "10", "12", "12W",
+                                    "14", "14W", "16", "16W", "18", "18W", "20",
+                                    "20W", "22", "22W", "24W", "26W", "28W"]
+
 let TEXT_CONTINUE = "CONTINUE"
+let TEXT_BACK = "BACK"
 
 
 //Sign In

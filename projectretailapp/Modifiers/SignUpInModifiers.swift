@@ -171,6 +171,7 @@ struct PasswordHelpModifier: ViewModifier {
 }
 
 
+
 //Sign UpIn Button Modifier
 struct RegisterButtonModifier: ViewModifier {
     

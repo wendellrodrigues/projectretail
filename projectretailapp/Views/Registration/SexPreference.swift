@@ -52,8 +52,7 @@ struct SexPreference: View {
                             LongPressGesture(minimumDuration: 0.1, maximumDistance: 10).onChanged { value in
                                 sizingPreferences.hasSelectedMale.toggle()
                                 haptic(type: .success)
-                                print("male : \(sizingPreferences.hasSelectedMale)")
-                                print("female : \(sizingPreferences.hasSelectedFemale)")
+                                
                             }
                         )
                         .opacity(sizingPreferences.hasSelectedMale ? 1 : 0.2)
