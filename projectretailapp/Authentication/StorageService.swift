@@ -21,7 +21,15 @@ class StorageService {
         
         let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: userId)
         
-        let user = User.init(uid: userId, firstName: firstName, email: email, hasEnteredSizingPreferences: false)
+        let user = User.init(
+            uid: userId,
+            firstName: firstName,
+            email: email,
+            hasEnteredSizingPreferences: false,
+            maleShirtSize: "",
+            maleWaistSize: 0,
+            maleLengthSize: 0
+        )
         
         guard let dict = try? user.toDictionary() else { return }
         
@@ -36,7 +44,7 @@ class StorageService {
     
     //Creating (or updating) of size preferences
     static func updateSizingPreferences(userId: String,
-                                        maleShirtSize: Int,
+                                        maleShirtSize: String,
                                         maleWaistSize: Int,
                                         maleLengthSize: Int,
                                         femalePantsSize: Int,
@@ -49,7 +57,8 @@ class StorageService {
             "maleWaistSize" : maleWaistSize,
             "maleLengthSize" : maleLengthSize,
             "femalePantsSize" : femalePantsSize,
-            "femaleShirtSize" : femaleShirtSize
+            "femaleShirtSize" : femaleShirtSize,
+            "hasEnteredSizingPreferences" : true
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -60,6 +69,57 @@ class StorageService {
         
         return
     }
+    
+    
+    //Function to be called ONLY when user selects male in registration or is updating male preferences only
+    static func updateMaleOnlySizingPreferences(userId: String,
+                                        maleShirtSize: String,
+                                        maleWaistSize: Int,
+                                        maleLengthSize: Int) {
+        
+        let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: userId)
+        
+        firestoreUserId.updateData([
+            "maleShirtSize" : maleShirtSize,
+            "maleWaistSize" : maleWaistSize,
+            "maleLengthSize" : maleLengthSize,
+            "hasEnteredSizingPreferences" : true
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        
+        return
+    }
+    
+    //Function to be called ONLY when user selects female in registration or is updating male preferences only
+    static func updateFemaaleOnlySizingPreferences(userId: String,
+                                                 femalePantsSize: Int,
+                                                 femaleShirtSize: Int) {
+        
+        let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: userId)
+        
+        firestoreUserId.updateData([
+            "femalePantsSize" : femalePantsSize,
+            "femaleShirtSize" : femaleShirtSize,
+            "hasEnteredSizingPreferences" : true
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        
+        return
+    }
+    
+    
+    
+    
     
     
 }

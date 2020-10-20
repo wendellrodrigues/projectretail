@@ -15,6 +15,10 @@ struct User: Encodable, Decodable {
     
     var hasEnteredSizingPreferences: Bool
     
+    var maleShirtSize: String
+    var maleWaistSize: Int
+    var maleLengthSize: Int
+    
     //For user styles (predicted)
     var styles: Array<String> = []
 }

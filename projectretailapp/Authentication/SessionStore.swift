@@ -16,8 +16,14 @@ class SessionStore: ObservableObject {
     @Published var userSession: User?
     @Published var hasEnteredSizes = false
     
+    //Change these to master defaults in CONSTANTS.swift
+    @Published var maleShirtSize = "M"
+    @Published var maleWaistSize = 26
+    @Published var maleLengthSize = 26
+    
     
     var handle: AuthStateDidChangeListenerHandle?
+    
     
     //Listen for user logged in
     func listenAuthenticationState() {
@@ -34,6 +40,18 @@ class SessionStore: ObservableObject {
                         //This is used to route the user to either home page or enter size sequence
                         let enteredSize = dict["hasEnteredSizingPreferences"] as? Bool ?? false
                         self.hasEnteredSizes = enteredSize
+                        
+                        
+                        //Get sizes and store them to user object
+                        let maleShirtSize = dict["maleShirtSize"] as? String ?? ""
+                        self.maleShirtSize = maleShirtSize
+                        
+                        let maleWaistSize = dict["maleWaistSize"] as? Int ?? 26
+                        self.maleWaistSize = maleWaistSize
+                        
+                        let maleLengthtSize = dict["maleLengthSize"] as? Int ?? 26
+                        self.maleLengthSize = maleLengthtSize
+                        
                         
                         self.userSession = decoderUser //Store user to user session
                         self.isLoggedIn = true

@@ -74,11 +74,6 @@ struct MaleSizePreference: View {
                 
                 Text("Length: \(length) , Waist: \(self.waist), Shirt: \(shirtSize)")
                 
-                Button(action: {
-                    
-                }) {
-                    Text("Update Sizing")
-                }.padding(.bottom, 20)
                 
                 Text("Back")
                     .onTapGesture {
@@ -88,6 +83,19 @@ struct MaleSizePreference: View {
                     Text("Next")
                         .onTapGesture {
                             viewRouter.currentPage = "female"
+                        }
+                } else {
+                    Text("Finish")
+                        .onTapGesture {
+                            viewRouter.currentPage = "home"
+                            
+                            StorageService.updateMaleOnlySizingPreferences(
+                                userId: session.userSession?.uid ?? "",
+                                maleShirtSize: self.shirtSize,
+                                maleWaistSize: self.waist,
+                                maleLengthSize: self.length)
+ 
+                            session.hasEnteredSizes = true
                         }
                 }
             }

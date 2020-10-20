@@ -17,6 +17,7 @@ struct Home: View {
     @ObservedObject var detector = BeaconDetector()
     @ObservedObject var currentBeacon = CurrentBeacon()
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var sizingPreferences: SizingPreferences
     
     @EnvironmentObject var session: SessionStore
     
@@ -98,18 +99,23 @@ struct Home: View {
             
             Text(String(currentBeacon.beacon.UUID))
             
-            Button(action: {
-                StorageService.updateSizingPreferences(
-                    userId: session.userSession?.uid ?? "",
-                    maleShirtSize: 5,
-                    maleWaistSize: 5,
-                    maleLengthSize: 5,
-                    femalePantsSize: 5,
-                    femaleShirtSize: 5
-                    )
-            }) {
-                Text("Update Sizing")
-            }.padding(.bottom, 20)
+            Text("Storage Service")
+            Text("Male Shirt Size \(session.userSession?.maleShirtSize ?? "notiong")")
+            Text("Male Waist Size \(session.userSession?.maleWaistSize ?? 0)")
+            Text("Male Length Size \(session.userSession?.maleLengthSize ?? 0)")
+            
+//            Button(action: {
+//                StorageService.updateSizingPreferences(
+//                    userId: session.userSession?.uid ?? "",
+//                    maleShirtSize: 5,
+//                    maleWaistSize: 5,
+//                    maleLengthSize: 5,
+//                    femalePantsSize: 5,
+//                    femaleShirtSize: 5
+//                    )
+//            }) {
+//                Text("Update Sizing")
+//            }.padding(.bottom, 20)
             
             Button(action: {
                 //Unload the beacon
