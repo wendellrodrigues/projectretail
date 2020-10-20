@@ -95,27 +95,21 @@ struct Home: View {
                 .fontWeight(.bold)
             .padding(.bottom)
             
+            
             Spacer()
             
             Text(String(currentBeacon.beacon.UUID))
             
-            Text("Storage Service")
             Text("Male Shirt Size \(session.userSession?.maleShirtSize ?? "notiong")")
             Text("Male Waist Size \(session.userSession?.maleWaistSize ?? 0)")
             Text("Male Length Size \(session.userSession?.maleLengthSize ?? 0)")
+            Text("Female Shirt Size \(session.userSession?.femaleShirtSize ?? "nothing")")
+            Text("Female Pant Size \(session.userSession?.femalePantsSize ?? "nothing")")
             
-//            Button(action: {
-//                StorageService.updateSizingPreferences(
-//                    userId: session.userSession?.uid ?? "",
-//                    maleShirtSize: 5,
-//                    maleWaistSize: 5,
-//                    maleLengthSize: 5,
-//                    femalePantsSize: 5,
-//                    femaleShirtSize: 5
-//                    )
-//            }) {
-//                Text("Update Sizing")
-//            }.padding(.bottom, 20)
+            
+            
+            //Extra Argument because ONLY 10 direct subViews are allowed
+            //Add Group { SomeView SomeView SomeView } to get around this
             
             Button(action: {
                 //Unload the beacon
@@ -126,8 +120,7 @@ struct Home: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
                 }
-                
-               
+
             }) {
                Text("Logout")
             }.padding(.bottom)

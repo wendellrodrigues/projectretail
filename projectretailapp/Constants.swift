@@ -34,6 +34,12 @@ let WOMENS_PANTS_SIZES: [String] = ["0", "2", "4", "6", "8", "10", "12", "12W",
                                     "14", "14W", "16", "16W", "18", "18W", "20",
                                     "20W", "22", "22W", "24W", "26W", "28W"]
 
+let DEFAULT_MENS_WAIST = 26
+let DEFAULT_MENS_LENGTH = 26
+let DEFAULT_MENS_SHIRT = "M"
+let DEFAULT_WOMENS_PANTS = "XS"
+let DEFAULT_WOMENS_SHIRT = "M"
+
 let TEXT_CONTINUE = "CONTINUE"
 let TEXT_BACK = "BACK"
 

@@ -26,9 +26,11 @@ class StorageService {
             firstName: firstName,
             email: email,
             hasEnteredSizingPreferences: false,
-            maleShirtSize: "",
-            maleWaistSize: 0,
-            maleLengthSize: 0
+            maleShirtSize: DEFAULT_MENS_SHIRT,
+            maleWaistSize: DEFAULT_MENS_WAIST,
+            maleLengthSize: DEFAULT_MENS_LENGTH,
+            femaleShirtSize: DEFAULT_WOMENS_SHIRT,
+            femalePantsSize: DEFAULT_WOMENS_PANTS
         )
         
         guard let dict = try? user.toDictionary() else { return }
@@ -47,8 +49,8 @@ class StorageService {
                                         maleShirtSize: String,
                                         maleWaistSize: Int,
                                         maleLengthSize: Int,
-                                        femalePantsSize: Int,
-                                        femaleShirtSize: Int) {
+                                        femalePantsSize: String,
+                                        femaleShirtSize: String) {
         
         let firestoreUserId = Ref.FIRESTORE_DOCUMENT_USERID(userId: userId)
         

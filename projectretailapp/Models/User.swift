@@ -19,6 +19,10 @@ struct User: Encodable, Decodable {
     var maleWaistSize: Int
     var maleLengthSize: Int
     
+    var femaleShirtSize: String
+    var femalePantsSize: String
+    
+    
     //For user styles (predicted)
     var styles: Array<String> = []
 }

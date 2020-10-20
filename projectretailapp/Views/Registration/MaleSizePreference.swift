@@ -82,12 +82,24 @@ struct MaleSizePreference: View {
                 if(sizingPreferences.hasSelectedFemale == true) {
                     Text("Next")
                         .onTapGesture {
+                            
+                            //Save for female sizing preferences.
+                            //On female sizing preferences, UPDATE ALL SIZNG PREFERENCES
+                            
+                            session.userSession?.maleShirtSize = self.shirtSize
+                            session.userSession?.maleWaistSize = self.waist
+                            session.userSession?.maleLengthSize = self.length
+                            
                             viewRouter.currentPage = "female"
                         }
                 } else {
                     Text("Finish")
                         .onTapGesture {
                             viewRouter.currentPage = "home"
+                            
+                            session.userSession?.maleShirtSize = self.shirtSize
+                            session.userSession?.maleWaistSize = self.waist
+                            session.userSession?.maleLengthSize = self.length
                             
                             StorageService.updateMaleOnlySizingPreferences(
                                 userId: session.userSession?.uid ?? "",
