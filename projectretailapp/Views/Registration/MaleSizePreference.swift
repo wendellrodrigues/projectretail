@@ -83,9 +83,9 @@ struct MaleSizePreference: View {
                     Text("Next")
                         .onTapGesture {
                             
-                            //Save for female sizing preferences.
-                            //On female sizing preferences, UPDATE ALL SIZNG PREFERENCES
-                            
+ 
+                            //Store male sizing to user object
+                            //Next time it will attach will be on login
                             session.userSession?.maleShirtSize = self.shirtSize
                             session.userSession?.maleWaistSize = self.waist
                             session.userSession?.maleLengthSize = self.length

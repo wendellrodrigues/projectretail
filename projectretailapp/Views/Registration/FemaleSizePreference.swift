@@ -66,8 +66,16 @@ struct FemaleSizePreference: View {
 
                     Text("Finish")
                         .onTapGesture {
+                            
+                            //Store female sizing prefs to user object
+                            //Next time it will attach will be on login
+                            session.userSession?.femaleShirtSize = self.shirtSize
+                            session.userSession?.femalePantsSize = self.pant
+                            
+                            //Change viewRouter
                             viewRouter.currentPage = "home"
                             
+                            //Update database object
                             StorageService.updateSizingPreferences(
                                 userId: session.userSession?.uid ?? "",
                                 maleShirtSize: session.userSession?.maleShirtSize ?? "",
@@ -78,32 +86,9 @@ struct FemaleSizePreference: View {
                             )
 
                             session.hasEnteredSizes = true
-                        }
-                }
+                    }
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        VStack {
-//            Text("Male")
-//            Text("Back")
-//                .onTapGesture {
-//                    //In case there is a male preference, the back button will go to male
-//                    //If there is no male preference, the back button will go to SexPreference()
-//                    if(sizingPreferences.hasSelectedMale == true) { viewRouter.currentPage = "male" }
-//                    else { viewRouter.currentPage = "sexPreference" }
-//                }
-//        }
-//        .background(Color.blue)
     }
-
-
+}
+        

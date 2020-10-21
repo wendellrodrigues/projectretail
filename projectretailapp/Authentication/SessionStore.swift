@@ -16,14 +16,7 @@ class SessionStore: ObservableObject {
     @Published var userSession: User?
     @Published var hasEnteredSizes = false
     
-    //Change these to master defaults in CONSTANTS.swift
-    @Published var maleShirtSize = "M"
-    @Published var maleWaistSize = 26
-    @Published var maleLengthSize = 26
-    
-    
     var handle: AuthStateDidChangeListenerHandle?
-    
     
     //Listen for user logged in
     func listenAuthenticationState() {
@@ -35,25 +28,30 @@ class SessionStore: ObservableObject {
                 firestoreUserId.getDocument { (document, error) in
                     if let dict = document?.data() {
                         guard let decoderUser = try? User.init(fromDictionary: dict) else { return }
-                        
-                        //Attaches boolean that reads from the database whether a user has entered their size preferences
-                        //This is used to route the user to either home page or enter size sequence
+       
+                        //Get sizes from database
                         let enteredSize = dict["hasEnteredSizingPreferences"] as? Bool ?? false
+                        let maleShirtSize = dict["maleShirtSize"] as? String ?? DEFAULT_MENS_SHIRT
+                        let maleWaistSize = dict["maleWaistSize"] as? Int ?? DEFAULT_MENS_WAIST
+                        let maleLengthSize = dict["maleLengthSize"] as? Int ?? DEFAULT_MENS_LENGTH
+                        let femalePantsSize = dict["femalePantsSize"] as? String ?? DEFAULT_WOMENS_PANTS
+                        let femaleShirtSize = dict["femaleShirtSize"] as? String ?? DEFAULT_WOMENS_SHIRT
+                        
+                        //Store user to user session
+                        self.userSession = decoderUser
+                        
+                        //Store them to current user object
+                        self.userSession?.maleShirtSize = maleShirtSize
+                        self.userSession?.maleWaistSize = maleWaistSize
+                        self.userSession?.maleLengthSize = maleLengthSize
+                        self.userSession?.femaleShirtSize = femaleShirtSize
+                        self.userSession?.femalePantsSize = femalePantsSize
+                        self.userSession?.hasEnteredSizingPreferences = enteredSize
+                        
+                        //Remove later when not needed
                         self.hasEnteredSizes = enteredSize
-                        
-                        
-                        //Get sizes and store them to user object
-                        let maleShirtSize = dict["maleShirtSize"] as? String ?? ""
-                        self.maleShirtSize = maleShirtSize
-                        
-                        let maleWaistSize = dict["maleWaistSize"] as? Int ?? 26
-                        self.maleWaistSize = maleWaistSize
-                        
-                        let maleLengthtSize = dict["maleLengthSize"] as? Int ?? 26
-                        self.maleLengthSize = maleLengthtSize
-                        
-                        
-                        self.userSession = decoderUser //Store user to user session
+ 
+                        //Change is logged in to true
                         self.isLoggedIn = true
                     }
                 }
