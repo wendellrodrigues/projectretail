@@ -19,7 +19,10 @@ struct HomeView: View {
     
     var body: some View {
         if(session.hasEnteredSizes == true) {
-            Home()
+            if(viewRouter.currentPage == "sexPreference") { SexPreference() }
+            else if(viewRouter.currentPage == "male") { MaleSizePreference() }
+            else if(viewRouter.currentPage == "female") { FemaleSizePreference() }
+            else { Home() }
         } else {
             if(viewRouter.currentPage == "sexPreference") { SexPreference() }
             else if(viewRouter.currentPage == "male") { MaleSizePreference() }

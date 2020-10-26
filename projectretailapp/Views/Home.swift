@@ -98,7 +98,7 @@ struct Home: View {
             
             Spacer()
             
-            Text(String(currentBeacon.beacon.UUID))
+            //Text(String(currentBeacon.beacon.UUID))
             
             Text("Male Shirt Size \(session.userSession?.maleShirtSize ?? "notiong")")
             Text("Male Waist Size \(session.userSession?.maleWaistSize ?? 0)")
@@ -110,6 +110,13 @@ struct Home: View {
             
             //Extra Argument because ONLY 10 direct subViews are allowed
             //Add Group { SomeView SomeView SomeView } to get around this
+            
+            Button(action: {
+                viewRouter.currentPage = "sexPreference"
+            }) {
+               Text("Logout")
+            }.padding(.bottom)
+    
             
             Button(action: {
                 //Unload the beacon
@@ -124,6 +131,10 @@ struct Home: View {
             }) {
                Text("Logout")
             }.padding(.bottom)
+            
+            
+            
+            
         }
         //Handles Changes to Detector
         .onReceive(detector.$lastDistance) {_ in
