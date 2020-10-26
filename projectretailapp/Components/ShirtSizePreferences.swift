@@ -12,8 +12,9 @@ struct ShirtSizePreferences: View {
     
     @EnvironmentObject var session: SessionStore
     @State var selected: String = ""
-    @State var sex = "male"
-
+    
+    //Size inhereted from the user object
+    var inheretedSize: String
 
     let callback: (String) -> ()
     
@@ -22,23 +23,12 @@ struct ShirtSizePreferences: View {
             callback(id)
     }
     
+    //First check to see if the user has selected anything
+    //If the user has not selected anything, grab size from the current user object (inhereted)
     func checkShirtSize(shirtSize: String) -> Bool {
-
-        let currentMaleSize = session.userSession?.maleShirtSize ?? "M"
-        let currentFemaleSize = session.userSession?.femaleShirtSize ?? "M"
-
-        if(self.sex == "male") {
-            if(shirtSize == currentMaleSize) { return true }
-            return false
-        }
-
-        else {
-            if(shirtSize == currentFemaleSize) { return true }
-            return false
-        }
+        if(selected != "") { return shirtSize == selected }
+        return inheretedSize == shirtSize
     }
-    
-    
     
     var body: some View {
         
@@ -52,34 +42,33 @@ struct ShirtSizePreferences: View {
                 
                 SizeButton(id: "XS",
                            label: "XS",
-                           isMarked: selected == "XS" ? true : false,
+                           isMarked: checkShirtSize(shirtSize: "XS"),
                            callback: radioGroupCallback)
                 
                 SizeButton(id: "S",
                            label: "S",
-                           isMarked: selected == "S" ? true : false,
+                           isMarked: checkShirtSize(shirtSize: "S"),
                            callback: radioGroupCallback)
                 
                 SizeButton(id: "M",
                            label: "M",
-                           isMarked: selected == "M" ? true : false,
+                           isMarked: checkShirtSize(shirtSize: "M"),
                            callback: radioGroupCallback)
                 
                 SizeButton(id: "L",
                            label: "L",
-                           isMarked: selected == "L" ? true : false,
+                           isMarked: checkShirtSize(shirtSize: "L"),
                            callback: radioGroupCallback)
                 
                 SizeButton(id: "XL",
                            label: "XL",
-                           isMarked: selected == "XL" ? true : false,
+                           isMarked: checkShirtSize(shirtSize: "XL") ,
                            callback: radioGroupCallback)
                 
                 SizeButton(id: "XXL",
                            label: "XXL",
-                           isMarked: selected == "XXL" ? true : false,
+                           isMarked: checkShirtSize(shirtSize: "XXL") ,
                            callback: radioGroupCallback)
-               
             }
         }
     }

@@ -16,6 +16,8 @@ struct FemaleSizePreference: View {
     
     @State var pant: String = "M"
     @State var shirtSize = "M"
+    
+    @State var sex = "female"
 
     
     var body: some View {
@@ -51,7 +53,7 @@ struct FemaleSizePreference: View {
                 
                 
                 
-                ShirtSizePreferences { selected in
+                ShirtSizePreferences(inheretedSize: session.userSession?.femaleShirtSize ?? "M") { selected in
                     self.shirtSize = selected
                 }
 

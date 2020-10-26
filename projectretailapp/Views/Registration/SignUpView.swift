@@ -15,14 +15,13 @@ struct SignUpView: View {
     @State var typingPwd: Bool = false
     @State var typingConfirmPwd: Bool = false
     @State var loading = false
-    
-    
     @State var areErrors: Bool = false
-    
     @State var success: Bool = false
     
     @ObservedObject var signUpViewModel = SignUpViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
+    
+    @EnvironmentObject var session: SessionStore
     
     //Hides Keyboard
     func hideKeyboard() {

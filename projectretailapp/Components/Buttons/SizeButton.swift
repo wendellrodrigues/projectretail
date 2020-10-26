@@ -29,8 +29,6 @@ struct SizeButton: View {
         self.callback = callback
     }
     
-    
-    
     var body: some View {
         Text(label)
             .font(.system(size: 16, weight: .semibold))
@@ -49,7 +47,6 @@ struct SizeButton: View {
                         .fill(
                             LinearGradient(gradient: Gradient(
                                             colors: isMarked ? [Color.black, Color.black] : [Color(#colorLiteral(red: 0.7511754478, green: 0.8607367306, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-        
                     )
                         .padding(2)
                         .blur(radius: 2)
