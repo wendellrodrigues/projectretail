@@ -114,7 +114,7 @@ struct Home: View {
             Button(action: {
                 viewRouter.currentPage = "sexPreference"
             }) {
-               Text("Logout")
+               Text("Sizing")
             }.padding(.bottom)
     
             

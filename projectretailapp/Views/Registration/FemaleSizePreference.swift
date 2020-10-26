@@ -51,8 +51,9 @@ struct FemaleSizePreference: View {
                 
                 
                 
-                ShirtSizePreferences(selected: $shirtSize)
-                    //.padding(.top, -200)
+                ShirtSizePreferences { selected in
+                    self.shirtSize = selected
+                }
 
                 Text("Back")
                     .onTapGesture {

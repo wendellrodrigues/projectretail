@@ -19,7 +19,8 @@ struct MaleSizePreference: View {
     @State var waist: Int = 26
     
     @State var shirtSize = "M"
-    
+    @State var sex = "male"
+
     
     var body: some View {
         ZStack {
@@ -68,8 +69,9 @@ struct MaleSizePreference: View {
                 }
                 
                 
-                ShirtSizePreferences(selected: $shirtSize)
-                    .padding(.top, -200)
+                ShirtSizePreferences { selected in
+                    self.shirtSize = selected
+                }
                 
                 
                 Text("Length: \(length) , Waist: \(self.waist), Shirt: \(shirtSize)")

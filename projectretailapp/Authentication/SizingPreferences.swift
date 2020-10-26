@@ -14,7 +14,6 @@ import FirebaseFirestoreSwift
 
 //Changing Sizing Preferences
 class SizingPreferences: ObservableObject {
-    
 
     let objectWillChange = PassthroughSubject<SizingPreferences,Never>()
     
@@ -26,16 +25,5 @@ class SizingPreferences: ObservableObject {
         didSet { objectWillChange.send(self) }
     }
     
-//    @Published var maleShirtSize: String = "M" {
-//        didSet { objectWillChange.send(self) }
-//    }
-//    
-//    @Published var maleWaistSize: Int = 26 {
-//        didSet { objectWillChange.send(self) }
-//    }
-//    
-//    @Published var maleLengthSize: Int = 26 {
-//        didSet { objectWillChange.send(self) }
-//    }
-    
+
 }
