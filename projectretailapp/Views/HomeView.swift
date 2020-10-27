@@ -20,13 +20,13 @@ struct HomeView: View {
     var body: some View {
         if(session.hasEnteredSizes == true) {
             if(viewRouter.currentPage == "sexPreference") { SexPreference() }
-            else if(viewRouter.currentPage == "male") { MaleSizePreference()}
-            else if(viewRouter.currentPage == "female") { FemaleSizePreference() }
+            else if(viewRouter.currentPage == "male") { MaleSizePreference(sessionStore: session)}
+            else if(viewRouter.currentPage == "female") { FemaleSizePreference(sessionStore: session) }
             else { Home() }
         } else {
             if(viewRouter.currentPage == "sexPreference") { SexPreference() }
-            else if(viewRouter.currentPage == "male") { MaleSizePreference() }
-            else if(viewRouter.currentPage == "female") { FemaleSizePreference() }
+            else if(viewRouter.currentPage == "male") { MaleSizePreference(sessionStore: session) }
+            else if(viewRouter.currentPage == "female") { FemaleSizePreference(sessionStore: session) }
             else { SexPreference() }
         }
 

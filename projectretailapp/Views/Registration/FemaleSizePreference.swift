@@ -14,10 +14,20 @@ struct FemaleSizePreference: View {
     @EnvironmentObject var sizingPreferences: SizingPreferences
     @EnvironmentObject var session: SessionStore
     
-    @State var pantSize: String = ""
-    @State var shirtSize = ""
+    var sessionStore: SessionStore
     
     @State var sex = "female"
+    
+    @State var pantSize: String = ""
+    @State var shirtSize: String = ""
+    
+    init(sessionStore: SessionStore) {
+        self.sessionStore = sessionStore
+        self._pantSize = State(initialValue: sessionStore.userSession?.femalePantsSize ?? "")
+        self._shirtSize = State(initialValue: sessionStore.userSession?.femaleShirtSize ?? "")
+    }
+    
+    
 
     
     var body: some View {

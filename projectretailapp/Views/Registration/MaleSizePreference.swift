@@ -14,13 +14,21 @@ struct MaleSizePreference: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var sizingPreferences: SizingPreferences
     @EnvironmentObject var session: SessionStore
-   
     
+    var sessionStore: SessionStore
+
     @State var sex = "male"
     
     @State var length: Int = 0
     @State var waist: Int = 0
-    @State var shirtSize = ""
+    @State var shirtSize: String = ""
+    
+    init(sessionStore: SessionStore) {
+        self.sessionStore = sessionStore
+        self._length = State(initialValue: sessionStore.userSession?.maleLengthSize ?? 0)
+        self._waist = State(initialValue: sessionStore.userSession?.maleLengthSize ?? 0)
+        self._shirtSize = State(initialValue: sessionStore.userSession?.maleShirtSize ?? "")
+    }
     
     @State var updatedShirtSize = false
     
