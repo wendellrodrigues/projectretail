@@ -98,67 +98,40 @@ struct Home: View {
         ZStack {
             
             
-            Color(showProfile ? #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1) : #colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
-                .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+            Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
+                //.animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
                 .edgesIgnoringSafeArea(.all)
             
             
             VStack {
-                Spacer()
-                Text("Welcome, \(session.userSession?.firstName ?? "User")")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                .padding(.bottom)
                 
-                
-                Spacer()
-                
-                //Text(String(currentBeacon.beacon.UUID))
-                
-                Text("Male Shirt Size \(session.userSession?.maleShirtSize ?? "notiong")")
-                Text("Male Waist Size \(session.userSession?.maleWaistSize ?? 0)")
-                Text("Male Length Size \(session.userSession?.maleLengthSize ?? 0)")
-                Text("Female Shirt Size \(session.userSession?.femaleShirtSize ?? "nothing")")
-                Text("Female Pant Size \(session.userSession?.femalePantsSize ?? "nothing")")
-                
-                
-                
-                //Extra Argument because ONLY 10 direct subViews are allowed
-                //Add Group { SomeView SomeView SomeView } to get around this
-                
-                Button(action: {
-                    showProfile.toggle()
-                    //viewRouter.currentPage = "sexPreference"
-                }) {
-                   Text("Sizing")
-                }.padding(.bottom)
-        
-                
-//                Button(action: {
-//                    //Unload the beacon
-//                    currentBeacon.unloadBeacon()
-//                    //Logout user on phone
-//                    self.logout()
-//                    //End websocket connection
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                        Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
-//                    }
-//
-//                }) {
-//                   Text("Logout")
-//                }.padding(.bottom)
+                Group {
+                    
+                    //Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        MenuButton(showProfile: $showProfile)
+                            .padding(.trailing, 50)
+                            .padding(.top, 100)
+                    }
+                    Spacer()
+                    Text("Welcome, \(session.userSession?.firstName ?? "Default")")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 200)
+                    
+                    Spacer()
+            
+                }
+                .blur(radius: showProfile ? 4 : 0)
                 
                 
                 
                 
             }
-            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
-            .scaleEffect(showProfile ? 0.9 : 1)
-            .offset(y: showProfile ? -450 : 0)
-            .rotation3DEffect(Angle(degrees: showProfile ? Double(viewState.height / 10) - 10 : 0), axis: (x: 10.0, y: 0, z: 0))
-            .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-            .edgesIgnoringSafeArea(.all) //Creates problem with padding because content starts from top
+            .modifier(HomeModifier(showProfile: $showProfile, viewState: $viewState))
+
             //Handles Changes to Detector
             .onReceive(detector.$lastDistance) {_ in
                 validate(lastDistance: detector.lastDistance, loggedIn: session.isLoggedIn)
@@ -171,27 +144,20 @@ struct Home: View {
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
                 .onTapGesture {
                     self.showProfile.toggle()
-            }
-            .gesture(DragGesture()
-            .onChanged { value in
-                self.viewState = value.translation
-            }
-            .onEnded { value in
-                if self.viewState.height > 50 {
-                    self.showProfile = false
                 }
-                self.viewState = .zero
+                .gesture(DragGesture()
+                .onChanged { value in
+                    self.viewState = value.translation
                 }
-                
-            )
-            
-            //if(showProfile) { BlurView(style: .systemMaterial) }
-            
+                .onEnded { value in
+                    if self.viewState.height > 50 {
+                        self.showProfile = false
+                    }
+                    self.viewState = .zero
+                    }
+                )
         }
-
-        
     }
-
 }
 
 

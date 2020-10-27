@@ -64,6 +64,8 @@
 		B7DE931B25205DA2001887D3 /* LottieViewLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */; };
 		B7DE931F25213567001887D3 /* Circles.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE931E25213567001887D3 /* Circles.json */; };
 		B7DE932625213CBA001887D3 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE932525213CBA001887D3 /* Loading.json */; };
+		B7FA5BBD2548BB83008AC306 /* HomeModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */; };
+		B7FA5BC02548C6F9008AC306 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +128,8 @@
 		B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewLoop.swift; sourceTree = "<group>"; };
 		B7DE931E25213567001887D3 /* Circles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Circles.json; sourceTree = "<group>"; };
 		B7DE932525213CBA001887D3 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
+		B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModifiers.swift; sourceTree = "<group>"; };
+		B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		E0B83FF9421A6E92DE7E988D /* Pods_projectretailapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectretailapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				B708461F24FDDFBA00687DE2 /* SignUpButton.swift */,
+				B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */,
 				B708463E24FDE7D200687DE2 /* SignInButton.swift */,
 				B7BA40C7253E939500A27F59 /* SizeButton.swift */,
 			);
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				B708461724FDDFB900687DE2 /* SignUpInModifiers.swift */,
+				B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */,
 				B77F6CAC251ECF96006EA1F4 /* TextFieldFocusableArea.swift */,
 			);
 			path = Modifiers;
@@ -488,6 +494,7 @@
 			files = (
 				B77F6CAD251ECF96006EA1F4 /* TextFieldFocusableArea.swift in Sources */,
 				B70D5E202537BD910020C957 /* SexPreference.swift in Sources */,
+				B7FA5BC02548C6F9008AC306 /* MenuButton.swift in Sources */,
 				B7AFB2C02508492100C0E34B /* Api.swift in Sources */,
 				B7000C992501B7B100B6B6BC /* SessionStore.swift in Sources */,
 				B726D037252552E000241B4F /* Beacon.swift in Sources */,
@@ -527,6 +534,7 @@
 				B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */,
 				B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */,
 				B72AFE8925383DBB0025EE94 /* ValidateBeacon.swift in Sources */,
+				B7FA5BBD2548BB83008AC306 /* HomeModifiers.swift in Sources */,
 				B75E642725219B4700A6B384 /* LottieView.swift in Sources */,
 				B70D5E232537C1870020C957 /* SizingPreferences.swift in Sources */,
 				B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */,

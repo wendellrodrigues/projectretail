@@ -85,9 +85,7 @@ struct MaleSizePreference: View {
                     self.shirtSize = selected
                     
                 }
-                
-                
-                Text("Length: \(length) , Waist: \(self.waist), Shirt: \(shirtSize)")
+               
                 
                 
                 Text("Back")

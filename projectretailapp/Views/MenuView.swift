@@ -18,6 +18,9 @@ struct MenuView: View {
     
     @Binding var showProfile: Bool
     
+    @State var viewState = CGSize.zero
+    let screen = UIScreen.main.bounds
+    
     func logout() {
         //Set detector's last distance to unknown
         detector.lastDistance = .unknown
@@ -29,16 +32,25 @@ struct MenuView: View {
     
     var body: some View {
         VStack {
+
             Spacer()
-            VStack(spacing: 16.0) {
+            
+            Text("Settings")
+                .font(.headline)
+                .foregroundColor(Color.black)
+                .fontWeight(.bold)
+                .padding(.bottom, 30)
+            
+            VStack(spacing: 25.0) {
                 
                 MenuRow(title: "Sizing Preferences" , icon: "gear")
                     .onTapGesture {
                         viewRouter.currentPage = "sexPreference"
+                        haptic(type: .success)
                     }
                 MenuRow(title: "Sign Out" , icon: "person.crop.circle")
                     .onTapGesture {
-//                        UserDefaults.standard.set(false, forKey: "isLogged")
+                        haptic(type: .success)
                         //Unload the beacon
                         currentBeacon.unloadBeacon()
                         //Logout user on phone
@@ -46,27 +58,13 @@ struct MenuView: View {
                         //End websocket connection
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
-                        }
-                        
+                        }   
                 }
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: 150)
-            //Gradient with color literal
-            .background(BlurView(style: .systemUltraThinMaterial))
-            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-            .shadow(color: Color.black.opacity(0.25), radius: 20, x: 0, y: 20)
-            .padding(.horizontal, 30)
-//            .overlay(
-//                Image("Avatar")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fill)
-//                    .frame(width: 60, height: 60)
-//                    .clipShape(Circle())
-//                .offset(y: -150)
-//            )
+
+            .modifier(MenuModifier())
         }
-        .padding(.bottom, 30)
+        .padding(.bottom, 70)
 
         
     }
