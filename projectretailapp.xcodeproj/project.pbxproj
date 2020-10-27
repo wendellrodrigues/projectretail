@@ -37,6 +37,7 @@
 		B70D5E232537C1870020C957 /* SizingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D5E222537C1870020C957 /* SizingPreferences.swift */; };
 		B726D037252552E000241B4F /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D036252552DF00241B4F /* Beacon.swift */; };
 		B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D05225296F0C00241B4F /* CurrentBeacon.swift */; };
+		B728C90A2547B78700F8ADC2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728C9092547B78600F8ADC2 /* MenuView.swift */; };
 		B72AFE86253800800025EE94 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE85253800800025EE94 /* HomeView.swift */; };
 		B72AFE8925383DBB0025EE94 /* ValidateBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */; };
 		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
@@ -97,6 +98,7 @@
 		B70D5E222537C1870020C957 /* SizingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingPreferences.swift; sourceTree = "<group>"; };
 		B726D036252552DF00241B4F /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		B726D05225296F0C00241B4F /* CurrentBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBeacon.swift; sourceTree = "<group>"; };
+		B728C9092547B78600F8ADC2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B72AFE85253800800025EE94 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateBeacon.swift; sourceTree = "<group>"; };
 		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				B7000C9A2501B82800B6B6BC /* Init.swift */,
 				B7000C9C2501B84C00B6B6BC /* Home.swift */,
 				B72AFE85253800800025EE94 /* HomeView.swift */,
+				B728C9092547B78600F8ADC2 /* MenuView.swift */,
 				B708461A24FDDFB900687DE2 /* SignInView.swift */,
 				B75B9BE32537B194004A12FF /* Registration */,
 				B7000C9E2501B85F00B6B6BC /* Styles */,
@@ -528,6 +531,7 @@
 				B70D5E232537C1870020C957 /* SizingPreferences.swift in Sources */,
 				B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */,
 				B708462724FDDFBA00687DE2 /* SignUpInModifiers.swift in Sources */,
+				B728C90A2547B78700F8ADC2 /* MenuView.swift in Sources */,
 				B708463024FDDFBA00687DE2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

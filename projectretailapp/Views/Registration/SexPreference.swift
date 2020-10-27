@@ -76,7 +76,6 @@ struct SexPreference: View {
                 .padding([.leading, .trailing], 60)
                 .padding(.bottom, 100)
                 
-                //INCLUDE LOGIC ON WHAT PAGE TO GO TO NEXT
 
                 HStack {
                     Spacer()
@@ -108,17 +107,6 @@ struct SexPreference: View {
                     
                     Spacer()
                 }
- 
-                
-                
-                
-//                Button(action: sizingAccepted, label: {
-//                    Text("Logout")
-//                })
-                Button(action: logout, label: {
-                    Text("Logout")
-                })
-            
             }
         }
     }

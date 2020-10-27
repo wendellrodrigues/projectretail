@@ -27,9 +27,6 @@ struct FemaleSizePreference: View {
         self._shirtSize = State(initialValue: sessionStore.userSession?.femaleShirtSize ?? "")
     }
     
-    
-
-    
     var body: some View {
         
         
@@ -54,15 +51,11 @@ struct FemaleSizePreference: View {
                                 .font(.headline)
                         }
                     }
-
-                    
                     Text("Pants Size")
                         .font(.headline)
                         .padding(.bottom, 50)
                 }
-                
-                
-                
+   
                 ShirtSizePreferences(
                     inheretedSize: session.userSession?.femaleShirtSize ?? "M") { selected in
                     self.shirtSize = selected
