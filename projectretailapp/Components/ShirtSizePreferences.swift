@@ -15,6 +15,8 @@ struct ShirtSizePreferences: View {
     
     //Size inhereted from the user object
     var inheretedSize: String
+    
+    //If user has updated shirt sizing preferences
 
     let callback: (String) -> ()
     

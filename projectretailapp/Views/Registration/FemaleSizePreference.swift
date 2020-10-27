@@ -14,8 +14,8 @@ struct FemaleSizePreference: View {
     @EnvironmentObject var sizingPreferences: SizingPreferences
     @EnvironmentObject var session: SessionStore
     
-    @State var pant: String = "M"
-    @State var shirtSize = "M"
+    @State var pantSize: String = ""
+    @State var shirtSize = ""
     
     @State var sex = "female"
 
@@ -38,7 +38,7 @@ struct FemaleSizePreference: View {
                 
                 
                 VStack {
-                    Picker(selection: self.$pant, label: Text("Numbers")) {
+                    Picker(selection: self.$pantSize, label: Text("Numbers")) {
                         ForEach(WOMENS_PANTS_SIZES) { size in
                             Text("\(size)")
                                 .font(.headline)
@@ -53,7 +53,8 @@ struct FemaleSizePreference: View {
                 
                 
                 
-                ShirtSizePreferences(inheretedSize: session.userSession?.femaleShirtSize ?? "M") { selected in
+                ShirtSizePreferences(
+                    inheretedSize: session.userSession?.femaleShirtSize ?? "M") { selected in
                     self.shirtSize = selected
                 }
 
@@ -72,20 +73,26 @@ struct FemaleSizePreference: View {
                             
                             //Store female sizing prefs to user object
                             //Next time it will attach will be on login
-                            session.userSession?.femaleShirtSize = self.shirtSize
-                            session.userSession?.femalePantsSize = self.pant
+                            if(shirtSize != "") {
+                                session.userSession?.femaleShirtSize = self.shirtSize
+                            }
                             
+                            if(pantSize != "") {
+                                session.userSession?.femalePantsSize = self.pantSize
+                            }
+                            
+                           
                             //Change viewRouter
                             viewRouter.currentPage = "home"
                             
                             //Update database object
                             StorageService.updateSizingPreferences(
                                 userId: session.userSession?.uid ?? "",
-                                maleShirtSize: session.userSession?.maleShirtSize ?? "",
+                                maleShirtSize: session.userSession?.maleShirtSize ?? "M",
                                 maleWaistSize: session.userSession?.maleWaistSize ?? 26,
                                 maleLengthSize: session.userSession?.maleLengthSize ?? 26,
-                                femalePantsSize: self.pant,
-                                femaleShirtSize: self.shirtSize
+                                femalePantsSize: session.userSession?.femalePantsSize ?? "M",
+                                femaleShirtSize: session.userSession?.femaleShirtSize ?? "M"
                             )
 
                             session.hasEnteredSizes = true

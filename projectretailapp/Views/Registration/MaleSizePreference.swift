@@ -14,15 +14,18 @@ struct MaleSizePreference: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var sizingPreferences: SizingPreferences
     @EnvironmentObject var session: SessionStore
+   
     
-    @State var length: Int = 26
-    @State var waist: Int = 26
     @State var sex = "male"
     
-    @State var shirtSize = "M"
-
+    @State var length: Int = 0
+    @State var waist: Int = 0
+    @State var shirtSize = ""
+    
+    @State var updatedShirtSize = false
     
     var body: some View {
+        
         ZStack {
             
             Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
@@ -70,7 +73,9 @@ struct MaleSizePreference: View {
                 
                 
                 ShirtSizePreferences(inheretedSize: session.userSession?.maleShirtSize ?? "M") { selected in
+                    self.updatedShirtSize = true //So does not set back to M
                     self.shirtSize = selected
+                    
                 }
                 
                 
@@ -85,12 +90,19 @@ struct MaleSizePreference: View {
                     Text("Next")
                         .onTapGesture {
                             
- 
                             //Store male sizing to user object
                             //Next time it will attach will be on login
-                            session.userSession?.maleShirtSize = self.shirtSize
-                            session.userSession?.maleWaistSize = self.waist
-                            session.userSession?.maleLengthSize = self.length
+                            if(shirtSize != "") {
+                                session.userSession?.maleShirtSize = self.shirtSize
+                            }
+                            
+                            if(length != 0) {
+                                session.userSession?.maleWaistSize = self.waist
+                            }
+                            
+                            if(waist != 0) {
+                                session.userSession?.maleLengthSize = self.length
+                            }
                             
                             viewRouter.currentPage = "female"
                         }
@@ -99,16 +111,26 @@ struct MaleSizePreference: View {
                         .onTapGesture {
                             viewRouter.currentPage = "home"
                             
-                            session.userSession?.maleShirtSize = self.shirtSize
-                            session.userSession?.maleWaistSize = self.waist
-                            session.userSession?.maleLengthSize = self.length
+                            //Change Session values if they have been changed
+                            if(shirtSize != "") {
+                                session.userSession?.maleShirtSize = self.shirtSize
+                            }
                             
+                            if(length != 0) {
+                                session.userSession?.maleWaistSize = self.waist
+                            }
+                            
+                            if(waist != 0) {
+                                session.userSession?.maleLengthSize = self.length
+                            }
+    
+  
                             StorageService.updateMaleOnlySizingPreferences(
                                 userId: session.userSession?.uid ?? "",
-                                maleShirtSize: self.shirtSize,
-                                maleWaistSize: self.waist,
-                                maleLengthSize: self.length)
- 
+                                maleShirtSize: session.userSession?.maleShirtSize ?? "M",
+                                maleWaistSize: session.userSession?.maleWaistSize ?? 26,
+                                maleLengthSize: session.userSession?.maleLengthSize ?? 26)
+   
                             session.hasEnteredSizes = true
                         }
                 }
