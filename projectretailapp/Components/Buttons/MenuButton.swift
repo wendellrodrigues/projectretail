@@ -19,17 +19,17 @@ struct MenuButton: View {
         Image(systemName: "line.horizontal.3.decrease")
             .modifier(MenuButtonModifier(showProfile: $showProfile, tap: tap, press: press))
             .gesture(
-                LongPressGesture(minimumDuration: 0.1, maximumDistance: 10).onChanged { value in
+                LongPressGesture(minimumDuration: 0.1, maximumDistance: 1).onChanged { value in
                     self.tap = true
                     haptic(type: .success)
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         self.tap = false
+                        showProfile.toggle()
                     }
                 }
                 .onEnded { value in
                     self.press.toggle()
-                    showProfile.toggle()
                 }
             )
 

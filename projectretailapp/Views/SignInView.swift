@@ -98,7 +98,10 @@ struct SignInView: View {
                     }
                     
                     
-                    SignInButton(loading: $loading, action: signIn)
+                    SignUpInButton(
+                        label: TXT_SIGN_IN_BUTTON,
+                        loading: $loading,
+                        action: signIn)
                     
                     CreateAccountText()
                         .onTapGesture {

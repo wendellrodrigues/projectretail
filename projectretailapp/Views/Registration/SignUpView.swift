@@ -119,7 +119,8 @@ struct SignUpView: View {
                     Text(signUpViewModel.errorString)
                            .modifier(ErrorMessageModifier())
                     
-                    SignUpButton(success: $success,
+                    SignUpInButton(
+                                label: TXT_SIGN_UP_BUTTON,
                                  loading: $loading,
                                  action: {
                                     register()

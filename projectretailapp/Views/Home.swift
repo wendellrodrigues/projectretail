@@ -97,18 +97,14 @@ struct Home: View {
           
         ZStack {
             
-            
             Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
-                //.animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
                 .edgesIgnoringSafeArea(.all)
             
             
             VStack {
                 
                 Group {
-                    
-                    //Spacer()
-                    
+
                     HStack {
                         Spacer()
                         MenuButton(showProfile: $showProfile)
@@ -120,7 +116,6 @@ struct Home: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom, 200)
-                    
                     Spacer()
             
                 }
@@ -144,6 +139,7 @@ struct Home: View {
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
                 .onTapGesture {
                     self.showProfile.toggle()
+                    haptic(type: .error)
                 }
                 .gesture(DragGesture()
                 .onChanged { value in
@@ -152,6 +148,7 @@ struct Home: View {
                 .onEnded { value in
                     if self.viewState.height > 50 {
                         self.showProfile = false
+                        haptic(type: .error)
                     }
                     self.viewState = .zero
                     }

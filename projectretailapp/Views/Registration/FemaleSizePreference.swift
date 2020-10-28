@@ -42,8 +42,7 @@ struct FemaleSizePreference: View {
                     .resizable()
                     .frame(width: 40, height: 100, alignment: .center)
                     
-                
-                
+            
                 VStack {
                     Picker(selection: self.$pantSize, label: Text("Numbers")) {
                         ForEach(WOMENS_PANTS_SIZES) { size in
@@ -83,8 +82,7 @@ struct FemaleSizePreference: View {
                             if(pantSize != "") {
                                 session.userSession?.femalePantsSize = self.pantSize
                             }
-                            
-                           
+
                             //Change viewRouter
                             viewRouter.currentPage = "home"
                             

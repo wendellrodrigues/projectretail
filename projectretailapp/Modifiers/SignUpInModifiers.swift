@@ -79,7 +79,7 @@ struct BackgroundImageModifier: ViewModifier {
 
 
 //Sign UpIn Button Modifier
-struct SignInButtonModifier: ViewModifier {
+struct SignUpInButtonModifier: ViewModifier {
     
     var tap: Bool
     var press: Bool

@@ -8,12 +8,13 @@
 
 import SwiftUI
 
-struct SignUpButton: View {
+struct SignUpInButton: View {
     
     @State var tap = false
     @State var press = false
     
-    @Binding var success: Bool
+    @State var label: String
+    
     @Binding var loading: Bool
     
     
@@ -31,8 +32,8 @@ struct SignUpButton: View {
         HStack {
             Spacer()
             ZStack {
-                Text(TXT_SIGN_UP_BUTTON)
-                    .modifier(SignInButtonModifier(tap: self.tap, press: self.press))
+                Text(label)
+                    .modifier(LargeButtonModifier(tap: self.tap, press: self.press))
                     .gesture(
                         LongPressGesture(minimumDuration: 0.1, maximumDistance: 10).onChanged { value in
                             self.tap = true
