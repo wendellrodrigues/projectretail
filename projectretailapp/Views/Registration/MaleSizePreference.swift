@@ -32,6 +32,50 @@ struct MaleSizePreference: View {
     
     @State var updatedShirtSize = false
     
+    //Store male sizing to user object
+    //Next time it will attach will be on login
+    func didSelectFemale() {
+        if(shirtSize != "") {
+            session.userSession?.maleShirtSize = self.shirtSize
+        }
+        
+        if(length != 0) {
+            session.userSession?.maleWaistSize = self.waist
+        }
+        
+        if(waist != 0) {
+            session.userSession?.maleLengthSize = self.length
+        }
+        
+        viewRouter.currentPage = "female"
+    }
+    
+    func didNotSelectFemale() {
+        viewRouter.currentPage = "home"
+        
+        //Change Session values if they have been changed
+        if(shirtSize != "") {
+            session.userSession?.maleShirtSize = self.shirtSize
+        }
+        
+        if(length != 0) {
+            session.userSession?.maleWaistSize = self.waist
+        }
+        
+        if(waist != 0) {
+            session.userSession?.maleLengthSize = self.length
+        }
+
+
+        StorageService.updateMaleOnlySizingPreferences(
+            userId: session.userSession?.uid ?? "",
+            maleShirtSize: session.userSession?.maleShirtSize ?? "M",
+            maleWaistSize: session.userSession?.maleWaistSize ?? 26,
+            maleLengthSize: session.userSession?.maleLengthSize ?? 26)
+
+        session.hasEnteredSizes = true
+    }
+    
     var body: some View {
         
         ZStack {
@@ -85,61 +129,17 @@ struct MaleSizePreference: View {
                     self.shirtSize = selected
                     
                 }
-               
                 
-                
-                Text("Back")
-                    .onTapGesture {
-                        viewRouter.currentPage = "sexPreference"
+                HStack(spacing: 15){
+                    HalfButton(label: "Back", action: { viewRouter.currentPage = "sexPreference" })
+                    if(sizingPreferences.hasSelectedFemale == true) {
+                        HalfButton(label: "Next", action: { didSelectFemale() })
+                    } else {
+                        HalfButton(label: "Finish", action: { didNotSelectFemale() })
                     }
-                if(sizingPreferences.hasSelectedFemale == true) {
-                    Text("Next")
-                        .onTapGesture {
-                            
-                            //Store male sizing to user object
-                            //Next time it will attach will be on login
-                            if(shirtSize != "") {
-                                session.userSession?.maleShirtSize = self.shirtSize
-                            }
-                            
-                            if(length != 0) {
-                                session.userSession?.maleWaistSize = self.waist
-                            }
-                            
-                            if(waist != 0) {
-                                session.userSession?.maleLengthSize = self.length
-                            }
-                            
-                            viewRouter.currentPage = "female"
-                        }
-                } else {
-                    Text("Finish")
-                        .onTapGesture {
-                            viewRouter.currentPage = "home"
-                            
-                            //Change Session values if they have been changed
-                            if(shirtSize != "") {
-                                session.userSession?.maleShirtSize = self.shirtSize
-                            }
-                            
-                            if(length != 0) {
-                                session.userSession?.maleWaistSize = self.waist
-                            }
-                            
-                            if(waist != 0) {
-                                session.userSession?.maleLengthSize = self.length
-                            }
-    
-  
-                            StorageService.updateMaleOnlySizingPreferences(
-                                userId: session.userSession?.uid ?? "",
-                                maleShirtSize: session.userSession?.maleShirtSize ?? "M",
-                                maleWaistSize: session.userSession?.maleWaistSize ?? 26,
-                                maleLengthSize: session.userSession?.maleLengthSize ?? 26)
-   
-                            session.hasEnteredSizes = true
-                        }
                 }
+                .padding(20)
+    
             }
         }
     }

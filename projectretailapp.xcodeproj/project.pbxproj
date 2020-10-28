@@ -65,7 +65,7 @@
 		B7DE932625213CBA001887D3 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE932525213CBA001887D3 /* Loading.json */; };
 		B7FA5BBD2548BB83008AC306 /* HomeModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */; };
 		B7FA5BC02548C6F9008AC306 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */; };
-		B7FA5BC32549EF41008AC306 /* ContinueHalfButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BC22549EF41008AC306 /* ContinueHalfButton.swift */; };
+		B7FA5BC32549EF41008AC306 /* HalfButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BC22549EF41008AC306 /* HalfButton.swift */; };
 		B7FA5BC82549F1D8008AC306 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BC72549F1D8008AC306 /* ButtonModifiers.swift */; };
 		B7FA5BCC2549F265008AC306 /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BCB2549F265008AC306 /* LargeButton.swift */; };
 		B7FA5BCF2549F49B008AC306 /* SilhouetteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BCE2549F49B008AC306 /* SilhouetteButton.swift */; };
@@ -132,7 +132,7 @@
 		B7DE932525213CBA001887D3 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModifiers.swift; sourceTree = "<group>"; };
 		B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
-		B7FA5BC22549EF41008AC306 /* ContinueHalfButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueHalfButton.swift; sourceTree = "<group>"; };
+		B7FA5BC22549EF41008AC306 /* HalfButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfButton.swift; sourceTree = "<group>"; };
 		B7FA5BC72549F1D8008AC306 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
 		B7FA5BCB2549F265008AC306 /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		B7FA5BCE2549F49B008AC306 /* SilhouetteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilhouetteButton.swift; sourceTree = "<group>"; };
@@ -198,10 +198,10 @@
 			children = (
 				B708461F24FDDFBA00687DE2 /* SignUpInButton.swift */,
 				B7FA5BCE2549F49B008AC306 /* SilhouetteButton.swift */,
-				B7FA5BCB2549F265008AC306 /* LargeButton.swift */,
 				B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */,
 				B7BA40C7253E939500A27F59 /* SizeButton.swift */,
-				B7FA5BC22549EF41008AC306 /* ContinueHalfButton.swift */,
+				B7FA5BCB2549F265008AC306 /* LargeButton.swift */,
+				B7FA5BC22549EF41008AC306 /* HalfButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -501,7 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7FA5BC32549EF41008AC306 /* ContinueHalfButton.swift in Sources */,
+				B7FA5BC32549EF41008AC306 /* HalfButton.swift in Sources */,
 				B77F6CAD251ECF96006EA1F4 /* TextFieldFocusableArea.swift in Sources */,
 				B70D5E202537BD910020C957 /* SexPreference.swift in Sources */,
 				B7FA5BC02548C6F9008AC306 /* MenuButton.swift in Sources */,

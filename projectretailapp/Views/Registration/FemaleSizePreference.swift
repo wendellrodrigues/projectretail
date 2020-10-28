@@ -27,6 +27,47 @@ struct FemaleSizePreference: View {
         self._shirtSize = State(initialValue: sessionStore.userSession?.femaleShirtSize ?? "")
     }
     
+    //Handles which page to return to
+    func back() {
+        if(sizingPreferences.hasSelectedMale == true) {
+            viewRouter.currentPage = "male"
+        }
+        else {
+            viewRouter.currentPage = "sexPreference"
+        }
+    }
+    
+    //Finish function for when female preferences have been selected
+    //Store female sizing prefs to user object
+    //Next time it will attach will be on login
+    func finish() {
+
+        if(shirtSize != "") {
+            session.userSession?.femaleShirtSize = self.shirtSize
+        }
+        
+        if(pantSize != "") {
+            session.userSession?.femalePantsSize = self.pantSize
+        }
+
+        //Change viewRouter
+        viewRouter.currentPage = "home"
+        
+        //Update database object
+        StorageService.updateSizingPreferences(
+            userId: session.userSession?.uid ?? "",
+            maleShirtSize: session.userSession?.maleShirtSize ?? "M",
+            maleWaistSize: session.userSession?.maleWaistSize ?? 26,
+            maleLengthSize: session.userSession?.maleLengthSize ?? 26,
+            femalePantsSize: session.userSession?.femalePantsSize ?? "M",
+            femaleShirtSize: session.userSession?.femaleShirtSize ?? "M"
+        )
+
+        session.hasEnteredSizes = true
+    }
+        
+        
+    
     var body: some View {
         
         
@@ -59,47 +100,16 @@ struct FemaleSizePreference: View {
                     inheretedSize: session.userSession?.femaleShirtSize ?? "M") { selected in
                     self.shirtSize = selected
                 }
-
-                Text("Back")
-                    .onTapGesture {
-                        if(sizingPreferences.hasSelectedMale == true) {
-                            viewRouter.currentPage = "male"
-                        }
-                        else {
-                            viewRouter.currentPage = "sexPreference"
-                        }
-                    }
-
-                    Text("Finish")
-                        .onTapGesture {
-                            
-                            //Store female sizing prefs to user object
-                            //Next time it will attach will be on login
-                            if(shirtSize != "") {
-                                session.userSession?.femaleShirtSize = self.shirtSize
-                            }
-                            
-                            if(pantSize != "") {
-                                session.userSession?.femalePantsSize = self.pantSize
-                            }
-
-                            //Change viewRouter
-                            viewRouter.currentPage = "home"
-                            
-                            //Update database object
-                            StorageService.updateSizingPreferences(
-                                userId: session.userSession?.uid ?? "",
-                                maleShirtSize: session.userSession?.maleShirtSize ?? "M",
-                                maleWaistSize: session.userSession?.maleWaistSize ?? 26,
-                                maleLengthSize: session.userSession?.maleLengthSize ?? 26,
-                                femalePantsSize: session.userSession?.femalePantsSize ?? "M",
-                                femaleShirtSize: session.userSession?.femaleShirtSize ?? "M"
-                            )
-
-                            session.hasEnteredSizes = true
-                    }
+                
+                HStack(spacing: 15){
+                    HalfButton(label: "Back", action: back)
+                    HalfButton(label: "Finish", action: finish)
+                }
+                .padding(20)
+            
             }
         }
     }
 }
+
         

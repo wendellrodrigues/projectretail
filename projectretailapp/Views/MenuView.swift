@@ -35,11 +35,13 @@ struct MenuView: View {
 
             Spacer()
             
-            Text("Settings")
-                .font(.headline)
-                .foregroundColor(Color.black)
-                .fontWeight(.bold)
-                .padding(.bottom, 30)
+//            Text("Settings")
+//                .font(.headline)
+//                .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
+//                //.foregroundColor(Color.black)
+//                .fontWeight(.bold)
+//                .padding(.bottom, 30)
+            
             
             VStack(spacing: 25.0) {
                 
@@ -82,10 +84,12 @@ struct MenuRow: View {
                 .font(.system(size: 20, weight: .light, design: .default))
                 .imageScale(.large)
                 .frame(width: 32, height: 32)
-                .foregroundColor(Color(#colorLiteral(red: 0.662745098, green: 0.7333333333, blue: 0.831372549, alpha: 1)))
+                //.foregroundColor(Color(#colorLiteral(red: 0.662745098, green: 0.7333333333, blue: 0.831372549, alpha: 1)))
+                .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 0.5449611997)))
             Text(title)
                 .font(.system(size: 15, weight: .bold, design: .default))
                 .frame(width: 200, alignment: .leading)
+                .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
         }
     }
 }

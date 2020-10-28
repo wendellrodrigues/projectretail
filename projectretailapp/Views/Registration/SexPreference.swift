@@ -36,6 +36,10 @@ struct SexPreference: View {
         }
     }
     
+    func cancel() {
+        viewRouter.currentPage = "home"
+    }
+    
     
     
     var body: some View {
@@ -44,15 +48,41 @@ struct SexPreference: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                Text("Which types of products are you most interested in?")
+                    .fontWeight(.bold)
+                    .font(.title)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(20)
+                    .padding(.top, 100)
+                
+                Text("You can select either, or both")
+                    .fontWeight(.bold)
+                    .font(.subheadline)
+                    .padding(.bottom, 50)
+                    .padding(20)
+                    .padding(.top, -30)
+                
                 HStack(alignment: .center) {
                     SilhouetteButton(sex: "male")
                     Spacer()
                     SilhouetteButton(sex: "female")
                 }
                 .padding([.leading, .trailing], 60)
-                .padding(.bottom, 100)
+                .padding(.bottom, 50)
                 
                 LargeButton(label: TEXT_CONTINUE, action: maleOrFemaleContinue)
+                
+                if(session.hasEnteredSizes) {
+                    Text("Cancel")
+                        .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
+                        .fontWeight(.bold)
+                        .padding(.top, 10)
+                        .padding()
+                        .onTapGesture {
+                            cancel()
+                            haptic(type: .error)
+                        }
+                }
 
             }
         }
