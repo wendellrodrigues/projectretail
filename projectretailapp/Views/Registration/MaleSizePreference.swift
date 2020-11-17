@@ -93,20 +93,7 @@ struct MaleSizePreference: View {
                 
                 GeometryReader { geometry in
                     HStack(spacing: 0) {
-                        VStack {
-                            Picker(selection: self.$length, label: Text("Numbers")) {
-                                ForEach(MENS_LENGTH_SIZES) { length in
-                                    Text("\(length)")
-                                        .font(.headline)
-                                }
-                            }
-                            .frame(maxWidth: geometry.size.width / 2)
-                            .clipped()
-                            
-                            Text("Length")
-                                .font(.headline)
-                        }
-
+                        
                         VStack {
                             Picker(selection: self.$waist, label: Text("Numbers")) {
                                 ForEach(MENS_WAIST_SIZES) { waist in
@@ -118,6 +105,20 @@ struct MaleSizePreference: View {
                             .clipped()
 
                             Text("Waist")
+                                .font(.headline)
+                        }
+                        
+                        VStack {
+                            Picker(selection: self.$length, label: Text("Numbers")) {
+                                ForEach(MENS_LENGTH_SIZES) { length in
+                                    Text("\(length)")
+                                        .font(.headline)
+                                }
+                            }
+                            .frame(maxWidth: geometry.size.width / 2)
+                            .clipped()
+                            
+                            Text("Length")
                                 .font(.headline)
                         }
                     }

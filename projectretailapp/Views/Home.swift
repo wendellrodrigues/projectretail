@@ -51,7 +51,7 @@ struct Home: View {
 
         //Array of 5 elements. Remove after 5
         //This array solves the issue of "wild reads"
-        if(currentBeaconDistances.count >= 5) {
+        if(currentBeaconDistances.count >= 10) {
             currentBeaconDistances.removeFirst()
         }
 
@@ -65,24 +65,36 @@ struct Home: View {
 //        print("Immediate: \(countImmediate)")
 //        print("Near: \(countNear)")
 //        print("Far: \(countFar)")
-//        print("unknown: \(countUnknown)")
+//        print("Unknown: \(countUnknown)")
+//        print("")
+
 
         //If not the same exact beacon and distance is near
-        if(countImmediate > 1 || countNear > 1) {
-                //Beacon loads on phone no matter what
-                currentBeacon.loadBeacon(major: lastBeaconMaj, minor: lastBeaconMin, uid: lastBeaconUID)
+        
+        //If too many far, do not do anything
+       if(countImmediate > 1 || countNear > 1
+          && countUnknown < 3 && countFar < 3)
+       {
+            //Beacon loads on phone no matter what
+            currentBeacon.loadBeacon(major: lastBeaconMaj, minor: lastBeaconMin, uid: lastBeaconUID)
+            
+            //print(currentBeacon.beacon.sizes)
 
-                //Begin sessions only works if current beacon isnt occupied by other user (server/helpers.js)
+            //Begin sessions only works if current beacon isnt occupied by other user (server/helpers.js)
+        
+            //Find the current beacon as specified by the UID (find on firebase and store the corresponding data)
+            
+            Api.init(session: self.session,  currentBeacon: self.currentBeacon).beginSession(beacon: "hello")
 
-                Api.init(session: self.session,  currentBeacon: self.currentBeacon).beginSession(beacon: "hello")
-
-                if(session.isLoggedIn == false) {
-                    Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
-                }
+            if(session.isLoggedIn == false) {
+                Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
+            }
         }
-
+       
         //If distance is far
-        else if(countUnknown > 3 || countFar > 3) {
+        else if(countUnknown > 3 || countFar > 3
+                && countUnknown < 7 && countFar < 7) //Sweet spot so it doesnt keep sending end requests
+        {
             if(lastDistance.rawValue > 2) {
                 //Unload the beacon
                 currentBeacon.unloadBeacon()
@@ -90,21 +102,15 @@ struct Home: View {
                 Api.init(session: self.session,  currentBeacon: self.currentBeacon).endSession()
             }
         }
-
     }
     
     var body: some View {
-          
         ZStack {
-            
             Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
                 .edgesIgnoringSafeArea(.all)
-            
-            
             VStack {
                 
                 Group {
-
                     HStack {
                         Spacer()
                         MenuButton(showProfile: $showProfile)
@@ -115,15 +121,13 @@ struct Home: View {
                     Text("Welcome, \(session.userSession?.firstName ?? "Default")")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .fixedSize(horizontal: false, vertical: true)
                         .padding(.bottom, 200)
+                        .padding(20)
                     Spacer()
             
                 }
                 .blur(radius: showProfile ? 4 : 0)
-                
-                
-                
-                
             }
             .modifier(HomeModifier(showProfile: $showProfile, viewState: $viewState))
 

@@ -32,7 +32,8 @@ struct Api {
         }
         
         print("beginning session")
-        guard let url = URL(string: "http://10.0.0.248:5000/routes/getUser") else {
+        
+        guard let url = URL(string: "http:\(AWS_URL):3000/routes/getUser") else {
             print("No URL Found")
             return
         }
@@ -70,7 +71,8 @@ struct Api {
     */
     func endSession() {
         print("ending session")
-        guard let url = URL(string: "http://10.0.0.248:5000/routes/clearUser") else { return }
+
+        guard let url = URL(string: "http://\(AWS_URL):3000/routes/clearUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

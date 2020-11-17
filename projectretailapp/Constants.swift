@@ -71,9 +71,10 @@ class Ref {
     
     //Firestore beacons
     static var FIRESTORE_COLLECTION_BEACONS = FIRESTORE_ROOT.collection("beacons")
-    
-    
 }
+
+//AWS 
+let AWS_URL = "ec2-3-131-169-109.us-east-2.compute.amazonaws.com"
 
 
 

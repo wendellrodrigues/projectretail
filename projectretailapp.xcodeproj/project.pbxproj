@@ -34,11 +34,11 @@
 		B708463D24FDE75400687DE2 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B708463C24FDE75400687DE2 /* Authentication.swift */; };
 		B70D5E202537BD910020C957 /* SexPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D5E1F2537BD910020C957 /* SexPreference.swift */; };
 		B70D5E232537C1870020C957 /* SizingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70D5E222537C1870020C957 /* SizingPreferences.swift */; };
+		B72350CD25635BF3007FD324 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72350CC25635BF3007FD324 /* Shelf.swift */; };
 		B726D037252552E000241B4F /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D036252552DF00241B4F /* Beacon.swift */; };
 		B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D05225296F0C00241B4F /* CurrentBeacon.swift */; };
 		B728C90A2547B78700F8ADC2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728C9092547B78600F8ADC2 /* MenuView.swift */; };
 		B72AFE86253800800025EE94 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE85253800800025EE94 /* HomeView.swift */; };
-		B72AFE8925383DBB0025EE94 /* ValidateBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */; };
 		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
 		B75E6424252196A500A6B384 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = B75E6423252196A400A6B384 /* Confetti.json */; };
 		B75E642725219B4700A6B384 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E642625219B4700A6B384 /* LottieView.swift */; };
@@ -100,11 +100,11 @@
 		B708463C24FDE75400687DE2 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		B70D5E1F2537BD910020C957 /* SexPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexPreference.swift; sourceTree = "<group>"; };
 		B70D5E222537C1870020C957 /* SizingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingPreferences.swift; sourceTree = "<group>"; };
+		B72350CC25635BF3007FD324 /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
 		B726D036252552DF00241B4F /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		B726D05225296F0C00241B4F /* CurrentBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBeacon.swift; sourceTree = "<group>"; };
 		B728C9092547B78600F8ADC2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B72AFE85253800800025EE94 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateBeacon.swift; sourceTree = "<group>"; };
 		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B75E6423252196A400A6B384 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
 		B75E642625219B4700A6B384 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -165,7 +165,6 @@
 			children = (
 				B708463C24FDE75400687DE2 /* Authentication.swift */,
 				B7000C932501B47000B6B6BC /* StorageService.swift */,
-				B72AFE8825383DBB0025EE94 /* ValidateBeacon.swift */,
 				B7000C952501B5C500B6B6BC /* Extensions.swift */,
 				B7000C982501B7B100B6B6BC /* SessionStore.swift */,
 				B70D5E222537C1870020C957 /* SizingPreferences.swift */,
@@ -225,6 +224,7 @@
 				B708461D24FDDFBA00687DE2 /* SignUpViewModel.swift */,
 				B7000C9F2501B89100B6B6BC /* SignInViewModel.swift */,
 				B726D036252552DF00241B4F /* Beacon.swift */,
+				B72350CC25635BF3007FD324 /* Shelf.swift */,
 				B726D05225296F0C00241B4F /* CurrentBeacon.swift */,
 			);
 			path = Models;
@@ -501,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72350CD25635BF3007FD324 /* Shelf.swift in Sources */,
 				B7FA5BC32549EF41008AC306 /* HalfButton.swift in Sources */,
 				B77F6CAD251ECF96006EA1F4 /* TextFieldFocusableArea.swift in Sources */,
 				B70D5E202537BD910020C957 /* SexPreference.swift in Sources */,
@@ -544,7 +545,6 @@
 				B7000C9D2501B84C00B6B6BC /* Home.swift in Sources */,
 				B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */,
 				B77FAA1425105F3A00F86098 /* BeaconDetector.swift in Sources */,
-				B72AFE8925383DBB0025EE94 /* ValidateBeacon.swift in Sources */,
 				B7FA5BBD2548BB83008AC306 /* HomeModifiers.swift in Sources */,
 				B75E642725219B4700A6B384 /* LottieView.swift in Sources */,
 				B7FA5BC82549F1D8008AC306 /* ButtonModifiers.swift in Sources */,
