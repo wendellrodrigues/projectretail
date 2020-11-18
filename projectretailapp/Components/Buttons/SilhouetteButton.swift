@@ -53,11 +53,6 @@ struct SilhouetteButton: View {
                 .opacity(checkMaleFemale() ? 1 : 0.2)
                 .animation(.easeInOut)
                 .padding(.bottom, 20)
-            
-            Text(sex == "male" ? "Men's" : "Women's")
-                .font(.subheadline)
-                .fontWeight(.bold)
-                .opacity(checkMaleFemale() ? 1 : 0.2)
         }
 
     }

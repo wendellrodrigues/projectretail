@@ -40,28 +40,22 @@ struct SexPreference: View {
         viewRouter.currentPage = "home"
     }
     
-    
-    
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
+            Color.white
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("Which types of products are you most interested in?")
-                    .fontWeight(.bold)
-                    .font(.title)
+                Text(TXT_PRODUCT_HELP)
+                    .font(.custom("DMSans-Bold", size: 25))
+                    .foregroundColor(Color("Primary"))
                     .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.center)
                     .padding(20)
-                    .padding(.top, 100)
-                
-                Text("You can select either, or both")
-                    .fontWeight(.bold)
-                    .font(.subheadline)
+                    .padding(.top, 80)
                     .padding(.bottom, 50)
-                    .padding(20)
-                    .padding(.top, -30)
                 
+
                 HStack(alignment: .center) {
                     SilhouetteButton(sex: "male")
                     Spacer()
@@ -70,11 +64,18 @@ struct SexPreference: View {
                 .padding([.leading, .trailing], 60)
                 .padding(.bottom, 50)
                 
+                Text(TXT_SEX_HELP)
+                    .font(.custom("DMSans-Bold", size: 18))
+                    .padding(.bottom, 20)
+                    .padding(20)
+                    .padding(.top, session.hasEnteredSizes ? -30 : 0)
+                
                 LargeButton(label: TEXT_CONTINUE, action: maleOrFemaleContinue)
                 
                 if(session.hasEnteredSizes) {
                     Text("Cancel")
-                        .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
+                        .font(.custom("DMSans-Bold", size: 14.5))
+                        .foregroundColor(Color.black.opacity(0.7))
                         .fontWeight(.bold)
                         .padding(.top, 10)
                         .padding()

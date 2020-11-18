@@ -34,6 +34,9 @@ let TXT_ALREADY_HAVE_ACCOUNT = "Already have an account?"
 let PWD_HELP = "Passwords must be between 6 and 20 characters"
 
 //Sizing
+
+let TXT_PRODUCT_HELP = "Which types of products are you most interested in?"
+let TXT_SEX_HELP = "You can select either, or both"
 let SHIRT_SIZES: [String] = ["XS", "S", "M", "L", "XL", "XXL"]
 let MENS_WAIST_SIZES: [Int] = [26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40]
 let MENS_LENGTH_SIZES: [Int] = [26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40]
@@ -47,8 +50,8 @@ let DEFAULT_MENS_SHIRT = "M"
 let DEFAULT_WOMENS_PANTS = "XS"
 let DEFAULT_WOMENS_SHIRT = "M"
 
-let TEXT_CONTINUE = "CONTINUE"
-let TEXT_BACK = "BACK"
+let TEXT_CONTINUE = "Continue"
+let TEXT_BACK = "Back"
 
 
 
