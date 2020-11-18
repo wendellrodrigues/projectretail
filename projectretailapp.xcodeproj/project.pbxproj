@@ -55,6 +55,12 @@
 		B7BA40C5253E866B00A27F59 /* Identifiables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40C4253E866B00A27F59 /* Identifiables.swift */; };
 		B7BA40C8253E939500A27F59 /* SizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40C7253E939500A27F59 /* SizeButton.swift */; };
 		B7BA40CB253E977F00A27F59 /* ShirtSizePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA40CA253E977F00A27F59 /* ShirtSizePreferences.swift */; };
+		B7C0D5982565D56100426FFB /* DMSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7C0D5922565D55D00426FFB /* DMSans-Italic.ttf */; };
+		B7C0D5992565D56100426FFB /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7C0D5932565D55E00426FFB /* DMSans-Medium.ttf */; };
+		B7C0D59A2565D56100426FFB /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7C0D5942565D55F00426FFB /* DMSans-MediumItalic.ttf */; };
+		B7C0D59B2565D56100426FFB /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7C0D5952565D55F00426FFB /* DMSans-Bold.ttf */; };
+		B7C0D59C2565D56100426FFB /* DMSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7C0D5962565D56000426FFB /* DMSans-BoldItalic.ttf */; };
+		B7C0D59D2565D56100426FFB /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7C0D5972565D56100426FFB /* DMSans-Regular.ttf */; };
 		B7DE92ED251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92EC251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift */; };
 		B7DE92F5251FC069001887D3 /* SignUp_PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92F4251FC069001887D3 /* SignUp_PasswordTextField.swift */; };
 		B7DE92F8251FC081001887D3 /* SignUp_EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */; };
@@ -123,6 +129,12 @@
 		B7BA40C4253E866B00A27F59 /* Identifiables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiables.swift; sourceTree = "<group>"; };
 		B7BA40C7253E939500A27F59 /* SizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeButton.swift; sourceTree = "<group>"; };
 		B7BA40CA253E977F00A27F59 /* ShirtSizePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtSizePreferences.swift; sourceTree = "<group>"; };
+		B7C0D5922565D55D00426FFB /* DMSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Italic.ttf"; sourceTree = "<group>"; };
+		B7C0D5932565D55E00426FFB /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
+		B7C0D5942565D55F00426FFB /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		B7C0D5952565D55F00426FFB /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		B7C0D5962565D56000426FFB /* DMSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B7C0D5972565D56100426FFB /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		B7DE92EC251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_ConfirmPasswordTextField.swift; sourceTree = "<group>"; };
 		B7DE92F4251FC069001887D3 /* SignUp_PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_PasswordTextField.swift; sourceTree = "<group>"; };
 		B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_EmailTextField.swift; sourceTree = "<group>"; };
@@ -282,6 +294,13 @@
 				B76E91FF24FDDD3C0052834F /* projectretailapp */,
 				B76E91FE24FDDD3C0052834F /* Products */,
 				B7DE92FB25205C7B001887D3 /* Lottie */,
+				B7C0D5952565D55F00426FFB /* DMSans-Bold.ttf */,
+				B7C0D5962565D56000426FFB /* DMSans-BoldItalic.ttf */,
+				B7C0D5922565D55D00426FFB /* DMSans-Italic.ttf */,
+				B7C0D5932565D55E00426FFB /* DMSans-Medium.ttf */,
+				B7C0D5942565D55F00426FFB /* DMSans-MediumItalic.ttf */,
+				B7C0D5972565D56100426FFB /* DMSans-Regular.ttf */,
+				B7C0D5912565D54B00426FFB /* DMSans Fonts */,
 				F75F862CDC247CE8209CC5C8 /* Pods */,
 				1952EAC6F5DF342FE78303D4 /* Frameworks */,
 			);
@@ -331,6 +350,13 @@
 				B7AFB2BF2508492100C0E34B /* Api.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		B7C0D5912565D54B00426FFB /* DMSans Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "DMSans Fonts";
 			sourceTree = "<group>";
 		};
 		B7DE92EF251FBFC2001887D3 /* SignIn */ = {
@@ -441,14 +467,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C0D5992565D56100426FFB /* DMSans-Medium.ttf in Resources */,
 				B76E920D24FDDD3F0052834F /* LaunchScreen.storyboard in Resources */,
 				B75E6424252196A500A6B384 /* Confetti.json in Resources */,
 				B708463A24FDE1AD00687DE2 /* GoogleService-Info.plist in Resources */,
 				B7DE92FD25205C95001887D3 /* Bubbles.json in Resources */,
+				B7C0D59B2565D56100426FFB /* DMSans-Bold.ttf in Resources */,
+				B7C0D59A2565D56100426FFB /* DMSans-MediumItalic.ttf in Resources */,
 				B7DE931F25213567001887D3 /* Circles.json in Resources */,
+				B7C0D59C2565D56100426FFB /* DMSans-BoldItalic.ttf in Resources */,
+				B7C0D5982565D56100426FFB /* DMSans-Italic.ttf in Resources */,
 				B76E920A24FDDD3F0052834F /* Preview Assets.xcassets in Resources */,
 				B7DE932625213CBA001887D3 /* Loading.json in Resources */,
 				B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */,
+				B7C0D59D2565D56100426FFB /* DMSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

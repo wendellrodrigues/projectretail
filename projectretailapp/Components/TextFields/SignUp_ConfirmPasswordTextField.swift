@@ -31,7 +31,7 @@ struct SignUpConfirmPasswordTextField: View {
                 .disableAutocorrection(true)
                 .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 .keyboardType(.emailAddress)
-                .font(.system(size: 14.5, weight: .medium, design: .default))
+                .font(Font.custom("DMSans-Bold", size: 14.5))
                 .padding(.leading, typingConfirmPwd ? 10 : 40)
                 .textFieldFocusableArea()
     }
@@ -39,11 +39,11 @@ struct SignUpConfirmPasswordTextField: View {
             HStack {
                 Image(systemName: PWD_CONFIRM_ICON)
                     .font(.system(size: 14, weight: .light))
-                    .foregroundColor(Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(typingConfirmPwd ? 0 : 1))
+                    .foregroundColor(Color("Primary").opacity(typingConfirmPwd ? 0 : 1))
                     .frame(width: typingConfirmPwd ? 290 : 54, height: typingConfirmPwd ? 4 : 50)
-                    .background(Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(typingConfirmPwd ? 1 : 0))
+                    .background(Color("Primary").opacity(typingConfirmPwd ? 1 : 0))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .shadow(color: Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(0.3), radius: 10, x: 10, y: 10)
+                    .shadow(color: Color("Primary").opacity(0.3), radius: 10, x: 10, y: 10)
                     .offset(x: typingConfirmPwd ? 10 : -10, y: typingConfirmPwd ? 20 : 0)
                 Spacer()
             }

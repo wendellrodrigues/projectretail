@@ -12,16 +12,23 @@ import Firebase
 import FirebaseFirestoreSwift
 //import FirebaseStorage
 
+//Sign In
+let TXT_SIGN_IN = "Sign In"
+let TXT_EMAIL = "Email"
+let TXT_PWD = "Password"
+let TXT_CREATE_ACCOUNT = "Don't have an account yet?"
+let TXT_SIGN_IN_BUTTON = "Sign In"
+let TXT_SIGN_UP_BUTTON = "Register"
 
 //Sign Up
-let TXTFIELD_BACKGROUND = Color.gray.opacity(0.2) //Background color of signup text fields
+
 let TXT_PWD_ALLOWANCES = "At least 6 characters required"
 let USER_ICON = "person.fill" 
 let EMAIL_ICON = "envelope.fill"
 let PWD_ICON = "lock.fill"
 let PWD_CONFIRM_ICON = "lock.slash.fill"
-let TXT_CNFRM_PASS = "CONFIRM PASSWORD"
-let TXT_FIRST_NAME = "FIRST NAME"
+let TXT_CNFRM_PASS = "Confirm Password"
+let TXT_FIRST_NAME = "First Name"
 let TXT_REGISTER_BUTTON = "Register"
 let TXT_ALREADY_HAVE_ACCOUNT = "Already have an account?"
 let PWD_HELP = "Passwords must be between 6 and 20 characters"
@@ -44,13 +51,7 @@ let TEXT_CONTINUE = "CONTINUE"
 let TEXT_BACK = "BACK"
 
 
-//Sign In
-let TXT_SIGN_IN = "SIGN IN"
-let TXT_EMAIL = "EMAIL"
-let TXT_PWD = "PASSWORD"
-let TXT_CREATE_ACCOUNT = "Don't have an account yet?"
-let TXT_SIGN_IN_BUTTON = "Sign In"
-let TXT_SIGN_UP_BUTTON = "REGISTER"
+
 
 //Firebase
 class Ref {

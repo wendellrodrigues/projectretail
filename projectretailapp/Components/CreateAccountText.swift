@@ -15,15 +15,15 @@ struct CreateAccountText: View {
     var body: some View {
         HStack {
             Text(TXT_CREATE_ACCOUNT)
-                .font(.footnote)
+                .font(.custom("DMSans-Medium", size: 14.5))
                 .foregroundColor(.gray)
             Spacer()
             Text(TXT_SIGN_UP_BUTTON)
-                .font(.system(size: 14, weight: .bold, design: .default))
+                .font(.custom("DMSans-Bold", size: 14.5))
                 .foregroundColor(.gray)
                 
         }
-        .padding([.leading, .trailing], 30)
+        .padding([.leading, .trailing], 20)
         .padding(.top, 10)
     }
     

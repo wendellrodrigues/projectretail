@@ -13,13 +13,15 @@ struct AlreadyHaveAccount: View {
     var body: some View {
         HStack {
             Text(TXT_ALREADY_HAVE_ACCOUNT)
-                .font(.footnote)
+                .font(Font.custom("DMSans-Medium", size: 14.5))
+                .foregroundColor(.gray)
             Spacer()
             Text(TXT_SIGN_IN)
-                .font(.system(size: 14, weight: .bold, design: .default))
+                .font(Font.custom("DMSans-Bold", size: 14.5))
+                .foregroundColor(.gray)
         }
         
-        .padding([.leading, .trailing], 30)
+        .padding([.leading, .trailing], 20)
         .padding(.top, 10)
     }
     

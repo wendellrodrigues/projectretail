@@ -20,27 +20,10 @@ struct SignUpBoxFieldsModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .background(
-                ZStack {
-                    Color(#colorLiteral(red: 0.5936584892, green: 0.7996755037, blue: 1, alpha: 1))
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .foregroundColor(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
-                        .blur(radius: 4)
-                        .offset(x: -8, y: -8)
-                    
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(
-                            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.7511754478, green: 0.8607367306, blue: 1, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
-                        .padding(2)
-                        .blur(radius: 2)
-                }
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-            .shadow(color: Color(#colorLiteral(red: 0.5936584892, green: 0.7996755037, blue: 1, alpha: 1)), radius: 20, x: 10, y: 10)
-            .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), radius: 20, x: -10, y: -10)
+        
+            .background(Color("TextField_Background"))
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .padding()
-
     }
 }
 
@@ -77,7 +60,7 @@ struct ErrorMessageModifier: ViewModifier {
 
     func body(content: Content) -> some View {
            content
-            .font(.footnote)
+            .font(Font.custom("DMSans-Medium", size: 12))
             .foregroundColor(Color(#colorLiteral(red: 0.1430806571, green: 0.1941335433, blue: 0.2437695313, alpha: 1)))
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)

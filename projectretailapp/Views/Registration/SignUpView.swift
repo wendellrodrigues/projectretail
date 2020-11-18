@@ -74,11 +74,7 @@ struct SignUpView: View {
 
             ZStack {
                 
-                Color(
-                    typingFirstName ||
-                    typingEmail ||
-                    typingPwd ||
-                    typingConfirmPwd ? #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1) : #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) )
+                Color("Primary")
                     .onTapGesture {
                         hideKeyboard()
                         self.typingFirstName = false
@@ -87,18 +83,6 @@ struct SignUpView: View {
                         self.typingConfirmPwd = false
                     }
                 
-//                LottieView(fileName: "Circles")
-//                    .frame(width: 250, height: 250)
-//                    .offset(y: -220)
-//                    .opacity(0.8)
-//                    .blur(radius: 10)
-//                    .onTapGesture {
-//                        hideKeyboard()
-//                        self.typingFirstName = false
-//                        self.typingEmail = false
-//                        self.typingPwd = false
-//                        self.typingConfirmPwd = false
-//                    }
                 
                 Image("Logo")
                     .resizable()
@@ -114,7 +98,9 @@ struct SignUpView: View {
                     }
                 
                 VStack {
-                    SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typingFirstName: self.$typingFirstName, typingEmail: self.$typingEmail, typingPwd: self.$typingPwd, typingConfirmPwd: self.$typingConfirmPwd)
+                    SignUpTextFields(firstName: $signUpViewModel.firstName, email: $signUpViewModel.email, password: $signUpViewModel.password, confirmedPassword: $signUpViewModel.confirmedPassword, typingFirstName: self.$typingFirstName, typingEmail: self.$typingEmail,
+                        typingPwd: self.$typingPwd,
+                        typingConfirmPwd: self.$typingConfirmPwd)
                     
                     Text(signUpViewModel.errorString)
                            .modifier(ErrorMessageModifier())
@@ -132,7 +118,7 @@ struct SignUpView: View {
                         }
                         .padding(.bottom, 280)
                 }
-                .background(Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
+                .background(Color.white)
                 .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
                 .cornerRadius(15)
                 .offset(y:

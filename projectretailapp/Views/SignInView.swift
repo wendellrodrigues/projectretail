@@ -17,11 +17,6 @@ struct SignInView: View {
     @ObservedObject var signinViewModel = SignInViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
     
-    static let gradientStart = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
-    static let gradientEnd = Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))
-    
-
-    
     func signIn() {
         
         signinViewModel.signin(email: signinViewModel.email, password: signinViewModel.password, completed: { (user) in
@@ -51,25 +46,13 @@ struct SignInView: View {
 
             ZStack {
         
-                Color(typingEmail || typingPassword ? #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1) : #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) )
+                Color("Primary")
                     .onTapGesture {
                         hideKeyboard()
                         self.typingEmail = false
                         self.typingPassword = false
                     }
                     .animation(.easeInOut(duration: 0.5))
-                
-             
-//                LottieViewLoop(fileName: "Circles")
-//                    .frame(width: 350, height: 300)
-//                    .offset(y: -150)
-//                    .opacity(0.8)
-//                    .blur(radius: 10)
-//                    .onTapGesture {
-//                        hideKeyboard()
-//                        self.typingEmail = false
-//                        self.typingPassword = false
-//                    }
                 
                 
                 Image("Logo")
@@ -83,14 +66,12 @@ struct SignInView: View {
                         self.typingPassword = false
                     }
                 
-
- 
                 VStack {
                     SignInTextFields(email: $signinViewModel.email,
                                      password: $signinViewModel.password,
                                      typingEmail: self.$typingEmail,
                                      typingPassword: self.$typingPassword)
-                        .padding(.top, 20)
+                        .padding(.top, 5)
     
                     if(signinViewModel.errorString != "") {
                         Text(signinViewModel.errorString)
@@ -110,7 +91,7 @@ struct SignInView: View {
                         .padding(.bottom, 240)
                 
                 }
-            .background(Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1)))
+                .background(Color.white)
             .cornerRadius(15)
             .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
             .offset(y: self.typingEmail || self.typingPassword ? -30 : 300)

@@ -24,18 +24,18 @@ struct SignInPasswordTextField: View {
                 }
                 .disableAutocorrection(true)
                 .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                .font(.system(size: 14.5, weight: .medium, design: .default))
+                .font(Font.custom("DMSans-Bold", size: 14.5))
                 .padding(.leading, typingPassword ? 10 : 40)
         }
         .overlay(
             HStack {
                 Image(systemName: PWD_ICON)
                     .font(.system(size: 14, weight: .light))
-                    .foregroundColor(Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(typingPassword ? 0 : 1))
+                    .foregroundColor(Color("Primary").opacity(typingPassword ? 0 : 1))
                     .frame(width: typingPassword ? 290 : 54, height: typingPassword ? 4 : 50)
-                    .background(Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(typingPassword ? 1 : 0))
+                    .background(Color("Primary").opacity(typingPassword ? 1 : 0))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .shadow(color: Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)).opacity(0.3), radius: 10, x: 10, y: 10)
+                    .shadow(color: Color("Primary").opacity(0.3), radius: 10, x: 10, y: 10)
                     .offset(x: typingPassword ? 10 : -10, y: typingPassword ? 20 : 0)
                 Spacer()
             }
