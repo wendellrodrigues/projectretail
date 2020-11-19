@@ -47,12 +47,15 @@ struct SilhouetteButton: View {
                         } else {
                             sizingPreferences.hasSelectedFemale.toggle()
                         }
-                        
                     }
                 )
                 .opacity(checkMaleFemale() ? 1 : 0.2)
                 .animation(.easeInOut)
                 .padding(.bottom, 20)
+            
+            Text(sex == "male" ? "Men's" : "Women's")
+                .font(Font.custom("DMSans-Bold", size: 14.5))
+                .opacity(checkMaleFemale() ? 1 : 0.2)
         }
 
     }

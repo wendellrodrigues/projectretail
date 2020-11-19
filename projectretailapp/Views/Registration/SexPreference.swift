@@ -20,6 +20,8 @@ struct SexPreference: View {
     @State var tap = false
     @State var press = false
     
+    let screen = UIScreen.main.bounds.size
+    
     //For testing purposes. Remove later
     func logout() {
         viewRouter.currentPage = "signin" //Redirect to signIn
@@ -53,22 +55,29 @@ struct SexPreference: View {
                     .multilineTextAlignment(.center)
                     .padding(20)
                     .padding(.top, 80)
-                    .padding(.bottom, 50)
-                
+                    .padding(.bottom, 5)
 
-                HStack(alignment: .center) {
-                    SilhouetteButton(sex: "male")
-                    Spacer()
-                    SilhouetteButton(sex: "female")
+                VStack {
+                    HStack(alignment: .center) {
+                        SilhouetteButton(sex: "male")
+                        Spacer()
+                        SilhouetteButton(sex: "female")
+                    }
+                    .padding([.leading, .trailing], 20)
+                    .padding(.bottom, 50)
+                    .padding(.top, 30)
+                    
+                    Text(TXT_SEX_HELP)
+                        .font(.custom("DMSans-Bold", size: 18))
+                        .padding(.bottom, 20)
+                        .padding(20)
+                        .padding(.top, session.hasEnteredSizes ? -30 : 0)
                 }
-                .padding([.leading, .trailing], 60)
-                .padding(.bottom, 50)
-                
-                Text(TXT_SEX_HELP)
-                    .font(.custom("DMSans-Bold", size: 18))
-                    .padding(.bottom, 20)
-                    .padding(20)
-                    .padding(.top, session.hasEnteredSizes ? -30 : 0)
+                .padding()
+                .frame(width: screen.width - 20)
+                .background(Color("TextField_Background"))
+                .cornerRadius(20)
+                .padding(.bottom, 20)
                 
                 LargeButton(label: TEXT_CONTINUE, action: maleOrFemaleContinue)
                 
@@ -77,7 +86,7 @@ struct SexPreference: View {
                         .font(.custom("DMSans-Bold", size: 14.5))
                         .foregroundColor(Color.black.opacity(0.7))
                         .fontWeight(.bold)
-                        .padding(.top, 10)
+                        .padding(.top, -5)
                         .padding()
                         .onTapGesture {
                             cancel()

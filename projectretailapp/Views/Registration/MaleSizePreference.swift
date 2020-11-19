@@ -23,6 +23,8 @@ struct MaleSizePreference: View {
     @State var waist: Int = 0
     @State var shirtSize: String = ""
     
+    let screen = UIScreen.main.bounds.size
+    
     init(sessionStore: SessionStore) {
         self.sessionStore = sessionStore
         self._length = State(initialValue: sessionStore.userSession?.maleLengthSize ?? 0)
@@ -35,18 +37,9 @@ struct MaleSizePreference: View {
     //Store male sizing to user object
     //Next time it will attach will be on login
     func didSelectFemale() {
-        if(shirtSize != "") {
-            session.userSession?.maleShirtSize = self.shirtSize
-        }
-        
-        if(length != 0) {
-            session.userSession?.maleWaistSize = self.waist
-        }
-        
-        if(waist != 0) {
-            session.userSession?.maleLengthSize = self.length
-        }
-        
+        if(shirtSize != "") { session.userSession?.maleShirtSize = self.shirtSize }
+        if(length != 0) { session.userSession?.maleWaistSize = self.waist }
+        if(waist != 0) { session.userSession?.maleLengthSize = self.length }
         viewRouter.currentPage = "female"
     }
     
@@ -54,18 +47,9 @@ struct MaleSizePreference: View {
         viewRouter.currentPage = "home"
         
         //Change Session values if they have been changed
-        if(shirtSize != "") {
-            session.userSession?.maleShirtSize = self.shirtSize
-        }
-        
-        if(length != 0) {
-            session.userSession?.maleWaistSize = self.waist
-        }
-        
-        if(waist != 0) {
-            session.userSession?.maleLengthSize = self.length
-        }
-
+        if(shirtSize != "") { session.userSession?.maleShirtSize = self.shirtSize }
+        if(length != 0) { session.userSession?.maleWaistSize = self.waist }
+        if(waist != 0) { session.userSession?.maleLengthSize = self.length}
 
         StorageService.updateMaleOnlySizingPreferences(
             userId: session.userSession?.uid ?? "",
@@ -80,72 +64,168 @@ struct MaleSizePreference: View {
         
         ZStack {
             
-            Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
+            //Background
+            Color.white
                 .edgesIgnoringSafeArea(.all)
             
-            VStack(alignment: .center, spacing: 10) {
-                Spacer()
+            ScrollView {
                 
+                //Back Button
+                HStack {
+                    Image(systemName: BACK_BUTTON)
+                        .font(.custom("DMSans-Bold", size: 30))
+                        .foregroundColor(Color("Primary"))
+                        .padding(.leading, 20)
+                        .onTapGesture { viewRouter.currentPage = "sexPreference" }
+                    Spacer()
+                }
+                .padding(.top, 70)
+                .padding(.leading, 20)
+                
+                //Silhouette
                 Image("maleSilhouette")
                     .resizable()
-                    .frame(width: 40, height: 100, alignment: .center)
-                    .padding(.top, 30)
+                    .frame(width: 50, height: 120, alignment: .center)
+                    .padding(.top, -40)
+                    .padding(.bottom, 50)
+                    
+                //Pant Sizes
+                VStack {
+                    Text("Pant Sizes")
+                        .font(.custom("DMSans-Bold", size: 25))
+                        .padding([.top, .bottom], 20)
+                        .opacity(0.7)
                 
-                GeometryReader { geometry in
-                    HStack(spacing: 0) {
-                        
-                        VStack {
-                            Picker(selection: self.$waist, label: Text("Numbers")) {
-                                ForEach(MENS_WAIST_SIZES) { waist in
-                                    Text("\(waist)")
-                                        .font(.headline)
-                                }
-                            }
-                            .frame(maxWidth: geometry.size.width / 2)
-                            .clipped()
+                    PantWaist(waist: $waist)
+                        .padding(.bottom, 30)
+                    PantLength(length: $length)
+                        .padding(.bottom, 15)
 
-                            Text("Waist")
-                                .font(.headline)
-                        }
-                        
-                        VStack {
-                            Picker(selection: self.$length, label: Text("Numbers")) {
-                                ForEach(MENS_LENGTH_SIZES) { length in
-                                    Text("\(length)")
-                                        .font(.headline)
-                                }
-                            }
-                            .frame(maxWidth: geometry.size.width / 2)
-                            .clipped()
-                            
-                            Text("Length")
-                                .font(.headline)
-                        }
-                    }
                 }
+                .padding()
+                .padding(.bottom, 30)
+                .frame(maxWidth: screen.width - 20)
+                .background(Color("Primary").opacity(0.2))
+                .cornerRadius(30)
                 
                 
-                ShirtSizePreferences(inheretedSize: session.userSession?.maleShirtSize ?? "M") { selected in
+                //Shirt Size
+                ShirtSizePreferences(sex: sex, inheretedSize: session.userSession?.maleShirtSize ?? "M") { selected in
                     self.updatedShirtSize = true //So does not set back to M
                     self.shirtSize = selected
-                    
                 }
+                .padding(.top, 10)
                 
-                HStack(spacing: 15){
-                    HalfButton(label: "Back", action: { viewRouter.currentPage = "sexPreference" })
-                    if(sizingPreferences.hasSelectedFemale == true) {
-                        HalfButton(label: "Next", action: { didSelectFemale() })
-                    } else {
-                        HalfButton(label: "Finish", action: { didNotSelectFemale() })
-                    }
+                    
+                //Continue / Finish Button
+                if(sizingPreferences.hasSelectedFemale == true) {
+                    LargeButton(label: "Next", action: { didSelectFemale() })
+                        .padding(20)
+                } else {
+                    LargeButton(label: "Finish", action: { didNotSelectFemale()})
+                        .padding(20)
                 }
-                .padding(20)
-    
             }
         }
     }
     
 }
+
+
+struct PantWaist: View {
+    
+    @Binding var waist: Int
+
+    let screen = UIScreen.main.bounds.size
+
+    var body: some View {
+        
+        HStack {
+            //Length
+            VStack {
+
+                Rectangle()
+                    .frame(width: 25, height: 5)
+                    .foregroundColor(Color("Primary"))
+                    .cornerRadius(5)
+                
+                Image("PantSilhouette")
+                    .resizable()
+                    .frame(width: 30, height: 80, alignment: .center)
+                    .padding(.trailing, 5)
+                    .opacity(0.5)
+               
+                Text("Waist")
+                    .font(.custom("DMSans-Bold", size: 17))
+                    .opacity(0.6)
+            }
+            .padding(.trailing, 30)
+            Picker(selection: self.$waist, label: Text("Numbers")) {
+                ForEach(MENS_WAIST_SIZES) { waist in
+                    Text("\(waist)")
+                        .foregroundColor(Color("Primary"))
+                        .font(.custom("DMSans-Bold", size: 16))
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+            .padding(.top, -50)
+            .frame(maxWidth: screen.width * 0.6)
+            .frame(height: 90)
+            .clipped()
+        }
+        
+    }
+    
+}
+
+
+
+struct PantLength: View {
+    
+    @Binding var length: Int
+    
+    let screen = UIScreen.main.bounds.size
+    
+    var body: some View {
+        HStack {
+            //Length
+            VStack {
+                HStack {
+                    Image("PantSilhouette")
+                        .resizable()
+                        .frame(width: 30, height: 80, alignment: .center)
+                        .padding(.trailing, 5)
+                        .opacity(0.5)
+                    Rectangle()
+                        .frame(width: 5, height: 70)
+                        .foregroundColor(Color("Primary"))
+                        .cornerRadius(5)
+                    //Spacer()
+                }
+                Text("Length")
+                    .font(.custom("DMSans-Bold", size: 17))
+                    .opacity(0.6)
+            }
+            .padding(.trailing, 30)
+            Picker(selection: self.$length, label: Text("Numbers")) {
+                ForEach(MENS_LENGTH_SIZES) { length in
+                    Text("\(length)")
+                        .foregroundColor(Color("Primary"))
+                        .font(.custom("DMSans-Bold", size: 16))
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+            .padding(.top, -50)
+            .frame(maxWidth: screen.width * 0.6)
+            .frame(height: 90)
+            .clipped()
+        }
+    }
+}
+
+
+
+
 
 
 

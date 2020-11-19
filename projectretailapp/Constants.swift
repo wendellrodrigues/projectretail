@@ -52,6 +52,7 @@ let DEFAULT_WOMENS_SHIRT = "M"
 
 let TEXT_CONTINUE = "Continue"
 let TEXT_BACK = "Back"
+let BACK_BUTTON = "chevron.left"
 
 
 
