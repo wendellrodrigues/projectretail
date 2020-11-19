@@ -16,7 +16,7 @@ struct MenuButton: View {
     @State var press: Bool = false
     
     var body: some View {
-        Image(systemName: "line.horizontal.3.decrease")
+        Image(systemName: "line.horizontal.3")
             .modifier(MenuButtonModifier(showProfile: $showProfile, tap: tap, press: press))
             .gesture(
                 LongPressGesture(minimumDuration: 0.1, maximumDistance: 1).onChanged { value in

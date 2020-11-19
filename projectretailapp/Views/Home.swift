@@ -30,10 +30,6 @@ struct Home: View {
     
     let screen = UIScreen.main.bounds
 
-    
-    //Use this for simple beacon obj (if needed)
-    //@State var currentBeaconObj = Beacon(UUID: "", major: "", minor: "", name: "", sizes: [])
-    
     func logout() {
         //Set detector's last distance to unknown
         detector.lastDistance = .unknown
@@ -78,8 +74,6 @@ struct Home: View {
             //Beacon loads on phone no matter what
             currentBeacon.loadBeacon(major: lastBeaconMaj, minor: lastBeaconMin, uid: lastBeaconUID)
             
-            //print(currentBeacon.beacon.sizes)
-
             //Begin sessions only works if current beacon isnt occupied by other user (server/helpers.js)
         
             //Find the current beacon as specified by the UID (find on firebase and store the corresponding data)
@@ -106,7 +100,7 @@ struct Home: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8017465693, green: 0.9201128859, blue: 1, alpha: 1))
+            Color.gray.opacity(0.3)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 
@@ -118,14 +112,16 @@ struct Home: View {
                             .padding(.top, 100)
                     }
                     Spacer()
-                    Text("Welcome, \(session.userSession?.firstName ?? "Default")")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.bottom, 200)
-                        .padding(20)
-                    Spacer()
-            
+                    
+                    if(!currentBeacon.isLoaded) {
+                        SearchingView(session: session)
+                    } else {
+                        Text(currentBeacon.beacon.name)
+                        Spacer()
+                    }
+                    
+
+    
                 }
                 .blur(radius: showProfile ? 4 : 0)
             }
@@ -158,6 +154,36 @@ struct Home: View {
                     }
                 )
         }
+    }
+}
+
+
+struct SearchingView: View {
+    
+    @State var session: SessionStore
+    
+    var body: some View {
+        
+        LottieViewLoop(fileName: "Radar")
+            .frame(width: 700, height: 200, alignment: .center)
+            .padding(.bottom, 30)
+
+        Text("Welcome, \(session.userSession?.firstName ?? "Default")")
+            .font(Font.custom("DMSans-Bold", size: 25))
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.bottom, 15)
+        
+        Text("Find one of our tablets and tap begin")
+            .font(Font.custom("DMSans-Bold", size: 17))
+            .foregroundColor(.gray)
+            .padding(.bottom, 40)
+        
+        Image("iPad")
+            .resizable()
+            .frame(width: 250, height: 170, alignment: .center)
+            .padding(.bottom, 100)
+        
+        Spacer()
     }
 }
 

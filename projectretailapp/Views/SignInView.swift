@@ -91,9 +91,9 @@ struct SignInView: View {
                         .padding(.bottom, 240)
                 
                 }
-                .background(Color.white)
-            .cornerRadius(15)
+            .background(Color.white)
             .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)
+            .cornerRadius(15)
             .offset(y: self.typingEmail || self.typingPassword ? -30 : 300)
             .onTapGesture {
                 hideKeyboard()

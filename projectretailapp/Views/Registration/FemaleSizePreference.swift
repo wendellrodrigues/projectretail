@@ -134,18 +134,12 @@ struct WomensPantSize: View {
     
     var body: some View {
         HStack {
-            //Length
-            VStack {
-                Image("PantSilhouette")
-                    .resizable()
-                    .frame(width: 30, height: 80, alignment: .center)
-                    .padding(.trailing, 5)
-                    .opacity(0.5)
-                Text("Length")
-                    .font(.custom("DMSans-Bold", size: 17))
-                    .opacity(0.6)
-            }
-            .padding(.trailing, 30)
+            Image("PantSilhouette")
+                .resizable()
+                .frame(width: 30, height: 80, alignment: .center)
+                .padding(.trailing, 5)
+                .opacity(0.5)
+                .padding(.trailing, 30)
             Picker(selection: self.$pantSize, label: Text("Numbers")) {
                 ForEach(WOMENS_PANTS_SIZES) { size in
                     Text("\(size)")

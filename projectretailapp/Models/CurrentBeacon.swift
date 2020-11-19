@@ -12,6 +12,7 @@ import Combine
 class CurrentBeacon: ObservableObject {
     
     @Published var beacon = Beacon(UUID: "", major: "", minor: "", name: "", sizes: [])
+    @Published var isLoaded: Bool = false
 
     func loadBeacon(major: Int, minor: Int, uid: String) {
         
@@ -22,6 +23,8 @@ class CurrentBeacon: ObservableObject {
         }
         
         print("loading beacon")
+        
+        self.isLoaded = true
         
         //Find beacon from Firebase
         Ref.FIRESTORE_COLLECTION_BEACONS
@@ -54,6 +57,7 @@ class CurrentBeacon: ObservableObject {
     
     func unloadBeacon() {
         print("unloading beacon")
+        self.isLoaded = false
         let stateBeacon = Beacon(UUID: "", major: "", minor: "", name: "", sizes: [])
         self.beacon = stateBeacon
     }

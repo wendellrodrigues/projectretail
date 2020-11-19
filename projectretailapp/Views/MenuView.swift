@@ -34,16 +34,13 @@ struct MenuView: View {
         VStack {
 
             Spacer()
-            
-//            Text("Settings")
-//                .font(.headline)
-//                .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
-//                //.foregroundColor(Color.black)
-//                .fontWeight(.bold)
-//                .padding(.bottom, 30)
-            
-            
+
             VStack(spacing: 25.0) {
+                
+                Text("Settings")
+                    .font(Font.custom("DMSans-Bold", size: 20))
+                    .foregroundColor(Color.black)
+                    .padding(.top, 20)
                 
                 MenuRow(title: "Sizing Preferences" , icon: "gear")
                     .onTapGesture {
@@ -61,8 +58,10 @@ struct MenuView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
                         }   
-                }
+                    }
+                    .padding(.bottom, 30)
             }
+
 
             .modifier(MenuModifier())
         }
@@ -77,19 +76,17 @@ struct MenuRow: View {
     var title : String
     var icon : String
     
-    
     var body: some View {
-        HStack(spacing: 30) {
+        HStack(spacing: 10) {
             Image(systemName: icon)
-                .font(.system(size: 20, weight: .light, design: .default))
+                .font(Font.custom("DMSans-Bold", size: 15))
                 .imageScale(.large)
                 .frame(width: 32, height: 32)
-                //.foregroundColor(Color(#colorLiteral(red: 0.662745098, green: 0.7333333333, blue: 0.831372549, alpha: 1)))
-                .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 0.5449611997)))
+                .foregroundColor(Color("Primary"))
             Text(title)
-                .font(.system(size: 15, weight: .bold, design: .default))
+                .font(Font.custom("DMSans-Bold", size: 15))
                 .frame(width: 200, alignment: .leading)
-                .foregroundColor(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
+                .foregroundColor(Color.gray)
         }
     }
 }

@@ -95,7 +95,6 @@ struct MaleSizePreference: View {
                         .font(.custom("DMSans-Bold", size: 25))
                         .padding([.top, .bottom], 20)
                         .opacity(0.7)
-                
                     PantWaist(waist: $waist)
                         .padding(.bottom, 30)
                     PantLength(length: $length)
