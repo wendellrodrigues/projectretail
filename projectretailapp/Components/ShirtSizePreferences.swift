@@ -28,6 +28,19 @@ struct ShirtSizePreferences: View {
             callback(id)
     }
     
+    func getInheretedSize(size: String) -> Int {
+        
+        if(size == "XS") { return 10 }
+        if(size == "S") { return 20 }
+        if(size == "M") { return 30 }
+        if(size == "L") { return 40 }
+        if(size == "XL") { return 50 }
+        if(size == "XXL") { return 60 }
+        
+        else { return 30 }
+        
+    }
+    
     //First check to see if the user has selected anything
     //If the user has not selected anything, grab size from the current user object (inhereted)
     func checkShirtSize(shirtSize: String) -> Bool {
@@ -39,17 +52,13 @@ struct ShirtSizePreferences: View {
         
         VStack {
             
-            Text("Shirt Size")
-                .font(.custom("DMSans-Bold", size: 25))
-                .padding(.bottom, 20)
-                .foregroundColor(Color.white)
-            
             Image("ShirtSilhouette")
                 .resizable()
-                .frame(width: 92, height: 100, alignment: .center)
+                .frame(width: 220 + CGFloat(getInheretedSize(size: selected)), height: 270 + CGFloat(getInheretedSize(size: selected)), alignment: .center)
                 .padding(.trailing, 5)
-                .padding(.bottom, 20)
+                .padding(.bottom, 50 - CGFloat(getInheretedSize(size: selected)))
                 .opacity(0.5)
+                .animation(.spring())
         
             HStack {
                 
@@ -57,6 +66,7 @@ struct ShirtSizePreferences: View {
                            label: "XS",
                            isMarked: checkShirtSize(shirtSize: "XS"),
                            callback: radioGroupCallback)
+                    .padding([.top, .bottom], 20)
                 
                 SizeButton(id: "S",
                            label: "S",
@@ -83,11 +93,11 @@ struct ShirtSizePreferences: View {
                            isMarked: checkShirtSize(shirtSize: "XXL") ,
                            callback: radioGroupCallback)
             }
-            .padding(.bottom, 20)
+            .frame(maxWidth: screen.width - 20)
+            .background(Color("TextField_Background"))
+            .cornerRadius(30)
+            .padding(20)
+            .padding([.top, .bottom], 20)
         }
-        .padding()
-        .frame(maxWidth: screen.width - 20)
-        .background(sex == "male" ?  Color("MaleSpecific") : Color("FemaleSpecific"))
-        .cornerRadius(30)
     }
 }

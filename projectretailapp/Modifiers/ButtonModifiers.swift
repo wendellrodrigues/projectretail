@@ -34,6 +34,25 @@ struct LargeButtonModifier: ViewModifier {
     }
 }
 
+//For (next button modifiers)
+struct SmallButtonModifier: ViewModifier {
+    
+    var tap: Bool
+    var press: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("DMSans-Bold", size: 18))
+            .foregroundColor(Color("Button_Text"))
+            .frame(width: 120, height: 40, alignment: .center)
+            .background(Color("Button_Background"))
+            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+            .scaleEffect(tap ? 0.9 : 1)
+    }
+}
+
+
+
 
 
 

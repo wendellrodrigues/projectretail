@@ -41,7 +41,6 @@ struct LargeButton: View {
                     }
                 )
             Spacer()
-
         }
     }
     

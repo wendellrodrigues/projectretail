@@ -67,6 +67,7 @@
 		B7DE931725205D2D001887D3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7DE931625205D2D001887D3 /* Lottie */; };
 		B7DE931B25205DA2001887D3 /* LottieViewLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */; };
 		B7DE932625213CBA001887D3 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE932525213CBA001887D3 /* Loading.json */; };
+		B7EAFE10256DEF07003CAA8E /* SmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EAFE0F256DEF07003CAA8E /* SmallButton.swift */; };
 		B7FA5BBD2548BB83008AC306 /* HomeModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */; };
 		B7FA5BC02548C6F9008AC306 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */; };
 		B7FA5BC82549F1D8008AC306 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BC72549F1D8008AC306 /* ButtonModifiers.swift */; };
@@ -137,6 +138,7 @@
 		B7DE92F7251FC081001887D3 /* SignUp_EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_EmailTextField.swift; sourceTree = "<group>"; };
 		B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewLoop.swift; sourceTree = "<group>"; };
 		B7DE932525213CBA001887D3 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
+		B7EAFE0F256DEF07003CAA8E /* SmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButton.swift; sourceTree = "<group>"; };
 		B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModifiers.swift; sourceTree = "<group>"; };
 		B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		B7FA5BC72549F1D8008AC306 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */,
 				B7BA40C7253E939500A27F59 /* SizeButton.swift */,
 				B7FA5BCB2549F265008AC306 /* LargeButton.swift */,
+				B7EAFE0F256DEF07003CAA8E /* SmallButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B72350CD25635BF3007FD324 /* Shelf.swift in Sources */,
+				B7EAFE10256DEF07003CAA8E /* SmallButton.swift in Sources */,
 				B77F6CAD251ECF96006EA1F4 /* TextFieldFocusableArea.swift in Sources */,
 				B70D5E202537BD910020C957 /* SexPreference.swift in Sources */,
 				B7FA5BC02548C6F9008AC306 /* MenuButton.swift in Sources */,
@@ -641,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -696,7 +700,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
