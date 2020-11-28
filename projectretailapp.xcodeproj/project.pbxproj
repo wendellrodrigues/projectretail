@@ -68,6 +68,8 @@
 		B7DE931B25205DA2001887D3 /* LottieViewLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */; };
 		B7DE932625213CBA001887D3 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DE932525213CBA001887D3 /* Loading.json */; };
 		B7EAFE10256DEF07003CAA8E /* SmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EAFE0F256DEF07003CAA8E /* SmallButton.swift */; };
+		B7EAFE152571D817003CAA8E /* Beacons.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B7EAFE132571D816003CAA8E /* Beacons.pdf */; };
+		B7EAFE162571D818003CAA8E /* AppFunctionality.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B7EAFE142571D817003CAA8E /* AppFunctionality.pdf */; };
 		B7FA5BBD2548BB83008AC306 /* HomeModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */; };
 		B7FA5BC02548C6F9008AC306 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */; };
 		B7FA5BC82549F1D8008AC306 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5BC72549F1D8008AC306 /* ButtonModifiers.swift */; };
@@ -139,6 +141,8 @@
 		B7DE931A25205DA2001887D3 /* LottieViewLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewLoop.swift; sourceTree = "<group>"; };
 		B7DE932525213CBA001887D3 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		B7EAFE0F256DEF07003CAA8E /* SmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButton.swift; sourceTree = "<group>"; };
+		B7EAFE132571D816003CAA8E /* Beacons.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Beacons.pdf; sourceTree = "<group>"; };
+		B7EAFE142571D817003CAA8E /* AppFunctionality.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AppFunctionality.pdf; sourceTree = "<group>"; };
 		B7FA5BBC2548BB83008AC306 /* HomeModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModifiers.swift; sourceTree = "<group>"; };
 		B7FA5BBF2548C6F9008AC306 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		B7FA5BC72549F1D8008AC306 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
@@ -298,6 +302,7 @@
 				B7C0D5972565D56100426FFB /* DMSans-Regular.ttf */,
 				B7C0D5912565D54B00426FFB /* DMSans Fonts */,
 				F75F862CDC247CE8209CC5C8 /* Pods */,
+				B7EAFE122571D7E1003CAA8E /* Images */,
 				1952EAC6F5DF342FE78303D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -386,6 +391,15 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
+		B7EAFE122571D7E1003CAA8E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B7EAFE142571D817003CAA8E /* AppFunctionality.pdf */,
+				B7EAFE132571D816003CAA8E /* Beacons.pdf */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		F75F862CDC247CE8209CC5C8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,7 +483,9 @@
 				B7C0D59A2565D56100426FFB /* DMSans-MediumItalic.ttf in Resources */,
 				B7C0D59C2565D56100426FFB /* DMSans-BoldItalic.ttf in Resources */,
 				B7C0D5982565D56100426FFB /* DMSans-Italic.ttf in Resources */,
+				B7EAFE162571D818003CAA8E /* AppFunctionality.pdf in Resources */,
 				B76E920A24FDDD3F0052834F /* Preview Assets.xcassets in Resources */,
+				B7EAFE152571D817003CAA8E /* Beacons.pdf in Resources */,
 				B7DE932625213CBA001887D3 /* Loading.json in Resources */,
 				B76E920724FDDD3F0052834F /* Assets.xcassets in Resources */,
 				B7C0D59D2565D56100426FFB /* DMSans-Regular.ttf in Resources */,
