@@ -241,18 +241,18 @@ struct PantLength: View {
             .padding()
         
             Picker(selection: self.$length, label: Text("Numbers")) {
-                ForEach(MENS_LENGTH_SIZES) { waist in
+                ForEach(MENS_LENGTH_SIZES) { length in
                     HStack {
                         Text("\(length)")
                             .foregroundColor(Color("Primary"))
-                            .font(.custom("DMSans-Bold", size: waist == self.length ? 20 : 16))
+                            .font(.custom("DMSans-Bold", size: length == self.length ? 20 : 16))
                             .rotationEffect(Angle(degrees: 90))
-                            .padding(.leading, waist == self.length ? 10 : 0)
+                            .padding(.leading, length == self.length ? 10 : 0)
                         Rectangle()
-                            .frame(width: waist == self.length ? 20 : 10, height: 3)
+                            .frame(width: length == self.length ? 20 : 10, height: 3)
                             .foregroundColor(Color("Primary"))
                             .cornerRadius(2)
-                            .padding(.leading, waist == self.length ? 5 : 5)
+                            .padding(.leading, length == self.length ? 5 : 5)
                     }
                 }
             }

@@ -10,8 +10,8 @@ import Foundation
 
 struct Beacon {
     var UUID: String
-    var major: String
-    var minor: String
+    var major: Int
+    var minor: Int
     var name: String
     var sizes: [Any]
 }
@@ -22,5 +22,6 @@ struct BeaconRef: Encodable, Decodable {
     var major: Int
     var minor: Int
 }
+
 
 

@@ -21,11 +21,10 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     //Create function to find this dynamically (GEO)
     var beaconUUID: UUID = UUID(uuidString: "7777772E-6B6B-6D63-6E2E-636F6D000001")!
-    
+      
     @Published var lastDistance     = CLProximity.unknown
     @Published var lastBeacon       = BeaconRef(uuid: "7777772E-6B6B-6D63-6E2E-636F6D000001", major: 0, minor: 0)
-  
-
+    
     override init() {
         super.init()
         locationManager = CLLocationManager()

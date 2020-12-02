@@ -39,6 +39,7 @@
 		B726D05325296F0C00241B4F /* CurrentBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B726D05225296F0C00241B4F /* CurrentBeacon.swift */; };
 		B728C90A2547B78700F8ADC2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728C9092547B78600F8ADC2 /* MenuView.swift */; };
 		B72AFE86253800800025EE94 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AFE85253800800025EE94 /* HomeView.swift */; };
+		B74495A32574A0B500AF0BFF /* LastUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74495A22574A0B500AF0BFF /* LastUser.swift */; };
 		B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E64092521883300A6B384 /* ViewRouter.swift */; };
 		B75E642725219B4700A6B384 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E642625219B4700A6B384 /* LottieView.swift */; };
 		B76E920124FDDD3C0052834F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E920024FDDD3C0052834F /* AppDelegate.swift */; };
@@ -111,6 +112,7 @@
 		B726D05225296F0C00241B4F /* CurrentBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBeacon.swift; sourceTree = "<group>"; };
 		B728C9092547B78600F8ADC2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B72AFE85253800800025EE94 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B74495A22574A0B500AF0BFF /* LastUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUser.swift; sourceTree = "<group>"; };
 		B75E64092521883300A6B384 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B75E642625219B4700A6B384 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B76E91FD24FDDD3C0052834F /* projectretailapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectretailapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B708461E24FDDFBA00687DE2 /* User.swift */,
+				B74495A22574A0B500AF0BFF /* LastUser.swift */,
 				B708461D24FDDFBA00687DE2 /* SignUpViewModel.swift */,
 				B7000C9F2501B89100B6B6BC /* SignInViewModel.swift */,
 				B726D036252552DF00241B4F /* Beacon.swift */,
@@ -562,6 +565,7 @@
 				B76E920324FDDD3C0052834F /* SceneDelegate.swift in Sources */,
 				B7BA40CB253E977F00A27F59 /* ShirtSizePreferences.swift in Sources */,
 				B7FA5BCF2549F49B008AC306 /* SilhouetteButton.swift in Sources */,
+				B74495A32574A0B500AF0BFF /* LastUser.swift in Sources */,
 				B75E640A2521883300A6B384 /* ViewRouter.swift in Sources */,
 				B7DE92ED251FBEFA001887D3 /* SignUp_ConfirmPasswordTextField.swift in Sources */,
 				B7000CA42503029700B6B6BC /* SignUp_FirstNameTextField.swift in Sources */,

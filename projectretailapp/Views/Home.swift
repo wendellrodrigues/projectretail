@@ -23,28 +23,25 @@ struct Home: View {
     
     @State var currentBeaconDistances: Array<CLProximity> = []
     
+    @State var lastBeacon = BeaconRef(uuid: "", major: 0, minor: 0)
+    
     
     //Screen
     @State var viewState = CGSize.zero
     @State var showProfile = false
     
     let screen = UIScreen.main.bounds
-
-    func logout() {
-        //Set detector's last distance to unknown
-        detector.lastDistance = .unknown
-        //Change viewRouter
-        viewRouter.currentPage = "signin"
-        //Log out of phone session
-        session.logout()
-    }
     
     func validate(lastDistance: CLProximity, loggedIn: Bool) {
 
-        let lastBeaconUID  = self.detector.lastBeacon.uuid
+        //Beacon information of found beacon
+        let lastBeaconUUID  = self.detector.lastBeacon.uuid
         let lastBeaconMaj  = self.detector.lastBeacon.major
         let lastBeaconMin  = self.detector.lastBeacon.minor
-
+        
+        //Fill info of lastBeacon (for passing to logout function)
+        lastBeacon = BeaconRef(uuid: lastBeaconUUID, major: lastBeaconMaj, minor: lastBeaconMin)
+        
         //Array of 5 elements. Remove after 5
         //This array solves the issue of "wild reads"
         if(currentBeaconDistances.count >= 10) {
@@ -71,31 +68,43 @@ struct Home: View {
        if(countImmediate > 1 || countNear > 1
           && countUnknown < 3 && countFar < 3)
        {
-            //Beacon loads on phone no matter what
-            currentBeacon.loadBeacon(major: lastBeaconMaj, minor: lastBeaconMin, uid: lastBeaconUID)
-            
-            //Begin sessions only works if current beacon isnt occupied by other user (server/helpers.js)
         
-            //Find the current beacon as specified by the UID (find on firebase and store the corresponding data)
-            
-            Api.init(session: self.session,  currentBeacon: self.currentBeacon).beginSession(beacon: "hello")
-
-            if(session.isLoggedIn == false) {
-                Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
+            if(countImmediate == 2 || countNear == 2) {
+                //Beacon loads on phone no matter what
+                //Find the current beacon as specified by the UID (find on firebase and store the corresponding data)
+                currentBeacon.loadBeacon(
+                    major: lastBeaconMaj,
+                    minor: lastBeaconMin,
+                    uid: lastBeaconUUID
+                )
+                
+                //Request the server
+                Api.init(session: self.session,  currentBeacon: self.currentBeacon)
+                    .addUserToSystemProximity(
+                        beaconUUID: lastBeaconUUID,
+                        beaconMajor: lastBeaconMaj,
+                        beaconMinor: lastBeaconMin
+                    )
             }
         }
        
-        //If distance is far
-        else if(countUnknown > 3 || countFar > 3
-                && countUnknown < 7 && countFar < 7) //Sweet spot so it doesnt keep sending end requests
-        {
-            if(lastDistance.rawValue > 2) {
-                //Unload the beacon
-                currentBeacon.unloadBeacon()
-                //End the websocket session
-                Api.init(session: self.session,  currentBeacon: self.currentBeacon).endSession()
+       else if(countUnknown > 7 || countFar > 7
+               && countUnknown < 9 && countFar < 9) //Sweet spot so it doesnt keep sending end requests
+       {
+            //If distance is far
+            if(countFar == 8 || countUnknown == 8) { //Sweet spot so it doesnt keep sending end requests
+                if(lastDistance.rawValue > 2) {
+                    //End the websocket session
+                    Api.init(session: self.session,  currentBeacon: self.currentBeacon).removeUserFromSystemProximity(
+                        beaconUUID: lastBeaconUUID,
+                        beaconMajor: lastBeaconMaj,
+                        beaconMinor: lastBeaconMin
+                    )
+                    //Unload the beacon
+                    currentBeacon.unloadBeacon()
+                }
             }
-        }
+       }
     }
     
     var body: some View {
@@ -132,7 +141,7 @@ struct Home: View {
                 validate(lastDistance: detector.lastDistance, loggedIn: session.isLoggedIn)
             }
             
-            MenuView(showProfile : $showProfile)
+            MenuView(showProfile : $showProfile, lastBeacon: lastBeacon)
                 .background(Color.black.opacity(0.001))
                 .offset(y: showProfile ? 0 : screen.height) //From screen value listed below
                 .offset(y: viewState.height)

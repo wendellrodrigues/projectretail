@@ -11,32 +11,30 @@ import SwiftUI
 import Combine
 
 
-struct UserModel: Codable {
-    var id: String
+struct SessionModel: Codable {
+    var userId: String
+    var beaconId: String
+    var beaconMajor: Int
+    var beaconMinor: Int
 }
 
 
 struct Api {
     
     @ObservedObject var session: SessionStore
-    @ObservedObject var currentBeacon: CurrentBeacon
+    @ObservedObject var currentBeacon =  CurrentBeacon()
     
-    /**
-        Connects the User to an iPad session in store
-     */
-    func beginSession(beacon: String) {
+    @ObservedObject var detector = BeaconDetector()
+    
+    
+    //Adds user to array of nearby users
+    func addUserToSystemProximity(beaconUUID: String, beaconMajor: Int, beaconMinor: Int) {
+        
         
         //First check to ssee if the currentBeacon is already in use
-        if(currentBeacon.beacon.UUID != "") {
-            return
-        }
-        
-        print("beginning session")
-        
-        guard let url = URL(string: "http:\(AWS_URL):3000/routes/getUser") else {
-            print("No URL Found")
-            return
-        }
+        if(currentBeacon.beacon.UUID != "") { return }
+
+        guard let url = URL(string: "http:\(AWS_URL):3000/routes/addUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -44,35 +42,35 @@ struct Api {
         request.setValue("application/JSON", forHTTPHeaderField: "Accept")
         request.setValue("application/JSON", forHTTPHeaderField: "Content-Type")
         
-        guard let userId = session.userSession?.uid else {
-            print("no user ID Found")
-            return
-        }
+        guard let userId = session.userSession?.uid else { return }
+ 
+        let infoToSend = SessionModel(userId: userId, beaconId: beaconUUID, beaconMajor: beaconMajor, beaconMinor: beaconMinor)
+
         
-        let userToSend = UserModel(id: userId)
         //Encode JSON
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         
-        let jsonData = try! encoder.encode(userToSend)
-        
-        //ADD AN ENDPOINT HERE (FOR MORE THAN ONE WEBSOCKET)
-
+        let jsonData = try! encoder.encode(infoToSend)
+      
         request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { (data, _, _) in
             //print(data!)
         }
         .resume()
+        
+        print("/addUser request sent")
     }
     
-    /**
-       Disconnects the User from an iPad session in store
-    */
-    func endSession() {
-        print("ending session")
+    
+    //Removes user from a corresponding iPads' array of nearby users
+    func removeUserFromSystemProximity(beaconUUID: String, beaconMajor: Int, beaconMinor: Int) {
+        
+        print("removing user")
+        
 
-        guard let url = URL(string: "http://\(AWS_URL):3000/routes/clearUser") else { return }
+        guard let url = URL(string: "http://\(AWS_URL):3000/routes/removeUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -80,13 +78,31 @@ struct Api {
         request.setValue("application/JSON", forHTTPHeaderField: "Accept")
         request.setValue("application/JSON", forHTTPHeaderField: "Content-Type")
         
-        //ADD AN ENDPOINT HERE (FOR MORE THAN ONE WEBSOCKET)
         
+        //If no session userSession, use the lastUser session
+        let userId = session.userSession?.uid ?? session.lastUserId
+        
+        let infoToSend = SessionModel(
+            userId: userId,
+            beaconId: beaconUUID,
+            beaconMajor: beaconMajor,
+            beaconMinor: beaconMinor
+        )
+        
+        //Encode JSON
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        let jsonData = try! encoder.encode(infoToSend)
+      
+        request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { (data, _, _) in
             //print(data!)
         }
         .resume()
+        
+        print("/removeUser request sent")
     }
     
     

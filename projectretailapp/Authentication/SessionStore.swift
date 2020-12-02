@@ -13,6 +13,7 @@ import FirebaseAuth
 class SessionStore: ObservableObject {
     
     @Published var isLoggedIn = false
+    @Published var lastUserId: String = ""
     @Published var userSession: User?
     @Published var hasEnteredSizes = false
     
@@ -65,6 +66,7 @@ class SessionStore: ObservableObject {
     
     func logout() {
         do {
+            lastUserId = userSession?.uid ?? ""
             try Auth.auth().signOut() //Will change addStateDidChangeListener
         } catch {
             print(error)

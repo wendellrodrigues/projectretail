@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MenuView: View {
     
@@ -19,18 +20,32 @@ struct MenuView: View {
     @Binding var showProfile: Bool
     
     @State var viewState = CGSize.zero
+    
+    var lastBeacon: BeaconRef
+    
     let screen = UIScreen.main.bounds
     
     func logout() {
+        //Store local data of last user logged in
+        session.lastUserId = session.userSession?.uid ?? ""
         //Set detector's last distance to unknown
         detector.lastDistance = .unknown
         //Change viewRouter
         viewRouter.currentPage = "signin"
+        //Unload beacon
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            currentBeacon.unloadBeacon()
+        }
         //Log out of phone session
         session.logout()
     }
     
+    func changeBeacon() {
+        
+    }
+    
     var body: some View {
+        
         VStack {
 
             Spacer()
@@ -50,14 +65,18 @@ struct MenuView: View {
                 MenuRow(title: "Sign Out" , icon: "person.crop.circle")
                     .onTapGesture {
                         haptic(type: .success)
-                        //Unload the beacon
-                        currentBeacon.unloadBeacon()
+                        
+                        //Remove user from array of nearby shelf users
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            Api.init(session: self.session,  currentBeacon: self.currentBeacon).removeUserFromSystemProximity(
+                                beaconUUID: self.lastBeacon.uuid,
+                                beaconMajor: self.lastBeacon.major,
+                                beaconMinor: self.lastBeacon.minor
+                            )
+                        }
+
                         //Logout user on phone
                         self.logout()
-                        //End websocket connection
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            Api(session: self.session, currentBeacon: self.currentBeacon).endSession()
-                        }   
                     }
                     .padding(.bottom, 30)
             }

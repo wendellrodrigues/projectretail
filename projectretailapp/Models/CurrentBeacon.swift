@@ -11,18 +11,16 @@ import Combine
 
 class CurrentBeacon: ObservableObject {
     
-    @Published var beacon = Beacon(UUID: "", major: "", minor: "", name: "", sizes: [])
+    @Published var beacon = Beacon(UUID: "", major: 0, minor: 0, name: "", sizes: [])
     @Published var isLoaded: Bool = false
-
+    
     func loadBeacon(major: Int, minor: Int, uid: String) {
-        
+    
         //Check to make sure not the same major/minor. Return if it is
-        if(self.beacon.major == String(major) ||
-            self.beacon.minor == String(minor)) {
+        if(self.beacon.major == major ||
+            self.beacon.minor == minor) {
             return
         }
-        
-        print("loading beacon")
         
         self.isLoaded = true
         
@@ -46,8 +44,11 @@ class CurrentBeacon: ObservableObject {
                         let UUID = data["UUID"] as? String ?? ""
                         let sizes = data["sizes"] as? [Any] ?? []
                         
+                        let intMajor = Int(major) ?? 0
+                        let intMinor = Int(minor) ?? 0
+                        
                        //Set state
-                        let stateBeacon = Beacon(UUID: UUID, major: major, minor: minor, name: name, sizes: sizes)
+                        let stateBeacon = Beacon(UUID: UUID, major: intMajor, minor: intMinor, name: name, sizes: sizes)
                         self.beacon = stateBeacon
                     }
                 }
@@ -58,7 +59,7 @@ class CurrentBeacon: ObservableObject {
     func unloadBeacon() {
         print("unloading beacon")
         self.isLoaded = false
-        let stateBeacon = Beacon(UUID: "", major: "", minor: "", name: "", sizes: [])
+        let stateBeacon = Beacon(UUID: "", major: 0, minor: 0, name: "", sizes: [])
         self.beacon = stateBeacon
     }
 }
