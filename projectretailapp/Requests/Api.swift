@@ -14,8 +14,8 @@ import Combine
 struct SessionModel: Codable {
     var userId: String
     var beaconId: String
-    var beaconMajor: Int
-    var beaconMinor: Int
+    var beaconMajor: String
+    var beaconMinor: String
 }
 
 
@@ -34,17 +34,26 @@ struct Api {
         //First check to ssee if the currentBeacon is already in use
         if(currentBeacon.beacon.UUID != "") { return }
 
-        guard let url = URL(string: "http:\(AWS_URL):3000/routes/addUser") else { return }
+        //URL Specifics
+        guard let url = URL(string: "http:\(REQUEST_URL):3000/routes/addUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
         request.setValue("application/JSON", forHTTPHeaderField: "Accept")
         request.setValue("application/JSON", forHTTPHeaderField: "Content-Type")
         
         guard let userId = session.userSession?.uid else { return }
+        
+        let beaconMajString = String(beaconMajor)
+        let beaconMinString = String(beaconMinor)
  
-        let infoToSend = SessionModel(userId: userId, beaconId: beaconUUID, beaconMajor: beaconMajor, beaconMinor: beaconMinor)
+        //Structure data
+        let infoToSend = SessionModel(
+                            userId: userId,
+                            beaconId: beaconUUID,
+                            beaconMajor: beaconMajString,
+                            beaconMinor: beaconMinString
+                        )
 
         
         //Encode JSON
@@ -70,7 +79,7 @@ struct Api {
         print("removing user")
         
 
-        guard let url = URL(string: "http://\(AWS_URL):3000/routes/removeUser") else { return }
+        guard let url = URL(string: "http://\(REQUEST_URL):3000/routes/removeUser") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -82,11 +91,14 @@ struct Api {
         //If no session userSession, use the lastUser session
         let userId = session.userSession?.uid ?? session.lastUserId
         
+        let beaconMajString = String(beaconMajor)
+        let beaconMinString = String(beaconMinor)
+        
         let infoToSend = SessionModel(
             userId: userId,
             beaconId: beaconUUID,
-            beaconMajor: beaconMajor,
-            beaconMinor: beaconMinor
+            beaconMajor: beaconMajString,
+            beaconMinor: beaconMinString
         )
         
         //Encode JSON

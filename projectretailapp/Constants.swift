@@ -79,8 +79,8 @@ class Ref {
 }
 
 //AWS 
-//let AWS_URL = "ec2-3-131-169-109.us-east-2.compute.amazonaws.com"
-let AWS_URL = "10.0.0.249"
+//let REQUEST_URL = "ec2-3-131-169-109.us-east-2.compute.amazonaws.com"
+let REQUEST_URL = "10.0.0.248"
 
 
 
