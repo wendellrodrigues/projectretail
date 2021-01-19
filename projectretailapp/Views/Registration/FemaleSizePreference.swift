@@ -25,8 +25,8 @@ struct FemaleSizePreference: View {
     
     init(sessionStore: SessionStore) {
         self.sessionStore = sessionStore
-        self._pantSize = State(initialValue: sessionStore.userSession?.femalePantsSize ?? "")
-        self._shirtSize = State(initialValue: sessionStore.userSession?.femaleShirtSize ?? "")
+        self._pantSize = State(initialValue: sessionStore.userSession?.femalePantsSize ?? "2")
+        self._shirtSize = State(initialValue: sessionStore.userSession?.femaleShirtSize ?? "M")
     }
     
     //Handles which page to return to
@@ -75,52 +75,82 @@ struct FemaleSizePreference: View {
             
             ScrollView {
                 
-                //Back Button
-                HStack {
-                    Image(systemName: BACK_BUTTON)
-                        .font(.custom("DMSans-Bold", size: 30))
-                        .foregroundColor(Color("Primary"))
-                        .padding(.leading, 20)
-                        .onTapGesture { back() }
-                    Spacer()
-                }
-                .padding(.top, 70)
-                .padding(.leading, 20)
                 
-                //Silhouette
-                Image("femaleSilhouette")
-                    .resizable()
-                    .frame(width: 50, height: 120, alignment: .center)
-                    .padding(.top, -40)
-                    .padding(.bottom, 50)
+                ScrollViewReader { value in
                     
-            
-                //Pant Size
-                VStack {
+                    //Back Button
+                    HStack {
+                        Image(systemName: BACK_BUTTON)
+                            .font(.custom("DMSans-Bold", size: 30))
+                            .foregroundColor(Color("Primary"))
+                            .padding(.leading, 20)
+                            .onTapGesture { back() }
+                        Spacer()
+                    }
+                    .padding(.top, 70)
+                    .padding(.leading, 20)
                     
-                    Text("Pant Size")
-                        .font(.custom("DMSans-Bold", size: 25))
-                        .padding([.top, .bottom], 20)
-                        .opacity(0.7)
-                    WomensPantSize(pantSize: $pantSize)
+                    //Pant Silhouette
+                    Image("PantSilhouette")
+                        .resizable()
+                        .frame(width: 70, height: 150)
+                        .padding(.bottom, 100)
+                        .animation(.spring())
+                        .opacity(0.5)
+                        .onTapGesture {
+                            withAnimation {
+                                value.scrollTo(2)
+                            }
+                        }
+                    
+                    //Pant Size
+                    VStack {
+                        WomensPantSize(pantSize: $pantSize)
+                    }
+                    .padding()
+                    .padding(.bottom, 30)
+                    .frame(maxWidth: screen.width - 20)
+                    .background(Color("TextField_Background"))
+                    .cornerRadius(30)
+                    
+                    //Scroll down button
+                    HStack {
+                        Spacer()
+                        SmallButton(label: "Next", action: {
+                            withAnimation {
+                                value.scrollTo("shirt", anchor: .center)
+                            }
+                        })
+                        .padding()
+                    }
+                    .padding(.top, 20)
+                    .padding(.bottom, 120)
+                    
+                    //Shirt Size Title
+                    VStack {
+                        Text("Shirt Size")
+                            .font(.custom("DMSans-Bold", size: 26))
+                        Text("Women's")
+                            .font(.custom("DMSans-Bold", size: 16))
+                            .foregroundColor(.gray)
+                    }
+                    .padding()
+                    .padding(.bottom, 20)
+                    
+                    
+                    //Shirt Size
+                    ShirtSizePreferences(
+                        sex: "female",
+                        inheretedSize: session.userSession?.femaleShirtSize ?? "M") { selected in
+                        self.shirtSize = selected
+                    }
+                    .id("shirt")
+                    .padding(.top, 10)
+                   
+                    LargeButton(label: "Finish", action: finish)
+                        .padding(20)
+                    
                 }
-                .padding()
-                .padding(.bottom, 30)
-                .frame(maxWidth: screen.width - 20)
-                .background(Color("Primary").opacity(0.2))
-                .cornerRadius(30)
-   
-                //Shirt Size
-                ShirtSizePreferences(
-                    sex: "female",
-                    inheretedSize: session.userSession?.femaleShirtSize ?? "M") { selected in
-                    self.shirtSize = selected
-                }
-                .padding(.top, 10)
-  
-                LargeButton(label: "Finish", action: finish)
-                    .padding(20)
-            
             }
         }
     }
@@ -134,24 +164,30 @@ struct WomensPantSize: View {
     
     var body: some View {
         HStack {
-            Image("PantSilhouette")
-                .resizable()
-                .frame(width: 30, height: 80, alignment: .center)
-                .padding(.trailing, 5)
-                .opacity(0.5)
-                .padding(.trailing, 30)
+            
+            VStack(alignment: .leading) {
+                Text("Pant Size")
+                    .font(.custom("DMSans-Bold", size: 24))
+                    .frame(width: 110)
+                Text("Women's")
+                    .font(.custom("DMSans-Bold", size: 16))
+                    .foregroundColor(.gray)
+            }
+            .padding(.leading, 20)
+            .padding()
+            
             Picker(selection: self.$pantSize, label: Text("Numbers")) {
-                ForEach(WOMENS_PANTS_SIZES) { size in
-                    Text("\(size)")
+                ForEach(WOMENS_PANTS_SIZES) { pantSize in
+                    Text("\(pantSize)")
                         .foregroundColor(Color("Primary"))
                         .font(.custom("DMSans-Bold", size: 16))
+                        .padding(20)
                 }
             }
             .pickerStyle(WheelPickerStyle())
-            .padding(.top, -50)
-            .frame(maxWidth: screen.width * 0.6)
-            .frame(height: 90)
+            .frame(width: 200, height: 200)
             .clipped()
+            .padding(.trailing, 10)
         }
     }
 }

@@ -30,9 +30,9 @@ struct MaleSizePreference: View {
         UIPickerView.appearance().tintColor = .red
         
         self.sessionStore = sessionStore
-        self._length = State(initialValue: sessionStore.userSession?.maleLengthSize ?? 0)
-        self._waist = State(initialValue: sessionStore.userSession?.maleLengthSize ?? 0)
-        self._shirtSize = State(initialValue: sessionStore.userSession?.maleShirtSize ?? "")
+        self._length = State(initialValue: sessionStore.userSession?.maleLengthSize ?? 26)
+        self._waist = State(initialValue: sessionStore.userSession?.maleLengthSize ?? 26)
+        self._shirtSize = State(initialValue: sessionStore.userSession?.maleShirtSize ?? "M")
     }
     
     @State var updatedShirtSize = false

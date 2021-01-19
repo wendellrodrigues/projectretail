@@ -35,7 +35,6 @@ class CurrentBeacon: ObservableObject {
                     print (err)
                 } else {
                     for doc in snapshot!.documents {
-                        
                         //Get data
                         let data = doc.data()
                         let major = data["major"] as? String ?? ""
