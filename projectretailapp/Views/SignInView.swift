@@ -77,8 +77,7 @@ struct SignInView: View {
                         Text(signinViewModel.errorString)
                                .modifier(ErrorMessageModifier())
                     }
-                    
-                    
+
                     SignUpInButton(
                         label: TXT_SIGN_IN_BUTTON,
                         loading: $loading,
@@ -88,8 +87,7 @@ struct SignInView: View {
                         .onTapGesture {
                             self.viewRouter.currentPage = "register"
                         }
-                        .padding(.bottom, 240)
-                
+                        .padding(.bottom, 240)                
                 }
             .background(Color.white)
             .frame(minWidth: UIScreen.main.bounds.size.width,  minHeight: 400)

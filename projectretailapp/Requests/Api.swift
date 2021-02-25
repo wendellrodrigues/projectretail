@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 import Combine
+import Firebase
+import FirebaseStorage
 
 
 struct SessionModel: Codable {
@@ -18,12 +20,10 @@ struct SessionModel: Codable {
     var beaconMinor: String
 }
 
-
 struct Api {
     
     @ObservedObject var session: SessionStore
     @ObservedObject var currentBeacon =  CurrentBeacon()
-    
     @ObservedObject var detector = BeaconDetector()
     
     
@@ -117,10 +117,26 @@ struct Api {
         print("/removeUser request sent")
     }
     
-    
-    
-    
-    
-    
-    
 }
+
+//Load up an image on firebase
+func loadFirebaseImage(url: String, completion: @escaping(UIImage) -> Void) -> Void {
+    //Initial image
+    var image = UIImage(systemName: "sun.min")!
+    //Storage
+    let storage = Storage.storage()
+    // Create a reference from a Google Cloud Storage URI
+    let gsReference = storage.reference(forURL: url)
+    // Download in memory with a maximum allowed size of 2MB (2* 1024 * 1024 bytes)
+    gsReference.getData(maxSize: 2 * 1024 * 1024) { data, error in
+        if error != nil {
+        completion(image)
+      } else {
+        // Data for "images/island.jpg" is returned
+        image = UIImage(data: data!) ??  UIImage(systemName: "sun.min")!
+        
+        completion(image)
+      }
+    }
+}
+

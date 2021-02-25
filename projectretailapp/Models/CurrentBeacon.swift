@@ -11,7 +11,7 @@ import Combine
 
 class CurrentBeacon: ObservableObject {
     
-    @Published var beacon = Beacon(UUID: "", major: 0, minor: 0, name: "", sizes: [])
+    @Published var beacon = Beacon(UUID: "", major: 0, minor: 0, name: "", sizes: [], image: "", color: "", description: "", price: 0, type: "")
     @Published var isLoaded: Bool = false
     
     func loadBeacon(major: Int, minor: Int, uid: String) {
@@ -41,13 +41,19 @@ class CurrentBeacon: ObservableObject {
                         let minor = data["minor"] as? String ?? ""
                         let name = data["name"] as? String ?? ""
                         let UUID = data["UUID"] as? String ?? ""
-                        let sizes = data["sizes"] as? [Any] ?? []
+                        let sizes = data["sizes"] as? [SizeType] ?? []
+                        let image = data["image"] as? String ?? ""
+                        let color = data["color"] as? String ?? ""
+                        let description = data["description"] as? String ?? ""
+                        let price = data["price"] as? Int ?? 0
+                        let type = data["type"] as? String ?? ""
+                        
                         
                         let intMajor = Int(major) ?? 0
                         let intMinor = Int(minor) ?? 0
                         
                        //Set state
-                        let stateBeacon = Beacon(UUID: UUID, major: intMajor, minor: intMinor, name: name, sizes: sizes)
+                        let stateBeacon = Beacon(UUID: UUID, major: intMajor, minor: intMinor, name: name, sizes: sizes, image: image, color: color, description: description, price: price, type: type)
                         self.beacon = stateBeacon
                     }
                 }
@@ -58,7 +64,7 @@ class CurrentBeacon: ObservableObject {
     func unloadBeacon() {
         print("unloading beacon")
         self.isLoaded = false
-        let stateBeacon = Beacon(UUID: "", major: 0, minor: 0, name: "", sizes: [])
+        let stateBeacon = Beacon(UUID: "", major: 0, minor: 0, name: "", sizes: [], image: "", color: "", description: "", price: 0, type: "")
         self.beacon = stateBeacon
     }
 }
